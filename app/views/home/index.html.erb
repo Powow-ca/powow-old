@@ -1,0 +1,19 @@
+<h1>Listing Professionals</h1>
+ 
+<table>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Description</th>
+    <th></th>
+  </tr>
+ 
+  <% @professionals.each do |pro| %>
+    <tr>
+      <td><%= pro.first_name %></td>
+      <td><%= pro.last_name %></td>
+      <td><%= pro.description %></td>
+      <td><%= link_to 'Show', professional_path(pro) %></td>
+    </tr>
+  <% end %>
+</table>

@@ -1,0 +1,19 @@
+<h1>Listing Professionals</h1>
+ 
+<table>
+  <tr>
+    <th>Cateogry</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+  </tr>
+ 
+  <% @services.each do |service| %>
+    <tr>
+      <td><%= service.category %></td>
+      <td><%= service.name %></td>
+      <td><%= service.description %></td>
+      <td><%= link_to 'Show', service_path(service) %></td>
+    </tr>
+  <% end %>
+</table>

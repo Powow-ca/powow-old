@@ -1,0 +1,46 @@
+
+<p>
+  <strong>Category:</strong>
+  <%= @service.category %>
+</p>
+ <strong>Service:</strong>
+  <%= @service.name %>
+</p>
+
+<h2>Professionals</h2>
+<% @service.professionals.each do |pro| %>
+  <p>
+    <strong>First Name:</strong>
+    <%= pro.first_name %>
+  </p>
+   <p>
+    <strong>Last Name:</strong>
+    <%= pro.last_name %>
+  </p>
+ <p>
+    <strong>Description:</strong>
+    <%= pro.description %>
+  </p>
+<% end %>
+ 
+<h2>Add a professional:</h2>
+<%= form_with(model: [ @service, @service.professionals.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :'First Name' %><br>
+    <%= form.text_field :first_name %>
+  </p>
+  <p>
+    <%= form.label :'Last Name' %><br>
+    <%= form.text_field :last_name %>
+  </p>
+  <p>
+    <%= form.label :Description %><br>
+    <%= form.text_area :description %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+ 
+<%= link_to 'Edit', edit_service_path(@service) %> |
+<%= link_to 'Back', services_path %>

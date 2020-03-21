@@ -1,0 +1,30 @@
+
+<%= form_with scope: :service, url: services_path, local: true do |form| %>
+  <p>
+    <%= form.label :'Category' %><br>
+    <%= form.text_field :category %>
+  </p>
+ 
+  <p>
+    <%= form.label :'Service' %><br>
+    <%= form.text_area :name %>
+  </p>
+
+
+  <h2>Add a professional:</h2>
+  <p>
+    <%= form.label :'First Name' %><br>
+    <%= form.text_field :first_name %>
+  </p>
+  <p>
+    <%= form.label :'Last Name' %><br>
+    <%= form.text_field :last_name %>
+  </p>
+  <p>
+    <%= form.label :Description %><br>
+    <%= form.text_area :description %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

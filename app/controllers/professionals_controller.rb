@@ -9,9 +9,11 @@ class ProfessionalsController < ApplicationController
   end
 
   def create
-    @professional = Professional.create!(article_params)
-
-    redirect_to @professional
+    @service = Service.find(params[:service_id])
+    @professional = Professional.new(article_params)
+     @service.professionals.new(article_params) 
+     @service.save
+    redirect_to service_path(@service)
   end
 
   def show
