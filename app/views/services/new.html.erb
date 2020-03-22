@@ -1,17 +1,20 @@
 
 <%= form_with scope: :service, url: services_path, local: true do |form| %>
-  <p>
-    <%= form.label :'Category' %><br>
-    <%= form.text_field :category %>
-  </p>
- 
+  
+  <div class="field">
+  <%= form.label :category %><br>
+  <%=  form.collection_select :category, Service.categories.map{ |a| [a.first,a.first] },  :first, :second %>
+  </div>
+
   <p>
     <%= form.label :'Service' %><br>
     <%= form.text_area :name %>
   </p>
 
 
-  <h2>Add a professional:</h2>
+  <%
+=begin%>
+ <h2>Add a professional:</h2>
   <p>
     <%= form.label :'First Name' %><br>
     <%= form.text_field :first_name %>
@@ -23,7 +26,9 @@
   <p>
     <%= form.label :Description %><br>
     <%= form.text_area :description %>
-  </p>
+  </p> 
+<%
+=end%>
   <p>
     <%= form.submit %>
   </p>
