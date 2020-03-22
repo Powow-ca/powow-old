@@ -2,6 +2,6 @@
 
 class HomeController < ApplicationController
   def index
-    @professionals = Professional.all
+    @service = Service.all
   end
 end

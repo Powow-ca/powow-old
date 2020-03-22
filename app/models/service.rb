@@ -2,8 +2,8 @@
 
 class Service < ApplicationRecord
   enum category: {
-    Legal: "Legal",
-    Grooming: "Grooming"
+    Legal: 'Legal',
+    Grooming: 'Grooming'
   }
   has_many :professionals
 end

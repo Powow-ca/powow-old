@@ -24,24 +24,9 @@
   </p>
 <% end %>
  
-<h2>Add a professional:</h2>
-<%= form_with(model: [ @service, @service.professionals.build ], local: true) do |form| %>
-  <p>
-    <%= form.label :'First Name' %><br>
-    <%= form.text_field :first_name %>
-  </p>
-  <p>
-    <%= form.label :'Last Name' %><br>
-    <%= form.text_field :last_name %>
-  </p>
-  <p>
-    <%= form.label :Description %><br>
-    <%= form.text_area :description %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
- 
-<%= link_to 'Edit', edit_service_path(@service) %> |
-<%= link_to 'Back', services_path %>
+<%
+=begin%>
+ <%= link_to 'Edit', edit_service_path(@service) %> | 
+<%
+=end%>
+<%= link_to 'All Services', services_path %>
