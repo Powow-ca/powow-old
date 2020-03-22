@@ -3,7 +3,12 @@
 # Services
 class ServicesController < ApplicationController
   def index
-    @services = Service.all
+    @services = if search_params.blank?
+                  Service.all
+                else
+                  Service.all.where('lower(name) LIKE :search',
+                                    search: search_params)
+                end
   end
 
   def new; end
@@ -28,5 +33,9 @@ class ServicesController < ApplicationController
 
   def professional_params
     params.require(:service).permit(:first_name, :last_name, :description)
+  end
+
+  def search_params
+    params[:search].downcase
   end
 end
