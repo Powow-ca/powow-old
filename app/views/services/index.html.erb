@@ -1,39 +1,20 @@
 <h1>Service Providers</h1>
-
-  <% @services.each do |s| %>
-  <table>
-  <tr>
-    <th> Category </th>
-    <th> Service </th>
-  </tr>
-  <tr>
-      <td><%= s.category %></td>
-      <td><%= s.name %></td>
-      <%begin%>
-        <td><%= link_to 'Show', service_path(s) %></td> 
-      <%end%>
-    </tr>
-
-<table>
-  <tr>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Description</th>
-    <th></th>
-  </tr>
- 
-  <% s.professionals.each do |pro| %>
-    <tr>
-      <td><%= pro.first_name %></td>
-      <td><%= pro.last_name %></td>
-      <td><%= pro.description %></td>
-      <%
-=begin%>
- <td><%= link_to 'Show', professional_path(pro) %></td> 
-<%
-=end%>
-    </tr>
+  <div class="container">
+  <% Service.categories.each do |category| %>
+    <div class="row">
+      <%= category[0] %>
+    </div>
+    <div class="row">
+    <% @services.select{ |s| s.category == category[0] }.each do | fs | %>
+      <div class="card" style="width: 18rem;">
+        <div class="col-sm">
+          <div class="card-body">
+            <td><%= fs.name %></td>
+            <%= link_to 'Details', service_path(fs) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
   <% end %>
-</table>
-</table>
-<% end %>
+  </div>

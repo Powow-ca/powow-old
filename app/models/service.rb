@@ -3,7 +3,11 @@
 class Service < ApplicationRecord
   enum category: {
     Legal: 'Legal',
-    Grooming: 'Grooming'
+    Grooming: 'Grooming',
+    Consultation: 'Consultation',
+    Coaching: 'Coaching',
+    Insurance: 'Insurance',
+    Tutoring: 'Tutor'
   }
   has_many :professionals
 end
