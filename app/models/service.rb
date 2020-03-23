@@ -7,7 +7,9 @@ class Service < ApplicationRecord
     Consultation: 'Consultation',
     Coaching: 'Coaching',
     Insurance: 'Insurance',
-    Tutoring: 'Tutor'
+    Tutoring: 'Tutor',
+    Music: 'Music',
+    Cooking: 'Cooking and Baking'
   }
   has_many :professionals
 end
