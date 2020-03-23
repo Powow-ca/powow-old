@@ -1,34 +1,38 @@
-<div class="jumbotron">
-  <h1 class="display-8">How can we help?</h1>
-  <p class="lead">We help you connect with professionals</p>
-  <hr class="my-4">
-  <p>Can't find the help? Leave us a note</p>
-  <p class="lead">
-    <a class="btn btn-primary btn-lg" href="#" role="button">Contact</a>
-  </p>
-</div>
-  <div class="container">
-  <% Service.categories.each do |category| %>
-    <div class="row">
-      <%= category[0] %>
-    </div>
-    <div class="row">
-    <% @services.select{ |s| s.category == category[0] }.each do | fs | %>
-      <div class="col-sm">
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title"><%= fs.name %></h5>
-            <%
+<main role="main" class="container">
+  <div class="jumbotron">
+    <h1 class="display-8">How can we help?</h1>
+    <p class="lead">We help you connect with professionals</p>
+    <hr class="my-4">
+    <p>Can't find the help? Leave us a note</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="#" role="button">Contact</a>
+    </p>
+  </div>
+</main>
+<main role="sub" class="container">
+  <main class="container">
+    <% Service.categories.each do |category| %>
+      <div class="row">
+        <%= category[0] %>
+      </div>
+      <div class="row">
+      <% @services.select{ |s| s.category == category[0] }.each do | fs | %>
+        <div class="col-sm">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title"><%= fs.name %></h5>
+              <%
 =begin%>
- <h6 class="card-subtitle mb-2 text-muted">Immmigation consultant</h6>
-            <p class="card-text">For any immigration related questions</p> 
-<%
+  <h6 class="card-subtitle mb-2 text-muted">Immmigation consultant</h6>
+              <p class="card-text">For any immigration related questions</p> 
+  <%
 =end%>
-            <a href="#" class="card-link"> <%= link_to 'Details', service_path(fs) %><a href="#" class="card-link"></a>
+              <a href="#" class="card-link"> <%= link_to 'Details', service_path(fs) %><a href="#" class="card-link"></a>
+            </div>
           </div>
         </div>
+      <% end %>
       </div>
     <% end %>
-    </div>
-  <% end %>
-  </div>
+  </main>
+</main>
