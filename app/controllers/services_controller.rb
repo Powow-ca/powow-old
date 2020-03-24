@@ -15,10 +15,10 @@ class ServicesController < ApplicationController
 
   def create
     @service = Service.new(service_params)
-    # @service.professionals.new(professional_params)
+    @service.professionals.new(professional_params)
     @service.save
     # Redirect to creating a professional
-    redirect_to new_service_professional_path(@service)
+    redirect_to service_professional_path(service_id: @service.id, id: @service.professionals.last.id)
   end
 
   def show
