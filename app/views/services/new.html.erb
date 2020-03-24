@@ -1,35 +1,36 @@
-
-<%= form_with scope: :service, url: services_path, local: true do |form| %>
-  
-  <div class="field">
-  <%= form.label :category %><br>
-  <%=  form.collection_select :category, Service.categories.map{ |a| [a.first,a.first] },  :first, :second %>
-  </div>
-
-  <p>
-    <%= form.label :'Service' %><br>
-    <%= form.text_area :name %>
-  </p>
-
-
-  <%
-=begin%>
- <h2>Add a professional:</h2>
-  <p>
-    <%= form.label :'First Name' %><br>
-    <%= form.text_field :first_name %>
-  </p>
-  <p>
-    <%= form.label :'Last Name' %><br>
-    <%= form.text_field :last_name %>
-  </p>
-  <p>
-    <%= form.label :Description %><br>
-    <%= form.text_area :description %>
-  </p> 
-<%
-=end%>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 form-box container">
+                      <%= form_with scope: :service, url: services_path, local: true do |form| %>
+                    		<h3>Register To Our App</h3>
+                    		<p>Fill in the form to get instant access</p>
+                    		
+                    		<fieldset style="display: block;">
+                    		    <h4>Tell us who you are:</h4>
+                    			<div class="form-group">
+                            <%= form.label :'First Name' %><br>
+                            <%= form.text_field :first_name, class: "f1-first-name form-control", id:"f1-last-name"%>
+                              </div>
+                                <div class="form-group">
+                                  <%= form.label :'Last Name' %><br>
+                                  <%= form.text_field :last_name, class:"f1-last-name form-control", id:"f1-last-name"%>
+                                </div>
+                                <div class="form-group">
+                                  <%= form.label :'About yourself. Experience, target audience...' %><br>
+                                  <%= form.text_area :description, class:"f1-about-yourself form-control", id:"f1-about-yourself"%>
+                                </div>
+                                <div class="row">
+                                <div class="field col-md-6">
+                                  <%= form.label :category %><br>
+                                  <%=  form.collection_select :category, Service.categories.map{ |a| [a.first,a.first] },  :first, :second %>
+                                </div>
+                                <div class="field col-md-6">
+                                    <%= form.label :'Service' %><br>
+                                    <%= form.text_area :name %>
+                                </div>
+                                </div>
+                            </fieldset>
+                            <p>
+                            <%= form.submit %>
+                            </p>
+                          <% end %>
+                    </div>
+</div>
