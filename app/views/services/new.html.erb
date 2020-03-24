@@ -1,9 +1,11 @@
 
 <%= form_with scope: :service, url: services_path, local: true do |form| %>
-  
+  <div class="form-group">
   <div class="field">
-  <%= form.label :category %><br>
+  <label for="formGroupExampleInput">Category</label>
+  
   <%=  form.collection_select :category, Service.categories.map{ |a| [a.first,a.first] },  :first, :second %>
+  </div>
   </div>
 
   <p>

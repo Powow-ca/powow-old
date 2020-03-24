@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+<table class="table">
+<p>
+<strong scope="col">First name:</strong>
+<tr scope="row"><%= @user.first_name%></tr>
+</p>
+
+<p>
+<strong scope="col">Last name:</strong>
+<tr scope="row"> <%= @user.last_name %> </tr>
+</p>
+
+<p>
+<strong scope="col">Email:</strong>
+<tr scope="row"> <%= @user.email %> </tr>
+</p>
+</table>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
