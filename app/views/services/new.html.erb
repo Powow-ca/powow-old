@@ -18,19 +18,16 @@
                                   <%= form.text_area :description, class:"f1-about-yourself form-control", id:"f1-about-yourself"%>
                                 </div>
                                 <div class="row">
-                                <div class="field col-md-6">
+                                <div class="col-md-6">
                                   <%= form.label :category %><br>
-                                  <%=  form.collection_select :category, Service.categories.map{ |a| [a.first,a.first] },  :first, :second %>
+                                  <%=  form.collection_select :category, Service.categories.map{ |a| [a.first,a.second] },  :first, :second %>
                                 </div>
                                 <div class="field col-md-6">
                                     <%= form.label :'Service' %><br>
                                     <%= form.text_area :name %>
                                 </div>
-                                </div>
                             </fieldset>
-                            <p>
-                            <%= form.submit %>
-                            </p>
+                            <%= button_tag "Let's poWow", :class => 'btn btn-primary',:name => nil%>  
                           <% end %>
                     </div>
 </div>

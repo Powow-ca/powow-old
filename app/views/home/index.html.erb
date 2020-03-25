@@ -1,11 +1,4 @@
 <main role="main">
-<% if current_user %>
-  Logged in as <%= current_user.email %>.
-  <%= link_to "Log Out", logout_path %>
-<% else %>
-  <%= link_to "Sign Up", signup_path %> or 
-  <%= link_to "Log In", login_path %>
-<% end %>
   <section class="jumbotron text-center">
     <div class="container">
       <h1 class="jumbotron-heading">Let's get through, together!</h1>
@@ -14,12 +7,7 @@
         <a href="#" class="btn btn-primary my-2">Connect with a professional</a>
         <a href="services/new" class="btn btn-secondary my-2">Register as a professional</a>
       </p>
-    </div>
-  </section>
-
-  <main role="main" class="container">
-    <div class="jumbotron"> 
-    <%= form_tag(services_path, :method => "get",   
+      <%= form_tag(services_path, :method => "get",   
         class: 'navbar-form navbar-left') do %>  
       <div class="input-group">  
         <%= search_field_tag :search, params[:search], placeholder: "Immigration", class: "form-control" %>  
@@ -29,7 +17,8 @@
       </div>  
     <% end %>
     </div>
-  </main>
+  </section>
+
   <%= render "shared/services" %>
       
 
