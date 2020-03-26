@@ -20,11 +20,19 @@ class ApplicationController < ActionController::Base
   end
 
   def isAdmin?
-    @current_user.role == User.user_roles[:admin]
+    if !@current_user.nil?
+      @current_user.role == User.user_roles[:admin]
+    else
+      false
+    end
   end
 
   def isPro?
-    @current_user.role == User.user_roles[:pro]
+    if !@current_user.nil?
+      @current_user.role == User.user_roles[:pro]
+    else
+      false
+    end
   end
 
   def isClient?

@@ -26,6 +26,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    @user.role = User.user_roles[:client]
       puts @user;
       if @user.save
         session[:user_id] = @user.id

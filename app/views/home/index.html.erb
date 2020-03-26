@@ -5,7 +5,7 @@
       <p class="lead text-muted">In response to COVID-19, we decided to release this platform that allows you to connect with professionals, online!</p>
       <p>
         <a href="#" class="btn btn-outline-primary my-2">Connect with a professional</a>
-        <% if !logged_in? and !isPro? %>
+        <% if current_user.nil? or !isPro? %>
         <a href="services/new" class="btn btn-outline-secondary my-2">Register as a professional</a>
         <%end%>
       </p>
