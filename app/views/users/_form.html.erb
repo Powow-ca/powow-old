@@ -1,3 +1,5 @@
+
+<div>
 <%= form_with(model: user, local: true) do |form| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
@@ -10,31 +12,66 @@
       </ul>
     </div>
   <% end %>
+<div class="modal-dialog" role="document">
+<!--Content-->
+<div class="modal-content form-elegant">
 
-  <div class="field">
+  <!--Header-->
+  <div class="modal-header text-center">
+    <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>Register</strong></h3>
+  
+  </div>
+  <!--Body-->
+  <div class="modal-body mx-4">
+    <!--Body-->
+    <div class="md-form mb-5">
     <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
-  </div>
+       
+    <%= form.text_field :first_name ,  class:'form-control validate' %>
+      
+    </div>
 
-  <div class="field">
+    <div class="md-form mb-5">
     <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
-  </div>
+    <%= form.text_field :last_name ,  class:'form-control validate' %>
+      
+    </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
+    <div class="md-form mb-5">
+    <%= form.label :email %>  
+    <%= form.text_field :email ,  class:'form-control validate' %>
+      
+    </div>
 
-  <div class="field">
+    <div class="md-form mb-5">
     <%= form.label :password %>
-    <%= form.password_field :password %>
-  </div>
+    <%= form.password_field :password, class:'form-control validate'%>
+      
+      
+    </div>
 
-  <div class="field">
+    <div class="md-form mb-5">
     <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation %>
-  </div>
+      
+      <%= form.password_field :password_confirmation,class:'form-control validate' %>
+      
+    </div>
 
-  <%= button_tag "Let's poWow", :class => 'btn btn-primary',:name => nil%>  
+    <p class="font-small blue-text d-flex justify-content-end">
+    <div class="text-center mb-3">
+    <%= button_tag "Let's poWow", :class => 'btn blue-gradient btn-block btn-rounded z-depth-1a',:name => nil%>  
+    
+      
+    </div>
+    
+  </div>
+  <!--Footer-->
+  <div class="modal-footer mx-5 pt-3 mb-1">
+    <p class="font-small grey-text d-flex justify-content-end">Already a member? <a href=<%= login_path %> class="blue-text ml-1">
+        Login</a></p>
+  </div>
+</div>
+<!--/.Content-->
+</div>
 <% end %>
+</div>
