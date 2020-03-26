@@ -26,6 +26,20 @@
                                     <%= form.label :'Service' %><br>
                                     <%= form.text_area :name %>
                                 </div>
+                                <div class="field">
+                                  <%= form.label :email %>
+                                  <%= form.text_field :email %>
+                                </div>
+
+                                <div class="field">
+                                  <%= form.label :password %>
+                                  <%= form.password_field :password %>
+                                </div>
+
+                                <div class="field">
+                                  <%= form.label :password_confirmation %>
+                                  <%= form.password_field :password_confirmation %>
+                                </div>
                             </fieldset>
                             <%= button_tag "Let's poWow", :class => 'btn btn-primary',:name => nil%>  
                           <% end %>
