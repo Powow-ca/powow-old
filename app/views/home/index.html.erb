@@ -5,7 +5,9 @@
       <p class="lead text-muted">In response to COVID-19, we decided to release this platform that allows you to connect with professionals, online!</p>
       <p>
         <a href="#" class="btn btn-primary my-2">Connect with a professional</a>
+        <% if !logged_in? and !isPro? %>
         <a href="services/new" class="btn btn-secondary my-2">Register as a professional</a>
+        <%end%>
       </p>
       <%= form_tag(services_path, :method => "get",   
         class: 'navbar-form navbar-left') do %>  

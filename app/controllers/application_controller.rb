@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-    helper_method :logged_in?, :current_user
+    helper_method :logged_in?, :current_user, :isPro?
 
     def current_user
         if session[:user_id]
@@ -11,12 +11,23 @@ class ApplicationController < ActionController::Base
         end
     end
 
-    def logged_in?
+  def logged_in?
     !!current_user
   end
 
   def authorized
     redirect_to login_path unless logged_in?
   end
-  
+
+  def isAdmin?
+    @current_user.role == User.user_roles[:admin]
+  end
+
+  def isPro?
+    @current_user.role == User.user_roles[:pro]
+  end
+
+  def isClient?
+    @current_user.role == User.user_roles[:client]
+  end
 end

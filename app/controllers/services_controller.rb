@@ -2,7 +2,7 @@
 
 # Services
 class ServicesController < ApplicationController
-  
+
   def index
     @services = if search_params.blank?
                   Service.all
@@ -17,6 +17,7 @@ class ServicesController < ApplicationController
   def create
     @pro = Professional.new(professional_params)
     @user = User.new(user_params)
+    @user.role = User.user_roles[:pro]
     @user.save
     @service = Service.new(service_params)
     # @service.professionals.new(professional_params)
