@@ -3,6 +3,7 @@
 Rails.application.routes.draw do
   
   
+  resources :meetings
   resources :users
   resources :sessions, only: [:new,:create,:destory]
   get 'home/index'

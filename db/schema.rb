@@ -10,12 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_26_223534) do
+ActiveRecord::Schema.define(version: 2020_03_27_211301) do
 
   create_table "feedbacks", force: :cascade do |t|
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "meetings", force: :cascade do |t|
+    t.string "name"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "professional_id"
+    t.index ["professional_id"], name: "index_meetings_on_professional_id"
   end
 
   create_table "professionals", force: :cascade do |t|
@@ -49,6 +59,7 @@ ActiveRecord::Schema.define(version: 2020_03_26_223534) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "meetings", "professionals"
   add_foreign_key "professionals", "services"
   add_foreign_key "professionals", "users"
 end

@@ -12,8 +12,7 @@
       <div class="col-lg-5">
         <h1 class="font-weight-light"><%= @professional.first_name %> <%= @professional.last_name %></h1>
         <p><%= @professional.description %></p>
-   
-        <a class="btn btn-primary" href="#">connect with me</a>
+        <a class="btn btn-primary" href="/meetings/new?pro=<%= @professional.id%>">Book a meeting</a>
       </div>
       <!-- /.col-md-4 -->
     </div>
