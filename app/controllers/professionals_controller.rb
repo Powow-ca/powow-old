@@ -17,7 +17,7 @@ class ProfessionalsController < ApplicationController
   end
 
   def show
-    @professional = Professional.find(params[:id])
+  @professional = Professional.find_by(service_id: params[:service_id], id: params[:id])
   end
 
   def edit
