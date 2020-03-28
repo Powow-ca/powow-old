@@ -15,7 +15,7 @@
           <div class="card-body" style="text-align:center;">
             <h4 class="card-title" ><%= pro.first_name %> <%= pro.last_name %></h4>
             <p class="card-text"><%= pro.description%></p>
-            <%= link_to "Details", service_professional_path(pro), class: 'btn btn-outline-primary' %>
+            <%= link_to "Details", service_professional_path(id: pro.id, service_id: pro.service_id), class: 'btn btn-outline-primary' %>
           </div>
             
         </div>
