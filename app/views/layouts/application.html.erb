@@ -34,8 +34,7 @@
             <a class="btn btn-primary" href=<%=logout_path %>><%= current_user.first_name %></a>
             <%= link_to "Log Out", logout_path, class: "btn btn-primary" %>
           <% else %>
-            <a class="btn btn-primary" href=<%= signup_path %>>Sign up</a>
-            <a class="btn btn-primary" href=<%= login_path %>>Log In</a>
+            <a class="btn btn-primary " href=<%= login_path %>>Log In</a>
           <% end %>
           </div>
         </ul>

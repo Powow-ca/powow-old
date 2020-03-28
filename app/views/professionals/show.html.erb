@@ -12,7 +12,11 @@
       <div class="col-lg-5">
         <h1 class="font-weight-light"><%= @professional.first_name %> <%= @professional.last_name %></h1>
         <p><%= @professional.description %></p>
-        <a class="btn btn-primary" href="/meetings/new?pro=<%= @professional.id%>">Book a meeting</a>
+        <% if current_user && current_user.id != @professional.user_id  && current_user.role !='pro'%>
+        <a class="btn btn-primary a-"  href="/meetings/new?pro=<%= @professional.id%>">Book a meeting</a>
+        <%else%>
+          <a class="btn btn-primary a-"   href="/meetings/new?pro=<%= @professional.id%>" onclick="return false;">Book a meeting</a>
+        <%end%>
       </div>
       <!-- /.col-md-4 -->
     </div>

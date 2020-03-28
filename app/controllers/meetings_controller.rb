@@ -27,6 +27,7 @@ class MeetingsController < ApplicationController
   # POST /meetings.json
   def create
     @meeting = Meeting.new(meeting_params)
+    @meeting.name = [current_user.first_name, current_user.last_name].join(" ")
     @meeting.professional = Professional.find(pro_params)
 
     respond_to do |format|
