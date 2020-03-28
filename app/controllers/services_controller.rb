@@ -18,16 +18,13 @@ class ServicesController < ApplicationController
     @pro = Professional.new(professional_params)
     @user = User.new(user_params)
     @user.role = User.user_roles[:pro]
-    @user.save
-    @service = Service.new(service_params)
-    # @service.professionals.new(professional_params)
-    @service.save
-    @pro.service_id = @service.id
+    @user.save!
+    @pro.service_id = Service.find_by(category: service_params[:category]).id
     @pro.user_id = @user.id
-    @pro.save
+    @pro.save!
     session[:user_id] = @user.id
     # Redirect to creating a professional
-    redirect_to service_professional_path(service_id: @service.id, id: @pro.id)
+    redirect_to service_professional_path(service_id: @pro.service_id, id: @pro.id )
   end
 
   def show
@@ -37,7 +34,7 @@ class ServicesController < ApplicationController
   private
 
   def service_params
-    params.require(:service).permit(:name, :category)
+    params.require(:service).permit(:name,:category)
   end
 
   def professional_params
