@@ -1,5 +1,6 @@
 class MeetingsController < ApplicationController
   before_action :set_meeting, only: [:show, :edit, :update, :destroy]
+  before_action :authorized, only: [:index]
 
   # GET /meetings
   # GET /meetings.json

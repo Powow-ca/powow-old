@@ -1,10 +1,13 @@
-<p id="notice"><%= notice %></p>
 
+<% if current_user.id == @meetings[0].professional.user_id %>
+<div class="container">
+<p id="notice"><%= notice %></p>
 <h1>Meetings</h1>
 
 <table>
   <thead>
     <tr>
+      <th>Professional</th>
       <th>Name</th>
       <th>Start time</th>
       <th>End time</th>
@@ -15,6 +18,7 @@
   <tbody>
     <% @meetings.each do |meeting| %>
       <tr>
+        <td><%= meeting.professional.first_name %> <%= meeting.professional.last_name %></td>
         <td><%= meeting.name %></td>
         <td><%= meeting.start_time %></td>
         <td><%= meeting.end_time %></td>
@@ -27,5 +31,5 @@
 </table>
 
 <br>
-
-<%= link_to 'New Meeting', new_meeting_path %>
+</div>
+<%end%> 

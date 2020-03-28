@@ -27,7 +27,7 @@ class ServicesController < ApplicationController
     @pro.save
     session[:user_id] = @user.id
     # Redirect to creating a professional
-    redirect_to service_professional_path(service_id: @service.id, id: @service.professionals.last.id)
+    redirect_to service_professional_path(service_id: @service.id, id: @pro.id)
   end
 
   def show
