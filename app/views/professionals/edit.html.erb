@@ -1,23 +1,48 @@
-<div class="container">
-<h2>Editing Profile: <%=@professional.first_name%> <%=@professional.last_name%></h2>
+<div class="container div-padding">
 <%= form_with scope: :professional, url: service_professionals_path, local: true do |form| %>
-  <p>
-    <%= form.label :'First Name' %><br>
-    <%= form.text_field :first_name %>
-  </p>
- 
-  <p>
-    <%= form.label :'Last Name' %><br>
-    <%= form.text_area :last_name %>
-  </p>
+<div class="modal-dialog" role="document">
+<div class="modal-content form-elegant">
 
-  <p>
-    <%= form.label :Description %><br>
-    <%= form.text_area :description %>
-  </p>
- 
-  <p>
-    <%= form.submit %>
-  </p>
+<!--Header-->
+<div class="modal-header text-center">
+  <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel">Editing Profile: <%=@professional.first_name%> <%=@professional.last_name%></h3>
+
+</div>
+<!--Body-->
+<div class="modal-body mx-4">
+  <!--Body-->
+  <div class="md-form mb-5">
+  <%= form.label :'First Name' %>
+     
+  <%= form.text_field :first_name ,  class:'form-control validate' %>
+    
+  </div>
+
+  <div class="md-form mb-5">
+  <%= form.label :'Last Name' %>
+  <%= form.text_field :last_name ,  class:'form-control validate' %>
+    
+  </div>
+
+  <div class="md-form mb-5">
+  <%= form.label :Description %> 
+  <%= form.text_area :description ,  class:'form-control validate' %>
+    
+  </div>
+
+  <p class="font-small blue-text d-flex justify-content-end">
+  <div class="text-center mb-3">
+  <%= button_tag "Save", :class => 'btn blue-gradient btn-block btn-rounded z-depth-1a',:name => nil%>  
+  
+    
+  </div>
+  
+</div>
+</div>
+<!--/.Content-->
+</div>
+
+</div>
+
 <% end %>
 </div>

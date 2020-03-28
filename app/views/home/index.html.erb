@@ -1,18 +1,19 @@
 <main role="main">
-  <section class="jumbotron text-center">
-    <div class="container">
+  <section class="jumbotron text-center home-section">
+    <div class="container-fluid">
+    <%= image_tag "1.png" %>
       <h1 class="jumbotron-heading">Let's get through, together!</h1>
-      <p class="lead text-muted">In response to COVID-19, we decided to release this platform that allows you to connect with professionals, online!</p>
+      <p class="lead text-white">In response to COVID-19, we decided to release this platform that allows you to connect with professionals, online!</p>
       <p>
         <% if current_user.nil? %>
-          <a class="btn btn-outline-secondary" href=<%= signup_path %>>Register as a client</a>
-          <a href="services/new" class="btn btn-outline-secondary my-2">Register as a professional</a>
+          <a class="btn btn-outline-secondary text-white" href=<%= signup_path %>>Register as a client</a>
+          <a href="services/new" class="btn btn-outline-secondary text-white my-2">Register as a professional</a>
         <%end%>
       </p>
       <%= form_tag(services_path, :method => "get",   
         class: 'navbar-form navbar-left') do %>  
       <div class="input-group">  
-        <%= text_field_tag :search, params[:search], placeholder: "search", class: "form-control" %>  
+        <%= text_field_tag :search, params[:search], placeholder: "search", class: "form-control form-control" %>  
         <div class="input-group-btn">  
           <%= button_tag "Search", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>  
         </div>  

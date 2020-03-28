@@ -1,5 +1,8 @@
 @import 'bootstrap/dist/css/bootstrap';
 
+.body{
+    width: 100%;
+}
 .container {
     background-color: white;
     padding-top: 20px;
@@ -7,6 +10,14 @@
 
 .jumbotron {
     background-color: white;
+}
+
+.home-section{
+    background-color: #00c2cb;
+}
+
+.navbar a:hover{
+    color:#dddd;
 }
 
 .fixed-top {
@@ -44,3 +55,198 @@
     
 }
 
+$zindex-sticky: 1020 !default;
+$zindex-fixed: 1030 !default;
+$zindex-modal-backdrop: 1040 !default;
+$zindex-modal: 1050 !default;
+$zindex-popover: 1060 !default;
+$zindex-tooltip: 1070 !default;
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { 
+
+    .container {
+        background-color: white;
+        padding-top: 20px;
+    }
+    
+    .jumbotron {
+        background-color: #00c2cb;
+    }
+    
+    .fixed-top {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+    
+    .bg-dark {
+        background-color: #343a40!important;
+    }
+    .navbar-expand-md {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+    }
+    
+    .navbar {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        padding: inherit;
+        
+    }
+ }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { 
+    .container {
+        background-color: white;
+        padding-top: 20px;
+    }
+    
+    .jumbotron {
+        background-color: #00c2cb;
+    }
+    
+    .fixed-top {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+    
+    .bg-dark {
+        background-color: #343a40!important;
+    }
+    .navbar-expand-md {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+    }
+    
+    .navbar {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        padding: inherit;
+        
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { 
+    .container {
+        background-color: white;
+        padding-top: 20px;
+    }
+    
+    .jumbotron {
+        background-color: #00c2cb;
+    }
+    
+    .fixed-top {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+    
+    .bg-dark {
+        background-color: #343a40!important;
+    }
+    .navbar-expand-md {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+    }
+    
+    .navbar {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        padding: inherit;
+        
+    }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { 
+    .container {
+        background-color: white;
+        padding-top: 20px;
+    }
+    
+    .jumbotron {
+        background-color: #00c2cb;
+    }
+    
+    .fixed-top {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+    
+    .bg-dark {
+        background-color: #343a40!important;
+    }
+    .navbar-expand-md {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+    }
+    
+    .navbar {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        padding: inherit;
+        
+    }
+ }

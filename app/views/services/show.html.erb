@@ -1,26 +1,31 @@
-<div class="container">
+<div class="container register-div">
   <div class="container text-center">
     <h1 class="jumbotron-heading"><%= @service.category %> Services</h1>
     <hr class="my-4">
     <p class="lead text-muted">Find professionals that specialize in <%= @service.name %></p>
   </div>
 <main role="professionals" class="container">
- <div class="row">
+ <div class="row text-center">
     <% @service.professionals.each do |pro| %>
-      <div class="col-md-6">
-          <div class="card flex-md-row mb-4 box-shadow h-md-250">
-            <div class="card-body d-flex flex-column align-items-start">
-              <strong class="d-inline-block mb-2 text-primary"><%= pro.first_name %> <%= pro.last_name %></strong>
-              <h3 class="mb-0">
-                <a class="text-dark" href="#"><%= pro.description%></a>
-              </h3>
-              <%= link_to "Details", service_professional_path(pro), class: 'btn btn-primary' %>
-            </div>
-              <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Thumbnail [200x250]" style="width: 200px; height: 250px;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22200%22%20height%3D%22250%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20250%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_17105b0bd06%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A13pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_17105b0bd06%22%3E%3Crect%20width%3D%22200%22%20height%3D%22250%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2256.1953125%22%20y%3D%22130.7%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true">
+      <div class="col">
+        <p class="font-small blue-text d-flex justify-content-end">
+        <div class="card" style="width:300px;">
+        <%= image_tag "#{@service.category}.png", class:"card-img-top" %>
+          <div class="card-body" style="text-align:center;">
+            <h4 class="card-title" ><%= pro.first_name %> <%= pro.last_name %></h4>
+            <p class="card-text"><%= pro.description%></p>
+            <%= link_to "Details", service_professional_path(pro), class: 'btn btn-outline-primary' %>
           </div>
-      </div>
+            
+        </div>
+        <p class="font-small blue-text d-flex justify-content-end">
+        </div>
+
+
+      
     <% end %>
 </div>
-<%= link_to "All Services", services_path, class: 'btn btn-primary' %>
+<br />
+<%= link_to "All Services", services_path, class: 'btn btn-outline-primary' %>
 </main>
 </div>
