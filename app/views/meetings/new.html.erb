@@ -1,5 +1,8 @@
 <div class="container">
 <h1>New Meeting</h1>
+<%= week_calendar number_of_weeks: 2 do |date| %>
+  <%= date %>
+<% end %>
 <%= render 'form', meeting: @meeting %>
 
 <%= link_to 'Back', meetings_path %>

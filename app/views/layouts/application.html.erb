@@ -25,8 +25,13 @@
           <li class="nav-item">
             <a class="btn btn-primary" href="/services">Services</a>
           </li>
+          <% if current_user && current_user.role =='pro' %>
           <li class="nav-item">
-            <a class="btn btn-primary" href="mailto:powow.help@gmail.com">Reach us @ powow.help@gmail.com</a>
+            <a class="btn btn-primary" href="/meetings">Meetings</a>
+          </li>
+          <%end%>
+          <li class="nav-item">
+            <a class="btn btn-primary" href="mailto:powow.help@gmail.com">Reach us</a>
           </li>
           </div>
           <div class="col-6">
