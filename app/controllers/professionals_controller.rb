@@ -20,6 +20,10 @@ class ProfessionalsController < ApplicationController
     @professional = Professional.find(params[:id])
   end
 
+  def edit
+    @professional = Professional.find(params[:id])
+  end
+
   private
 
   def article_params

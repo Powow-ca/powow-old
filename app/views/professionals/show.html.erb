@@ -18,6 +18,11 @@
           <a class="btn btn-primary a-"   href="/meetings/new?pro=<%= @professional.id%>" onclick="return false;">Book a meeting</a>
         <%end%>
       </div>
+      <% if current_user && current_user.id == @professional.user_id  && current_user.role =='pro'%>
+      <div class="col-lg-5">
+      <a class="btn btn-primary a-"  href="<%=edit_service_professional_path(service_id: current_user.professionals.first.service_id, id: current_user.professionals.first.id) %>">Edit Profile</a>
+      </div>
+      <%end%>
       <!-- /.col-md-4 -->
     </div>
     <!-- /.row -->

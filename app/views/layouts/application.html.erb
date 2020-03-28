@@ -36,7 +36,7 @@
           </div>
           <div class="col-6">
           <% if current_user %>
-            <a class="btn btn-primary" href=<%=logout_path %>><%= current_user.first_name %></a>
+            <a class="btn btn-primary" href=<%=service_professional_path(service_id: current_user.professionals.first.service_id, id: current_user.professionals.first.id) %>><%= current_user.first_name %></a>
             <%= link_to "Log Out", logout_path, class: "btn btn-primary" %>
           <% else %>
             <a class="btn btn-primary " href=<%= login_path %>>Log In</a>
