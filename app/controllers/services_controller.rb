@@ -7,7 +7,7 @@ class ServicesController < ApplicationController
     @services = if search_params.blank?
                   Service.all
                 else
-                  Service.all.where('lower(name) LIKE :search',
+                  Service.all.where('category LIKE :search',
                                     search: search_params)
                 end
   end
