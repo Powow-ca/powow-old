@@ -9,5 +9,13 @@ class Service < ApplicationRecord
     Cooking: 'Cooking and Baking',
     Languages: 'Foreign Languages'
   }
+  enum service_types: {
+    Consultations: ['Law','Legal','Financial'],
+    Coachings: ['Life Coach', 'Boxing Coach','Cricket Coach'],
+    Tutorings: ['Math Tutor','MCAT Tutor','Physics Tutor','Chemistry Tutor'],
+    Musics: ['Guitar','Piano'],
+    Cookings: ['Indian','French','American','Chinese','Cantonese'],
+    Language: ['French','German','Spanish','English']
+  }
   has_many :professionals
 end

@@ -1,21 +1,25 @@
 <main role="main">
-  <section class="jumbotron text-center home-section">
-    <div class="container-fluid">
-    <%= image_tag "1.png" %>
-      <h1 class="jumbotron-heading">Let's get through, together!</h1>
-      <p class="lead text-white">In response to COVID-19, we decided to release this platform that allows you to connect with professionals, online!</p>
-      <div class="card-body" style="text-align:center;">
-            <h4 class="card-title" >A new workforce!</h4>
-            <p class="card-text"></p>
-            <p class="card-text">This pandemic continues to impact our communities, and has dramatically changed how we do business.</p>
-            <p class="card-text"></p>
-            <p class="card-text">Many have lost their jobs, put on indefinite leave or unable to perform services due to this</p>
-            <p class="card-text">We are here to provide a platform that helps you take your hobby, craft, business online </p>
-          </div>
+  <section class="div-background text-center home-section" style="padding-bottom:3em;padding-top:4em;">
+    <div class="container-fluid">    
+    <%= image_tag "9.png" %>
+      <div class="row">
+        <div class="col">
+          <p class="lead text-black">Let's get through, together!</p>
+        </div>        
+      </div>
+      <div class="row">
+        <div class="col">
+          <p class="lead text-black">In response to COVID-19, we decided to release this platform <br /> 
+          that allows you to connect with professionals, online!</p>
+        </div>
+      </div>
+      
+      
+         
       <p>
         <% if current_user.nil? %>
-          <a class="btn btn-outline-secondary text-white" href=<%= signup_path %>>Register as a client</a>
-          <a href="services/new" class="btn btn-outline-secondary text-white my-2">Register as a professional</a>
+          <a class="btn btn-outline-dark text-white" href=<%= signup_path %>>Register as a client</a>
+          <a href="services/new" class="btn btn-outline-dark text-white my-2">Register as a professional</a>
         <%end%>
       </p>
       <%= form_tag(services_path, :method => "get",   
@@ -23,7 +27,7 @@
       <div class="input-group">  
         <%= text_field_tag :search, params[:search], placeholder: "search", class: "form-control form-control" %>  
         <div class="input-group-btn">  
-          <%= button_tag "Search", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>  
+          <%= button_tag "Search", :class => 'btn btn-dark glyphicon glyphicon-search',:name => nil%>  
         </div>  
       </div>  
     <% end %>
@@ -32,41 +36,66 @@
   
 
   <div class="container">
-  <div class="row">
-        
-        <div class="col-6" style="align:center;">
-        <div class="card" style="width:500px;">
-          <div class="card-body" style="text-align:center;">
-            <h4 class="card-title" >For Clients</h4>
-            <p class="card-text"></p>
-            <a class="card-text" href=<%= signup_path %>>Step 1: Register as a client</a>
-            <p class="card-text"></p>
-            <p class="card-text">Step 2: Search for services</p>
-            <p class="card-text">Step 3: Pick a professional to poWow</p>
-          </div>
+    <div class="row">
+          <div class="col">
+            <div class="card-body">
+              <p class="h3 text-center" >About Us</p>
+              <p class="modal-footer"> </p>
+              <p class="card-text"></p>
+              <p class="lead text-black">This pandemic continues to impact our communities, and has dramatically changed how we do business.</p>
+              <p class="card-text"></p>
+              <p class="lead text-black">Many have lost their jobs, put on indefinite leave or unable to perform services due to this.</p>
+              <p class="card-text"></p>
+              <p class="lead text-black">We are here to provide a platform that helps you take your hobby, craft, business online. </p>
+              
+            </div>
             
-        </div>
-        <p class="font-small blue-text d-flex justify-content-end">
+          </div>
+    </div>
+    
+    <div class="row">
+    
+          
+        <div class="col">
+          <p class="font-small blue-text d-flex justify-content-end" />
+          <div class="card">
+            <div class="card-body" style="text-align:center;">
+              <h4 class="card-title" >Clients</h4>
+              <p class="card-text"></p>
+              <p class="card-text">Step 1: Register as a client</p>
+              <p class="card-text"></p>
+              <p class="card-text">Step 2: Search for services</p>
+              <p class="card-text">Step 3: Pick a professional to poWow</p>
+              <a class="btn btn-outline-primary" href=<%= signup_path %> > Signup as a Client</a>
+            </div>
+              
+          </div>
+          <p class="font-small blue-text d-flex justify-content-end">
         </div>
 
-        <div class="col-6" style="align:center;">
-        <div class="card" style="width:500px;">
-          <div class="card-body" style="text-align:center;">
-            <h4 class="card-title" >For Professionals/Hobbists</h4>
-            <a href="services/new" class="card-text">Step 1: Register as a professional</a>
-            <p class="card-text"></p>
-            <p class="card-text">Step 2: Add your professional profile</p>
-            <p class="card-text">Step 3: Wait for a meeting request to poWow</p>
+        <div class="col" >
+        <p class="font-small blue-text d-flex justify-content-end" />
+          <div class="card">
+            <div class="card-body" style="text-align:center;">
+              <h4 class="card-title" >Professionals/Hobbists</h4>
+              <p class="card-text">Step 1: Register as a professional</p>
+              <p class="card-text"></p>
+              <p class="card-text">Step 2: Add your professional profile</p>
+              <p class="card-text">Step 3: Wait for a meeting request to poWow</p>
+              <a href="services/new" class="card-text btn btn-outline-primary"> Signup as a Professional</a>
+            </div>
+              
           </div>
-            
+          <p class="font-small blue-text d-flex justify-content-end">
         </div>
-        <p class="font-small blue-text d-flex justify-content-end">
-        </div>
-      
-    </div>
+        
+      </div>
+      <div class="row">
+        <%= render "shared/services" %>
+      </div>
   </div>
 
-  <%= render "shared/services" %>
+  
       
 
 </main>
