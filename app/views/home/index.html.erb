@@ -4,6 +4,14 @@
     <%= image_tag "1.png" %>
       <h1 class="jumbotron-heading">Let's get through, together!</h1>
       <p class="lead text-white">In response to COVID-19, we decided to release this platform that allows you to connect with professionals, online!</p>
+      <div class="card-body" style="text-align:center;">
+            <h4 class="card-title" >A new workforce!</h4>
+            <p class="card-text"></p>
+            <p class="card-text">This pandemic continues to impact our communities, and has dramatically changed how we do business.</p>
+            <p class="card-text"></p>
+            <p class="card-text">Many have lost their jobs, put on indefinite leave or unable to perform services due to this</p>
+            <p class="card-text">We are here to provide a platform that helps you take your hobby, craft, business online </p>
+          </div>
       <p>
         <% if current_user.nil? %>
           <a class="btn btn-outline-secondary text-white" href=<%= signup_path %>>Register as a client</a>
@@ -22,6 +30,7 @@
     </div>
   </section>
   
+
   <div class="container">
   <div class="row">
         
