@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to poWow, <%= @user.first_name %> <%= @user.last_name %></h1>
+    <p>
+      You have successfully signed up to www.poWow.ca,
+      this is your time to make a difference! <br>
+    </p>
+    <ul>
+      <li>Login using the link below </li>
+      <li>Search for content</li>
+      <li>get ready to poWow</li>
+    </ul>
+    <p>
+      To login to the site, just follow this link: <a href=<%= @url %>> <%= @url %> </a>.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>

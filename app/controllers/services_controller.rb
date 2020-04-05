@@ -22,6 +22,7 @@ class ServicesController < ApplicationController
     @pro.service_id = Service.find_by(category: service_params[:category]).id
     @pro.user_id = @user.id
     @pro.save!
+    WelcomeMailer.with(user: @user).pro_welcome_email.deliver_later
     session[:user_id] = @user.id
     # Redirect to creating a professional
     redirect_to service_professional_path(service_id: @pro.service_id, id: @pro.id )
