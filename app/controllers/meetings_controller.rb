@@ -29,9 +29,21 @@ class MeetingsController < ApplicationController
     @meeting = Meeting.new(meeting_params)
     @meeting.name = [current_user.first_name, current_user.last_name].join(" ")
     @meeting.professional = Professional.find(pro_params)
-
+   
+    
     respond_to do |format|
       if @meeting.save
+         # Send a meeting here
+        MeetingMailer.with(
+          user: current_user, 
+          pro: @meeting.professional,
+          meeting: @meeting
+        ).meeting_email.deliver_later
+        MeetingMailer.with(
+          user: current_user,
+          pro: @meeting.professional,
+          meeting: @meeting
+        ).pro_meeting_email.deliver_later
         format.html { redirect_to @meeting, notice: 'Meeting was successfully created.' }
         format.json { render :show, status: :created, location: @meeting }
       else

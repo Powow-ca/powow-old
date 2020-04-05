@@ -1,0 +1,17 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Your upcoming poWow details with , <%= @user.first_name %> <%= @user.last_name %></h1>
+    <p>
+      You have a new meeting request. <br>
+      From : <%= @meeting.start_time %> To:  <%= @meeting.end_time %> </br> 
+      Please click on link to get started at <%= @meeting.start_time %><br>
+    </p>
+    </p>
+    <p>Enjoy your powow!</p>
+  </body>
+</html>
