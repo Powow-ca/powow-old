@@ -33,3 +33,23 @@
 <br>
 </div>
 <%end%> 
+<div class="container">
+<meet id="meet">
+</div>
+<script>
+          const domain = "meet.jit.si";
+
+          const options = {
+            roomName: "powow",
+            width: 800,
+            height: 800,
+            parentNode: document.querySelector('meet'),
+          };
+          const api = new JitsiMeetExternalAPI("meet.jit.si", options);
+
+          api.addEventListener('videoConferenceLeft', () => {window.location.href = "/";})
+
+  function test() {
+    alert("t")
+  }
+    </script>
