@@ -11,6 +11,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.1.18/jquery.backstretch.min.js" integrity="sha256-OZZMwc3o7txR3vFfunl0M9yk3SayGp444eZdL9QDi1Y=" crossorigin="anonymous"></script>
+    <script src='https://meet.jit.si/external_api.js'></script>
+    
   </head>
 
   <body>
@@ -28,6 +30,7 @@
       <span class="icon-bar"></span>
 		</button>
 	</div>
+  
   <div class="navbar-collapse collapse  div-background col-11" id="navbarCollapse">
     <div class="col-9">
     <ul class="navbar-nav mr-auto">
@@ -97,7 +100,18 @@
     
       <%= yield %>
       </div>
-    
-    
+
+     
+      <script>
+          const domain = "meet.jit.si";
+
+          const options = {
+            roomName: "JitsiMeetAPIExample",
+            width: 700,
+            height: 700,
+            parentNode: document.getElementById('meet')
+          };
+          const api = new JitsiMeetExternalAPI("meet.jit.si");
+    </script>
   </body>
 </html>
