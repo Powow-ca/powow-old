@@ -22,9 +22,9 @@
         <td><%= meeting.name %></td>
         <td><%= meeting.start_time %></td>
         <td><%= meeting.end_time %></td>
-        <td><%= link_to 'Show', meeting %></td>
+        <td><%= link_to 'Start', meeting %></td>
         <td><%= link_to 'Edit', edit_meeting_path(meeting) %></td>
-        <td><%= link_to 'Destroy', meeting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Cancel Meeting', meeting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -33,23 +33,4 @@
 <br>
 </div>
 <%end%> 
-<div class="container">
-<meet id="meet">
-</div>
-<script>
-          const domain = "meet.jit.si";
 
-          const options = {
-            roomName: "powow",
-            width: 800,
-            height: 800,
-            parentNode: document.querySelector('meet'),
-          };
-          const api = new JitsiMeetExternalAPI("meet.jit.si", options);
-
-          api.addEventListener('videoConferenceLeft', () => {window.location.href = "/";})
-
-  function test() {
-    alert("t")
-  }
-    </script>

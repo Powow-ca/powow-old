@@ -1,19 +1,18 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+<meet id="meet">
+</div>
+<%= javascript_tag do %>
+alert('poop')
+          const domain = "ec2-3-80-130-47.compute-1.amazonaws.com";
 
-<p>
-  <strong>Name:</strong>
-  <%= @meeting.name %>
-</p>
+          const options = {
+            roomName: 213,
+            width: 800,
+            height: 800,
+            parentNode: document.querySelector('meet'),
+          };
+          const api = new JitsiMeetExternalAPI(domain, options);
 
-<p>
-  <strong>Start time:</strong>
-  <%= @meeting.start_time %>
-</p>
-
-<p>
-  <strong>End time:</strong>
-  <%= @meeting.end_time %>
-</p>
-
-<%= link_to 'Edit', edit_meeting_path(@meeting) %> |
-<%= link_to 'Delete', @meeting, method: :delete, data: { confirm: 'Are you sure?' } %>
+          api.addEventListener('videoConferenceLeft', () => {window.location.href = "/";})
+<% end %>
+         
