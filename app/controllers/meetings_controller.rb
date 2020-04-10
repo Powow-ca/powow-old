@@ -34,7 +34,7 @@ class MeetingsController < ApplicationController
     @meeting = Meeting.new(meeting_params)
     @meeting.name = [current_user.first_name, current_user.last_name].join(" ")
     @meeting.professional = Professional.find(pro_params)
-    @meeting.user = current_user
+    @meeting.user_id = current_user.id
     # TODO
     @meeting.room = "powow-#{SecureRandom.uuid}"
     @meeting.password = SecureRandom.uuid
