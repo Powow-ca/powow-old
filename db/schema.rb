@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_27_211301) do
+ActiveRecord::Schema.define(version: 2020_04_10_211736) do
 
   create_table "feedbacks", force: :cascade do |t|
     t.string "description"
@@ -25,7 +25,11 @@ ActiveRecord::Schema.define(version: 2020_03_27_211301) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "professional_id"
+    t.string "room"
+    t.string "password"
+    t.integer "user_id"
     t.index ["professional_id"], name: "index_meetings_on_professional_id"
+    t.index ["user_id"], name: "index_meetings_on_user_id"
   end
 
   create_table "professionals", force: :cascade do |t|
@@ -60,6 +64,7 @@ ActiveRecord::Schema.define(version: 2020_03_27_211301) do
   end
 
   add_foreign_key "meetings", "professionals"
+  add_foreign_key "meetings", "users"
   add_foreign_key "professionals", "services"
   add_foreign_key "professionals", "users"
 end

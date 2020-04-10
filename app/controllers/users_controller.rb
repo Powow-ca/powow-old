@@ -27,15 +27,15 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.role = User.user_roles[:client]
-      puts @user;
-      if @user.save
-        # Tell the UserMailer to send a welcome email after save
-        WelcomeMailer.with(user: @user).welcome_email.deliver_later
-        session[:user_id] = @user.id
-        redirect_to root_path
-      else
-        redirect_to signup_path
-      end
+
+    if @user.save
+      # Tell the UserMailer to send a welcome email after save
+      WelcomeMailer.with(user: @user).welcome_email.deliver_later
+      session[:user_id] = @user.id
+      redirect_to root_path
+    else
+      redirect_to signup_path
+    end
   end
 
   # PATCH/PUT /users/1

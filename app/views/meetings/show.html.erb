@@ -2,14 +2,12 @@
 <meet id="meet">
 </div>
 
-<%= javascript_tag data: {temp: @meeting} do %>
-alert('poop')
+<%= javascript_tag do %>
           <%# const domain = "ec2-3-80-130-47.compute-1.amazonaws.com"; %>
-          let meeting = 'powow'.concat(<%= @meeting.id  %>,<%= @meeting.professional.id%>)
           const domain = "meet.jit.si"
           const options = {
             
-            roomName: meeting,
+            roomName: "<%= @meeting.room  %>",
             width: 800,
             height: 800,
             parentNode: document.querySelector('meet'),
@@ -18,10 +16,10 @@ alert('poop')
           api.executeCommand('displayName', "<%= @meeting.professional.first_name%>");
           setTimeout(() => {
           api.addEventListener('videoConferenceJoined', (response) => {
-        api.executeCommand('password', "yourRoomPass");
+        api.executeCommand('password', "<%= @meeting.password%>");
     });
 
 }, 10);
-          api.addEventListener('videoConferenceLeft', () => {window.location.href = "/";})
+          api.addEventListener('videoConferenceLeft', () => {window.location.href = "/meetings";})
 <% end %>
          

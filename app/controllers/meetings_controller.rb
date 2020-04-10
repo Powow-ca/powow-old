@@ -11,6 +11,11 @@ class MeetingsController < ApplicationController
   # GET /meetings/1
   # GET /meetings/1.json
   def show
+    if current_user.role == User.user_roles[:client] 
+      @meeting = Meeting.find_by(user_id: current_user.id)
+    elsif current_user.role == User.user_roles[:pro] 
+      @meeting = Meeting.find_by(professional_id: Professional.find_by(user_id: current_user.id).id)
+    end
   end
 
   # GET /meetings/new
@@ -29,8 +34,12 @@ class MeetingsController < ApplicationController
     @meeting = Meeting.new(meeting_params)
     @meeting.name = [current_user.first_name, current_user.last_name].join(" ")
     @meeting.professional = Professional.find(pro_params)
-   
-    
+    @meeting.user = current_user
+    # TODO
+    @meeting.room = "powow-#{SecureRandom.uuid}"
+    @meeting.password = SecureRandom.uuid
+
+
     respond_to do |format|
       if @meeting.save
          # Send a meeting here
