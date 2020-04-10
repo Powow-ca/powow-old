@@ -1,18 +1,27 @@
-<div class="container">
+<div class="container jumbotron">
 <meet id="meet">
 </div>
-<%= javascript_tag do %>
-alert('poop')
-          const domain = "ec2-3-80-130-47.compute-1.amazonaws.com";
 
+<%= javascript_tag data: {temp: @meeting} do %>
+alert('poop')
+          <%# const domain = "ec2-3-80-130-47.compute-1.amazonaws.com"; %>
+          let meeting = 'powow'.concat(<%= @meeting.id  %>,<%= @meeting.professional.id%>)
+          const domain = "meet.jit.si"
           const options = {
-            roomName: 213,
+            
+            roomName: meeting,
             width: 800,
             height: 800,
             parentNode: document.querySelector('meet'),
           };
           const api = new JitsiMeetExternalAPI(domain, options);
+          api.executeCommand('displayName', "<%= @meeting.professional.first_name%>");
+          setTimeout(() => {
+          api.addEventListener('videoConferenceJoined', (response) => {
+        api.executeCommand('password', "yourRoomPass");
+    });
 
+}, 10);
           api.addEventListener('videoConferenceLeft', () => {window.location.href = "/";})
 <% end %>
          
