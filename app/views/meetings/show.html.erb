@@ -7,7 +7,6 @@
           <%# const domain = "ec2-3-80-130-47.compute-1.amazonaws.com"; %>
           const domain = "meet.jit.si"
           const options = {
-            
             roomName: "<%= @meeting.room  %>",
             width: 1280,
             height: 720,
@@ -25,20 +24,23 @@
               liveStreamingEnabled: false
             },
           };
+
           const api = new JitsiMeetExternalAPI(domain, options);
+
           api.executeCommand('displayName', "<%= @meeting.professional.first_name%>");
           setTimeout(() => {
-          api.addEventListener('videoConferenceJoined', (response) => {
-        api.executeCommand('password', "<%= @meeting.password%>");
-    });
+            api.addEventListener('videoConferenceJoined', (response) => {
+              api.executeCommand('password', "<%= @meeting.password%>");
+            });
 
-}, 10);
+          }, 10);
+
           api.addEventListener('videoConferenceLeft', () => {window.location.href = "/meetings";})
           
 <% end %>
 <% end %>         
 <% if current_user && current_user.role =='client' %>
 <div class="container-div">
-   <td> <a href="https://meet.jit.si/<%= meeting.room  %>" class="btn btn-primary">Let's poWow</a> </td>
+    <iframe src="https://meet.jit.si/<%= @meeting.room  %>" width="1280" height="720"> </iframe>
 </div>
 <% end %>         

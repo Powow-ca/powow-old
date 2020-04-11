@@ -22,16 +22,8 @@
         <td><%= meeting.start_time %></td>
         <td><%= meeting.end_time %></td>
         
-        <% if current_user && current_user.role =='client' %>
-          <td> <a href="https://meet.jit.si/<%= meeting.room  %>" class="btn btn-primary">Let's poWow</a> </td>
-        <%end%>
-        
-        
-        
-        <% if current_user && current_user.role =='pro' %>
-        <td><%= link_to 'Start', meeting %></td>
-        <%end%>
-        <td><%= link_to 'Edit', edit_meeting_path(meeting) %></td>
+        <td> <a href="<%= meeting_path(meeting) %>" class="btn btn-primary">Let's poWow</a> </td>
+        <td> <a href="<%= edit_meeting_path(meeting) %>" class="btn btn-primary">Edit</a> </td>
         <td><%= link_to 'Cancel Meeting', meeting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
