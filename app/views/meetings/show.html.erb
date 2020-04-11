@@ -41,6 +41,6 @@
 <% end %>         
 <% if current_user && current_user.role =='client' %>
 <div class="container-div">
-    <iframe src="https://meet.jit.si/<%= @meeting.room  %>" width="1280" height="720"> </iframe>
+    <iframe src="https://meet.jit.si/<%= @meeting.room  %>"  allow="camera;microphone" width="1280" height="720"> </iframe>
 </div>
 <% end %>         
