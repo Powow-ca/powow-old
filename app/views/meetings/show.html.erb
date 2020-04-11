@@ -9,9 +9,21 @@
           const options = {
             
             roomName: "<%= @meeting.room  %>",
-            width: 800,
-            height: 800,
+            width: 1280,
+            height: 720,
             parentNode: document.querySelector('meet'),
+            interfaceConfigOverwrite: {
+              filmStripOnly: false,
+              SHOW_JITSI_WATERMARK: false,
+              JITSI_WATERMARK_LINK: 'http://powow.ca',
+              SHOW_WATERMARK_FOR_GUESTS: false,
+              HIDE_KICK_BUTTON_FOR_GUESTS: true
+            },
+            configOverwrite: {
+              disableSimulcast: false,
+              lockRoomGuestEnabled: true,
+              liveStreamingEnabled: false
+            },
           };
           const api = new JitsiMeetExternalAPI(domain, options);
           api.executeCommand('displayName', "<%= @meeting.professional.first_name%>");
@@ -22,6 +34,7 @@
 
 }, 10);
           api.addEventListener('videoConferenceLeft', () => {window.location.href = "/meetings";})
+          
 <% end %>
 <% end %>         
 <% if current_user && current_user.role =='client' %>
