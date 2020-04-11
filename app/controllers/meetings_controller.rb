@@ -5,7 +5,11 @@ class MeetingsController < ApplicationController
   # GET /meetings
   # GET /meetings.json
   def index
-    @meetings = Meeting.all
+    if current_user.role == User.user_roles[:client] 
+      @meetings = Meeting.where(user_id: current_user.id )
+    elsif current_user.role == User.user_roles[:pro] 
+       @meetings = Meeting.where(professional_id: Professional.find_by(user_id: current_user.id).id )
+    end
   end
 
   # GET /meetings/1
