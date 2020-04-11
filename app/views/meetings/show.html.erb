@@ -1,3 +1,4 @@
+<% if current_user && current_user.role =='pro' %>
 <div class="container-div">
 <meet id="meet">
 </div>
@@ -22,4 +23,9 @@
 }, 10);
           api.addEventListener('videoConferenceLeft', () => {window.location.href = "/meetings";})
 <% end %>
-         
+<% end %>         
+<% if current_user && current_user.role =='client' %>
+<div class="container-div">
+   <td> <a href="https://meet.jit.si/<%= meeting.room  %>" class="btn btn-primary">Let's poWow</a> </td>
+</div>
+<% end %>         

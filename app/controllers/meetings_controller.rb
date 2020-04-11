@@ -44,25 +44,21 @@ class MeetingsController < ApplicationController
     @meeting.password = SecureRandom.uuid
 
 
-    respond_to do |format|
-      if @meeting.save
-         # Send a meeting here
-        MeetingMailer.with(
-          user: current_user, 
-          pro: @meeting.professional,
-          meeting: @meeting
-        ).meeting_email.deliver_later
-        MeetingMailer.with(
-          user: current_user,
-          pro: @meeting.professional,
-          meeting: @meeting
-        ).pro_meeting_email.deliver_later
-        format.html { redirect_to @meeting, notice: 'Meeting was successfully created.' }
-        format.json { render :show, status: :created, location: @meeting }
-      else
-        format.html { render :new }
-        format.json { render json: @meeting.errors, status: :unprocessable_entity }
-      end
+    if @meeting.save
+      # Send a meeting here
+      MeetingMailer.with(
+        user: current_user, 
+        pro: @meeting.professional,
+        meeting: @meeting
+      ).meeting_email.deliver_later
+      MeetingMailer.with(
+        user: current_user,
+        pro: @meeting.professional,
+        meeting: @meeting
+      ).pro_meeting_email.deliver_later
+      redirect_to meetings_path
+    else
+      redirect_to meeting_new_path
     end
   end
 
