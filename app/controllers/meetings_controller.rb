@@ -52,7 +52,7 @@ class MeetingsController < ApplicationController
         meeting: @meeting
       ).meeting_email.deliver_later
       MeetingMailer.with(
-        user: current_user,
+        user: User.find(@meeting.professional.user_id),
         pro: @meeting.professional,
         meeting: @meeting
       ).pro_meeting_email.deliver_later
