@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ProfessionalsController < ApplicationController
-  before_action :authorized, only: [:show]
+  # before_action :authorized, only: [:show]
 
   # def index
   #   @professionals = Professional.all
