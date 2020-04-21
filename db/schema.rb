@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_10_211736) do
+ActiveRecord::Schema.define(version: 2020_04_19_232824) do
 
   create_table "feedbacks", force: :cascade do |t|
     t.string "description"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2020_04_10_211736) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "service_id"
     t.integer "user_id"
+    t.string "stripe_user_id"
     t.index ["service_id"], name: "index_professionals_on_service_id"
     t.index ["user_id"], name: "index_professionals_on_user_id"
   end

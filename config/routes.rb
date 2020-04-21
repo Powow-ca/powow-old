@@ -13,8 +13,9 @@ Rails.application.routes.draw do
 
   post 'feedback', to: 'feedback#create', as: 'feedback'
 
+  get 'stripe-account', to: 'stripe#create_account'
   # get 'stripe/index', to: 'stripe#index'
-  get 'checkout', to: 'stripe#index', as: :stripe_connect
+  get 'checkout', to: 'stripe#initiate_payment', as: :stripe_connect
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :services do

@@ -1,56 +1,55 @@
+<!-- Page Content -->
 
-  <!-- Page Content -->
-  
-  <div class="container div-padding">
+<div class="container div-padding">
   <% if  @professional.nil?%>
   <div> Unauthorized </div>
-  <%else%>  
-    <!-- Heading Row -->
-    <div class="row align-items-center my-5">
-      <div class="col-lg-7">
-        <img class="img-fluid rounded mb-4 mb-lg-0" src="http://placehold.it/900x400" alt="">
-        
-      </div>
-      <!-- /.col-lg-8 -->
-      <div class="col-lg-5">
-        <h1 class="font-weight-light"><%= @professional.first_name %> <%= @professional.last_name %></h1>
-        <p class="font-small blue-text d-flex justify-content-end"> </p>
-        <% if current_user &&  current_user.role !='pro'%>
-        <a class="btn btn-outline-primary a-"  href="/meetings/new?pro=<%= @professional.id%>">Book a meeting</a>
-        <%else%>
-          <a class="btn btn-outline-primary a-"   href="/meetings/new?pro=<%= @professional.id%>" onclick="return false;">Book a meeting</a>
-        <%end%>
-        <% if current_user && current_user.id == @professional.user_id  && current_user.role =='pro'%>
-        <a class="btn btn-outline-primary a-"  href="<%=edit_service_professional_path(service_id: current_user.professionals.first.service_id, id: current_user.professionals.first.id) %>">Edit Profile</a>
-        <%end%>
-      </div>
-      
-      <div class="col-lg-5">
-       
-      </div>
-      
-      <!-- /.col-md-4 -->
-    </div>
-    <!-- /.row -->
-
-    <!-- Call to Action Well -->
-    <div class="card text-white bg-secondary my-5 py-4 text-center">
-      <div class="card-body">
-        <p class="text-white m-0"><%= @professional.description %></p>
-      </div>
-          <a class="btn btn-outline-primary a-" href="<%= stripe_connect_path%>">Buy</a>
-    </div>
-
-    <!-- Content Row -->
-    <div class="row">
-      
-     
-      <!-- /.col-md-4 -->
+  <%else%>
+  <!-- Heading Row -->
+  <div class="row align-items-center my-5">
+    <div class="col-lg-7">
+      <img class="img-fluid rounded mb-4 mb-lg-0" src="http://placehold.it/900x400" alt="">
 
     </div>
-    <!-- /.row -->
-    <%end%>
+    <!-- /.col-lg-8 -->
+    <div class="col-lg-5">
+      <h1 class="font-weight-light"><%= @professional.first_name %> <%= @professional.last_name %></h1>
+      <p class="font-small blue-text d-flex justify-content-end"> </p>
+      <% if current_user &&  current_user.role !='pro'%>
+      <a class="btn btn-outline-primary a-" href="/meetings/new?pro=<%= @professional.id%>">Book a meeting</a>
+      <%else%>
+      <a class="btn btn-outline-primary a-" href="/meetings/new?pro=<%= @professional.id%>" onclick="return false;">Book a meeting</a>
+      <%end%>
+      <% if current_user && current_user.id == @professional.user_id  && current_user.role =='pro'%>
+      <a class="btn btn-outline-primary a-" href="<%=edit_service_professional_path(service_id: current_user.professionals.first.service_id, id: current_user.professionals.first.id) %>">Edit Profile</a>
+      <%end%>
+    </div>
+
+    <div class="col-lg-5">
+
+    </div>
+
+    <!-- /.col-md-4 -->
   </div>
-  <!-- /.container -->
+  <!-- /.row -->
+  <div class="jumotron">
+    <a class="card-text btn btn-outline-primary" href="https://connect.stripe.com/express/oauth/authorize?client_id=ca_H7K6zJQxjoGB1cdd4AevAxCw3bACXRMs&state=1234523423&suggested_capabilities[]=transfers&stripe_user[email]=<%= current_user.email %>">Connect to stripe</a>
+  </div>
+  <!-- Call to Action Well -->
+  <div class="card text-white bg-secondary my-5 py-4 text-center">
+    <div class="card-body">
+      <p class="text-white m-0"><%= @professional.description %></p>
+    </div>
+    <%= link_to 'Buy', stripe_connect_path( :professional => @professional) %>
+  </div>
+
+  <!-- Content Row -->
+  <div class="row">
 
 
+    <!-- /.col-md-4 -->
+
+  </div>
+  <!-- /.row -->
+  <%end%>
+</div>
+<!-- /.container -->
