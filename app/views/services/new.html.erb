@@ -43,7 +43,7 @@
           <div class="row">
             <div class="col-sm">
               <%= form.label :category %>
-              <%=  form.collection_select :category, Service.categories.map{ |a| [a.first,a.second] },  :first, :second, {class: "dropdown-menu"} %>
+              <%=  select_tag "service[category]", options_from_collection_for_select(Service.categories,  :first, :second), class: "form-control selectpicker" %>
             </div>
             <div class="col-sm">
               <%= form.label :'Service' %>
