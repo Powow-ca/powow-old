@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_19_232824) do
+ActiveRecord::Schema.define(version: 2020_04_21_234437) do
 
   create_table "feedbacks", force: :cascade do |t|
     t.string "description"
@@ -30,6 +30,34 @@ ActiveRecord::Schema.define(version: 2020_04_19_232824) do
     t.integer "user_id"
     t.index ["professional_id"], name: "index_meetings_on_professional_id"
     t.index ["user_id"], name: "index_meetings_on_user_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "status"
+    t.float "price"
+    t.string "payment_gateway"
+    t.string "token"
+    t.string "error_message"
+    t.integer "product_id"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_orders_on_product_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.float "price"
+    t.string "target_audience"
+    t.string "description"
+    t.string "summary"
+    t.string "label"
+    t.string "details"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "professional_id"
+    t.index ["professional_id"], name: "index_products_on_professional_id"
   end
 
   create_table "professionals", force: :cascade do |t|
@@ -66,6 +94,9 @@ ActiveRecord::Schema.define(version: 2020_04_19_232824) do
 
   add_foreign_key "meetings", "professionals"
   add_foreign_key "meetings", "users"
+  add_foreign_key "orders", "products"
+  add_foreign_key "orders", "users"
+  add_foreign_key "products", "professionals"
   add_foreign_key "professionals", "services"
   add_foreign_key "professionals", "users"
 end

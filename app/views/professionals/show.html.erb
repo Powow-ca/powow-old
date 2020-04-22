@@ -30,25 +30,38 @@
 
     <!-- /.col-md-4 -->
   </div>
-  <!-- /.row -->
-  <div class="jumotron">
-    <a class="card-text btn btn-outline-primary" href="https://connect.stripe.com/express/oauth/authorize?client_id=ca_H7K6zJQxjoGB1cdd4AevAxCw3bACXRMs&state=1234523423&suggested_capabilities[]=transfers&stripe_user[email]=<%= current_user.email %>">Connect to stripe</a>
-  </div>
-  <!-- Call to Action Well -->
-  <div class="card text-white bg-secondary my-5 py-4 text-center">
-    <div class="card-body">
-      <p class="text-white m-0"><%= @professional.description %></p>
-    </div>
-    <%= link_to 'Buy', stripe_connect_path( :professional => @professional) %>
-  </div>
-
-  <!-- Content Row -->
   <div class="row">
-
-
-    <!-- /.col-md-4 -->
-
+    <div class="col-4">
+      <a class="card-text btn btn-outline-primary" href="https://connect.stripe.com/express/oauth/authorize?client_id=ca_H7K6zJQxjoGB1cdd4AevAxCw3bACXRMs&state=1234523423&suggested_capabilities[]=transfers&stripe_user[email]=<%= current_user.email %>">Connect to stripe</a>
+    </div>
+    <!-- Call to Action Well -->
+    <div class="col-4">
+      <%= link_to "Add Products", new_product_path(:pro => @professional) , class: "card-text btn btn-outline-primary"%>
+    </div>
   </div>
+  <!-- /.row -->
+  <div class="row">
+    <% @products.each do |product| %>
+
+    <div class="col-6 border-bottom border-top">
+      <div class="card text-center">
+        <div class="card-header">
+          <%= product.name %>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><%= product.summary%></h5>
+          <p class="card-text"><%= product.description %></p>
+          <%= link_to "Buy for #{ product.price  }", stripe_connect_path( :product => product) , class:"btn btn-primary"%>
+        </div>
+        <div class="card-footer text-muted">
+          <p class="card-text"><%= product.target_audience%></p>
+        </div>
+      </div>
+    </div>
+    </hr>
+    <%end%>
+  </div>
+
   <!-- /.row -->
   <%end%>
 </div>

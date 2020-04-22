@@ -1,0 +1,40 @@
+<div class="container">
+
+  <%= form_with scope: :product, url: products_path, local: true do |form| %>
+  <%=  @pro %>
+  <p>
+    <%= form.label :'Name' %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :'Target Audience' %><br>
+    <%= form.text_field :target_audience %>
+  </p>
+
+  <p>
+    <%= form.label :Description %><br>
+    <%= form.text_area :description %>
+  </p>
+
+  <p>
+    <%= form.label :'Summary' %><br>
+    <%= form.text_area :summary %>
+  </p>
+
+  <p>
+    <%= form.label :'Additional Details' %><br>
+    <%= form.text_area :label %>
+    <%= form.text_area :details %>
+  </p>
+
+  <p>
+    <%= form.label :'Price' %><br>
+    <%= form.text_area :price %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+  <% end %>
+</div>

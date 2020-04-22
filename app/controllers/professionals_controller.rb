@@ -18,6 +18,8 @@ class ProfessionalsController < ApplicationController
 
   def show
   @professional = Professional.find_by(service_id: params[:service_id], id: params[:id])
+  @products = Product.all.where('professional_id = :id',
+                                    id: @professional.id)
   end
 
   def edit

@@ -9,4 +9,5 @@ class User < ApplicationRecord
 
   has_many :professionals
   has_many :meetings
+  has_many :orders
 end

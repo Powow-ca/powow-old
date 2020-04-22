@@ -1,4 +1,4 @@
-class CreateOrders < ActiveRecord::Migration[6.0]
+class AddOrdersTable < ActiveRecord::Migration[6.0]
   def change
     create_table :orders do |t|
       t.string :status
@@ -7,10 +7,11 @@ class CreateOrders < ActiveRecord::Migration[6.0]
       t.string :token
       t.string :error_message
 
-      t.references :products, foreign_key: true, index: true
-      t.references :users, foreign_key: true, index: true
+      t.references :product, foreign_key: true, index: true
+      t.references :user, foreign_key: true, index: true
 
       t.timestamps
     end
+
   end
 end
