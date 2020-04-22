@@ -30,7 +30,7 @@
 
     <!-- /.col-md-4 -->
   </div>
-  <% if current_user &&  current_user.role =='pro'%>
+  <% if current_user && current_user.id == @professional.user_id &&  current_user.role =='pro'%>
   <div class="row">
     <div class="col-4">
       <a class="card-text btn btn-outline-primary" href="https://connect.stripe.com/express/oauth/authorize?client_id=ca_H7K6zJQxjoGB1cdd4AevAxCw3bACXRMs&state=1234523423&suggested_capabilities[]=transfers&stripe_user[email]=<%= current_user.email %>">Connect to stripe</a>
