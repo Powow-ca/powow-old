@@ -2,7 +2,7 @@
   <section class="div-background text-center home-section" style="padding-bottom:3em;padding-top:4em;">
     <div class="container-fluid">
       <%= image_tag "9.png" %>
-
+      <p class="h3 text-center">A super convenient and simple way to hold live sessions and get paid for it </p>
 
       <p>
         <% if current_user.nil? %>
@@ -27,9 +27,7 @@
     <div class="row">
       <div class="col">
         <div class="card-body">
-          <p class="h3 text-center">A super convenient and simple way to hold live sessions and get paid for it </p>
-          <p class="lead text-black"><br />
-            <p class="modal-footer"> </p>
+
             <p class="card-text text-muted">Why?</p>
             <p class="lead text-black">We are rethinking the way customers access services, digitally! Powow brings various virtual products right into your homes. </p>
             <p class="card-text text-muted">As a Pro?</p>
@@ -38,7 +36,7 @@
             <p class="lead text-black">Interested in learning something new, discovering different activities or digging deeper into a topic? We have got you covered!</p>
             <p class="card-text text-muted">Covid Update</p>
             <p class="lead text-black">This pandemic continues to impact our communities and has dramatically changed how we do business. Many have lost their jobs, were put on indefinite leave or are unable to perform services.</p>
-              <p class="lead text-black">Tell us what we can do! Powow is here to help!</p>
+            <p class="lead text-black">Tell us what we can do! Powow is here to help!</p>
 
         </div>
 
@@ -46,43 +44,7 @@
     </div>
 
     <p class="modal-footer"> </p>
-    <div class="row">
-
-
-      <div class="col">
-        <p class="font-small blue-text d-flex justify-content-end" />
-        <div class="card">
-          <div class="card-body" style="text-align:center;">
-            <h4 class="card-title">Customers</h4>
-            <p class="card-text"></p>
-            <p class="card-text">Step 1: Register as a client</p>
-            <p class="card-text"></p>
-            <p class="card-text">Step 2: Search for services</p>
-            <p class="card-text">Step 3: Pick a professional to poWow</p>
-            <a class="btn btn-outline-primary" href=<%= signup_path %>> Signup as a Client</a>
-          </div>
-
-        </div>
-        <p class="font-small blue-text d-flex justify-content-end">
-      </div>
-
-      <div class="col">
-        <p class="font-small blue-text d-flex justify-content-end" />
-        <div class="card">
-          <div class="card-body" style="text-align:center;">
-            <h4 class="card-title">Pros</h4>
-            <p class="card-text">Step 1: Register as a professional</p>
-            <p class="card-text"></p>
-            <p class="card-text">Step 2: Add your professional profile</p>
-            <p class="card-text">Step 3: Wait for a meeting request to poWow</p>
-            <a href="services/new" class="card-text btn btn-outline-primary"> Signup as a Professional</a>
-          </div>
-
-        </div>
-        <p class="font-small blue-text d-flex justify-content-end">
-      </div>
-
-    </div>
+   
     <div class="row">
       <%= render "shared/services" %>
     </div>
