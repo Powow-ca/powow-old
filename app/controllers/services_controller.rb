@@ -47,6 +47,6 @@ class ServicesController < ApplicationController
   end
 
   def search_params
-    params[:search] ? params[:search].downcase : ''
+    params[:search]
   end
 end

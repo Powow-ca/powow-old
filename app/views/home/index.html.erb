@@ -10,15 +10,7 @@
         <a href="services/new" class="btn btn-outline-dark text-white my-2">Register as a Pro</a>
         <%end%>
       </p>
-      <%= form_tag(services_path, :method => "get",   
-        class: 'navbar-form navbar-left') do %>
-      <div class="input-group">
-        <%= text_field_tag :search, params[:search], placeholder: "powow", class: "form-control form-control" %>
-        <div class="input-group-btn">
-          <%= button_tag "Search Powows", :class => 'btn btn-dark glyphicon glyphicon-search',:name => nil%>
-        </div>
-      </div>
-      <% end %>
+
     </div>
   </section>
 

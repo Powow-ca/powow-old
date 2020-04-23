@@ -52,6 +52,15 @@
           <li class="nav-item">
             <a class="btn bg-transparent text-white" href="mailto:powow.help@gmail.com">Contact us</a>
           </li>
+          <%= form_tag(services_path, :method => "get",   
+        class: 'navbar-form navbar-left') do %>
+          <div class="input-group">
+            <%= text_field_tag :search, params[:search], placeholder: "search a session", class: "form-control form-control" %>
+            <div class="input-group-btn">
+              <%= button_tag "search", :class => 'btn btn-dark glyphicon glyphicon-search',:name => nil%>
+            </div>
+          </div>
+          <% end %>
       </div>
       <div class="row text-right">
         <% if current_user && current_user.role =='pro' %>
@@ -99,8 +108,7 @@
   <div class="spacer">
     &nbsp;
   </div>
-  <div style="max-width:100%;">
-    <%= yield %>
+  <%= yield %>
   </div>
 </body>
 

@@ -43,14 +43,15 @@
   <%end%>
   <!-- /.row -->
   <div class="row">
+
     <% @products.each do |product| %>
 
-    <div class="col-6 border-bottom border-top">
-      <div class="card text-center">
+    <div class="col-6 album py-5 bg-white">
+      <div class="card text-center  pro-card">
         <div class="card-header">
           <%= product.name %>
         </div>
-        <div class="card-body">
+        <div class="card-body ">
           <h5 class="card-title"><%= product.summary%></h5>
           <p class="card-text"><%= product.description %></p>
           <% if current_user && @professional.stripe_user_id%>
