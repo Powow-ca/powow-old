@@ -3,8 +3,9 @@
 .body{
     width: 100%;
 }
+
 .container {
-    background-color: whitesmoke;
+    background-color: #f7f7f7;
     padding-top: 20px;
 }
 
@@ -17,9 +18,12 @@
 }
 
 .navbar a:hover{
-    color:#dddd;
+    background-color: #f7f7f7;
 }
 
+a:hover{
+    background-color: #f7f7f7;
+}
 
 
 .fixed-top {
