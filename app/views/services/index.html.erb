@@ -1,11 +1,11 @@
 <section class="container register-div">
     <div class="container text-center">
-      <h1 class="jumbotron-heading">Let's us find the help you need</h1>
+      <h1 class="jumbotron-heading">Book a Powow</h1>
       <hr class="my-4">
-      <p class="lead text-muted">Can't find what you are looking for? Leave us a note</p>
+      <p class="text-muted">Can't find what you are looking for? Leave us a note</p>
        <%= form_tag(feedback_path, :method => "post") do %>  
         <div class="input-group">  
-          <%= search_field_tag :feedback, params[:feedback], placeholder: "New Service Request", class: "form-control" %>  
+          <%= search_field_tag :feedback, params[:feedback], placeholder: "New Powwow Request", class: "form-control" %>  
           <div class="input-group-btn">  
             <%= button_tag "Contact", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>  
           </div>  

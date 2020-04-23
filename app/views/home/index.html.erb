@@ -1,101 +1,94 @@
 <main role="main">
   <section class="div-background text-center home-section" style="padding-bottom:3em;padding-top:4em;">
-    <div class="container-fluid">    
-    <%= image_tag "9.png" %>
-      <div class="row">
-        <div class="col">
-          <p class="lead text-black">Creators | Giggers | Professionals</p>
-        </div>        
-      </div>
-      <div class="row">
-        <div class="col">
-          <p class="lead text-black">Create a digital presence and use your skills to monetize a global audience. <br /> 
-          </p>
-        </div>
-      </div>
-      
-      
-         
+    <div class="container-fluid">
+      <%= image_tag "9.png" %>
+
+
       <p>
         <% if current_user.nil? %>
-          <a class="btn btn-outline-dark text-white" href=<%= signup_path %>>Register as a client</a>
-          <a href="services/new" class="btn btn-outline-dark text-white my-2">Register as a professional</a>
+        <a class="btn btn-outline-dark text-white" href=<%= signup_path %>>Register as a Customer</a>
+        <a href="services/new" class="btn btn-outline-dark text-white my-2">Register as a Pro</a>
         <%end%>
       </p>
       <%= form_tag(services_path, :method => "get",   
-        class: 'navbar-form navbar-left') do %>  
-      <div class="input-group">  
-        <%= text_field_tag :search, params[:search], placeholder: "search", class: "form-control form-control" %>  
-        <div class="input-group-btn">  
-          <%= button_tag "Search", :class => 'btn btn-dark glyphicon glyphicon-search',:name => nil%>  
-        </div>  
-      </div>  
-    <% end %>
+        class: 'navbar-form navbar-left') do %>
+      <div class="input-group">
+        <%= text_field_tag :search, params[:search], placeholder: "powow", class: "form-control form-control" %>
+        <div class="input-group-btn">
+          <%= button_tag "Search Powows", :class => 'btn btn-dark glyphicon glyphicon-search',:name => nil%>
+        </div>
+      </div>
+      <% end %>
     </div>
   </section>
-  
+
 
   <div class="container">
     <div class="row">
-          <div class="col">
-            <div class="card-body">
-              <p class="h3 text-center" >About Us</p>
-              <p class="modal-footer"> </p>
-              <p class="card-text"></p>
-              <p class="lead text-black">This pandemic continues to impact our communities, and has dramatically changed how we do business.</p>
-              <p class="card-text"></p>
-              <p class="lead text-black">Many have lost their jobs, put on indefinite leave or unable to perform services due to this.</p>
-              <p class="card-text"></p>
-              <p class="lead text-black">We are here to provide a platform that helps you take your hobby, craft, business online. </p>
-              
-            </div>
-            
-          </div>
-    </div>
-    
-    <div class="row">
-    
-          
-        <div class="col">
-          <p class="font-small blue-text d-flex justify-content-end" />
-          <div class="card">
-            <div class="card-body" style="text-align:center;">
-              <h4 class="card-title" >Clients</h4>
-              <p class="card-text"></p>
-              <p class="card-text">Step 1: Register as a client</p>
-              <p class="card-text"></p>
-              <p class="card-text">Step 2: Search for services</p>
-              <p class="card-text">Step 3: Pick a professional to poWow</p>
-              <a class="btn btn-outline-primary" href=<%= signup_path %> > Signup as a Client</a>
-            </div>
-              
-          </div>
-          <p class="font-small blue-text d-flex justify-content-end">
+      <div class="col">
+        <div class="card-body">
+          <p class="h3 text-center">A super convenient and simple way to hold live sessions and get paid for it </p>
+          <p class="lead text-black"><br />
+            <p class="modal-footer"> </p>
+            <p class="card-text text-muted">Why?</p>
+            <p class="lead text-black">We are rethinking the way customers access services, digitally! Powow brings various virtual products right into your homes. </p>
+            <p class="card-text text-muted">As a Pro?</p>
+            <p class="lead text-black">Powow gives Pros the power to create virtual products and the tools required to run successful sessions. It comes with features that support scheduling, PowowMeet and accepting payments - all on one platform!</p>
+            <p class="card-text text-muted">As a Customer?</p>
+            <p class="lead text-black">Interested in learning a something new, discovering different activities or dig deeper into a topic? We have got you covered!</p>
+            <p class="card-text text-muted">Covid Update</p>
+            <p class="lead text-black">This pandemic continues to impact our communities, and has dramatically changed how we do business. Many have lost their jobs, put on indefinite leave or unable to perform services due to this.</p>
+              <p class="lead text-black">Tell us what we can do! Powow is here to help!</p>
+
         </div>
 
-        <div class="col" >
+      </div>
+    </div>
+
+    <p class="modal-footer"> </p>
+    <div class="row">
+
+
+      <div class="col">
         <p class="font-small blue-text d-flex justify-content-end" />
-          <div class="card">
-            <div class="card-body" style="text-align:center;">
-              <h4 class="card-title" >Professionals/Hobbyists</h4>
-              <p class="card-text">Step 1: Register as a professional</p>
-              <p class="card-text"></p>
-              <p class="card-text">Step 2: Add your professional profile</p>
-              <p class="card-text">Step 3: Wait for a meeting request to poWow</p>
-              <a href="services/new" class="card-text btn btn-outline-primary"> Signup as a Professional</a>
-            </div>
-              
+        <div class="card">
+          <div class="card-body" style="text-align:center;">
+            <h4 class="card-title">Customers</h4>
+            <p class="card-text"></p>
+            <p class="card-text">Step 1: Register as a client</p>
+            <p class="card-text"></p>
+            <p class="card-text">Step 2: Search for services</p>
+            <p class="card-text">Step 3: Pick a professional to poWow</p>
+            <a class="btn btn-outline-primary" href=<%= signup_path %>> Signup as a Client</a>
           </div>
-          <p class="font-small blue-text d-flex justify-content-end">
+
         </div>
-        
+        <p class="font-small blue-text d-flex justify-content-end">
       </div>
-      <div class="row">
-        <%= render "shared/services" %>
+
+      <div class="col">
+        <p class="font-small blue-text d-flex justify-content-end" />
+        <div class="card">
+          <div class="card-body" style="text-align:center;">
+            <h4 class="card-title">Pros</h4>
+            <p class="card-text">Step 1: Register as a professional</p>
+            <p class="card-text"></p>
+            <p class="card-text">Step 2: Add your professional profile</p>
+            <p class="card-text">Step 3: Wait for a meeting request to poWow</p>
+            <a href="services/new" class="card-text btn btn-outline-primary"> Signup as a Professional</a>
+          </div>
+
+        </div>
+        <p class="font-small blue-text d-flex justify-content-end">
       </div>
+
+    </div>
+    <div class="row">
+      <%= render "shared/services" %>
+    </div>
   </div>
 
-  
-      
+
+
 
 </main>

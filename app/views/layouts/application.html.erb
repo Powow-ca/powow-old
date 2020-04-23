@@ -39,11 +39,16 @@
             <a class="btn bg-transparent text-white" style="font-color:white" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="btn bg-transparent text-white" href="/services">Services</a>
+            <a class="btn bg-transparent text-white" href="/services">Powows</a>
           </li>
+          <%# <li class="nav-item">
+            <a class="btn bg-transparent text-white" href="/meetings">Pros</a>
+          </li> %>
+          <% if current_user %>
           <li class="nav-item">
             <a class="btn bg-transparent text-white" href="/meetings">Meetings</a>
           </li>
+          <% end %>
           <li class="nav-item">
             <a class="btn bg-transparent text-white" href="mailto:powow.help@gmail.com">Contact us</a>
           </li>
