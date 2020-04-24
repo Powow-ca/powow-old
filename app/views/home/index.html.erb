@@ -1,13 +1,13 @@
 <main role="main">
-  <section class="div-background text-center home-section" style="padding-bottom:3em;padding-top:4em;">
+  <section class="div-background text-center home-section" style="padding-bottom:3em;padding-top:4em;background-image:url('assets/background.jpg');">
     <div class="container-fluid">
       <%= image_tag "9.png" %>
       <p class="h3 text-center">A super convenient and simple way to hold live sessions and get paid for it </p>
 
       <p>
         <% if current_user.nil? %>
-        <a class="btn btn-outline-dark text-white" href=<%= signup_path %>>Register as a Customer</a>
-        <a href="services/new" class="btn btn-outline-dark text-white my-2">Register as a Pro</a>
+        <a class="btn btn-outline-dark text-white" href=<%= signup_path %>>sign up to powow</a>
+        <a href="services/new" class="btn btn-outline-dark text-white my-2">sign up as a Pro</a>
         <%end%>
       </p>
 
@@ -22,21 +22,21 @@
   <p class="modal-footer mx-0 pt-0 mb-0"> </p>
 
   <%# <div class="bg-light"> %>
-    <div class="container ">
-      <div class="row">
-        <div class="col">
-          <div class="about ">
-            <p class="card-text text-muted">Why?</p>
-            <p class="lead text-black">We are rethinking the way customers access services, digitally! Powow brings various virtual products right into your homes. </p>
-            <p class="card-text text-muted">As a Pro?</p>
-            <p class="lead text-black">Powow gives Pros the power to create virtual products and the tools required to run successful sessions. It comes with features that support scheduling, PowowMeet and accepting payments - all on one platform!</p>
-            <p class="card-text text-muted">As a Customer?</p>
-            <p class="lead text-black">Interested in learning something new, discovering different activities or digging deeper into a topic? We have got you covered!</p>
-            <p class="card-text text-muted">Covid Update</p>
-            <p class="lead text-black">This pandemic continues to impact our communities and has dramatically changed how we do business. Many have lost their jobs, were put on indefinite leave or are unable to perform services.</p>
-            <p class="lead text-black">Tell us what we can do! Powow is here to help!</p>
+  <div class="container ">
+    <div class="row">
+      <div class="col">
+        <div class="about ">
+          <p class="card-text text-muted">Why?</p>
+          <p class="lead text-black">We are rethinking the way customers access services, digitally! Powow brings various virtual products right into your homes. </p>
+          <p class="card-text text-muted">As a Customer?</p>
+          <p class="lead text-black">Interested in learning something new, discovering different activities or digging deeper into a topic? We have got you covered!</p>
+          <p class="card-text text-muted">As a Pro?</p>
+          <p class="lead text-black">Powow gives Pros the power to create virtual products and the tools required to run successful sessions. It comes with features that support scheduling, PowowMeet and accepting payments - all on one platform!</p>
+          <p class="card-text text-muted">Covid Update</p>
+          <p class="lead text-black">This pandemic continues to impact our communities and has dramatically changed how we do business. Many have lost their jobs, were put on indefinite leave or are unable to perform services.</p>
+          <p class="lead text-black">Tell us what we can do! Powow is here to help!</p>
 
-          </div>
+        </div>
 
         <%# </div> %>
       </div>
