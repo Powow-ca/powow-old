@@ -1,63 +1,79 @@
-<div class="register-div container">
-  <%= form_with scope: :service, url: services_path, local: true do |form| %>
-
-  <div class="text-center">
-    <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>Register</strong></h3>
-
-  </div>
-
-  <div class="modal-body">
+<div class="row">
+  <div class="container col-5">
     <div class="row">
-      <div class="col-sm">
-        <%= form.label :'First Name' %>
-        <%= form.text_field :first_name, class: "f1-first-name form-control", id:"f1-last-name"%>
-      </div>
-      <div class="col-sm">
-        <%= form.label :'Last Name' %>
-        <%= form.text_field :last_name, class:"f1-last-name form-control", id:"f1-last-name"%>
+      <div class="col">
+        <div class="about ">
+          <p class="card-text text-muted">Why?</p>
+          <p class="lead text-black">Powow is challanging traditional brick-n-mortar service providers to Move your business online. Montize a global audience</p>
+          <p class="card-text text-muted">As a Pro?</p>
+          <p class="lead text-black">Create virtual products and the tools required to run successful sessions. It comes with features that support scheduling, PowowMeet and payments - all on one platform! You bring you skill and creativity, we do the rest.</p>
+        </div>
+
+        <%# </div> %>
       </div>
     </div>
-    <p class="font-small blue-text d-flex justify-content-end">
+  </div>
+  <div class="register-div container col-6">
+    <%= form_with scope: :service, url: services_path, local: true do |form| %>
+
+    <div class="text-center">
+      <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>Register</strong></h3>
+
+    </div>
+
+    <div class="modal-body">
       <div class="row">
         <div class="col-sm">
-          <%= form.label :email %>
-          <%= form.text_field :email, class:"form-control validate" %>
+          <%= form.label :'First Name' %>
+          <%= form.text_field :first_name, class: "f1-first-name form-control", id:"f1-last-name"%>
         </div>
         <div class="col-sm">
-          <%= form.label :password %>
-          <%= form.password_field :password, class:"form-control validate" %>
-        </div>
-        <div class="col-sm">
-          <%= form.label :password_confirmation %>
-          <%= form.password_field :password_confirmation, class:"form-control validate" %>
+          <%= form.label :'Last Name' %>
+          <%= form.text_field :last_name, class:"f1-last-name form-control", id:"f1-last-name"%>
         </div>
       </div>
       <p class="font-small blue-text d-flex justify-content-end">
         <div class="row">
           <div class="col-sm">
-            <%= form.label :'About yourself. This acts as your resume, tell us about your experience, target audience...' %>
-            <%= form.text_area :description, class:"f1-about-yourself form-control", id:"f1-about-yourself"%>
+            <%= form.label :email %>
+            <%= form.text_field :email, class:"form-control validate" %>
+          </div>
+          <div class="col-sm">
+            <%= form.label :password %>
+            <%= form.password_field :password, class:"form-control validate" %>
+          </div>
+          <div class="col-sm">
+            <%= form.label :password_confirmation %>
+            <%= form.password_field :password_confirmation, class:"form-control validate" %>
           </div>
         </div>
         <p class="font-small blue-text d-flex justify-content-end">
           <div class="row">
             <div class="col-sm">
-              <%= form.label :category %>
-              <%=  select_tag "service[category]", options_from_collection_for_select(Service.categories,  :first, :second), class: "form-control selectpicker" %>
+              <%= form.label :'About yourself. This acts as your resume, tell us about your experience, target audience...' %>
+              <%= form.text_area :description, class:"f1-about-yourself form-control", id:"f1-about-yourself"%>
             </div>
-            <div class="col-sm">
-              <%= form.label :'Service' %>
-              <%= form.text_area :name,class:"form-control" %>
-            </div>
-
           </div>
           <p class="font-small blue-text d-flex justify-content-end">
-            <div class="text-center mb-3">
-              <%= button_tag "Let's poWow", :class => 'btn btn-outline-primary z-depth-1a',:name => nil%>
-
+            <div class="row">
+              <div class="col-sm">
+                <%= form.label :category %>
+                <%=  select_tag "service[category]", options_from_collection_for_select(Service.categories,  :first, :second), class: "form-control selectpicker" %>
+              </div>
+              <div class="col-sm">
+                <%= form.label :'Service' %>
+                <%= form.text_area :name,class:"form-control" %>
+              </div>
 
             </div>
+            <p class="font-small blue-text d-flex justify-content-end">
+              <div class="text-center mb-3">
+                <%= button_tag "Let's poWow", :class => 'btn btn-outline-primary z-depth-1a',:name => nil%>
 
-            <% end %>
+
+              </div>
+
+              <% end %>
+    </div>
   </div>
-</div>
+  </div>

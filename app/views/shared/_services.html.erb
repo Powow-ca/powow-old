@@ -7,10 +7,12 @@
       <% @services.select{ |s| s.category == category[0] }.each do | fs | %>
       <div class="col" style="align:center;">
         <div class="card bg-white" style="width:300px;">
-          <div class="card-body text-light" style="text-align:center;">
-            <%= link_to fs.category,  service_path(fs), class:"btn card_header" %>
-          </div>
-          <%= image_tag "#{category[0]}.png", class:"card-img-bottom", style:"height:400px;" %>
+          <a href=<%=service_path(fs)%>>
+            <div class="card-img-bottom text-white card" style="height:400px;background-size:300px 400px;background-image:url(<%= asset_path "#{category[0]}.png" %>);"><%= fs.category%>
+            </div>
+          </a>
+
+
         </div>
         <p class="font-small blue-text d-flex justify-content-end">
       </div>

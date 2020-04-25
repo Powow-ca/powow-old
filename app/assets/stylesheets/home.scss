@@ -12,12 +12,15 @@
   background-size: 100% 100%;
 }
 
+.logo {
+  max-height: 470px;
+}
 .custom-link .custom-link:hover{
     color: red;
   text-decoration: none;
 }
 
 .tagline .lead { 
-	font-family: Georgia, 'Times New Roman', Times, serif
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
