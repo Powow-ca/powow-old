@@ -13,3 +13,21 @@
 .card-body {
   background-color: #d4e6fa;
 }
+
+.card-title {
+    text-align: center;
+}
+
+.card_header{
+    font-size: xx-large;
+    font-weight: 500;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+a.card_header:link {
+    color: red($color: #000000);
+}
+a.card_header:hover {
+color: white;
+background-color: rgb(185, 195, 238);
+}

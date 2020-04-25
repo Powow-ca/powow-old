@@ -44,24 +44,24 @@
   <!-- /.row -->
   <div class="row">
     <% if @products.count < 1 %>
-      <div class="col-6 album py-5 bg-white">
-        <div class="card text-center  pro-card">
-          <div class="card-header">
-            Sample Product - After School Activities
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Keeps your kids learning after school </h5>
-            <p class="card-text">Key takeaways:</p>
-            <p class="card-text">Provide entertainment or keep them occupied</p>
-            <p class="card-text">Help answer questions in your area of expertise</p>
-            <p class="card-text">Help your customers acquire a new skill </p>
-            <a class="btn btn-primary" href="" onclick="return false;">Buy for $20.00 </a>
-          </div>
-          <div class="card-footer text-muted">
-            <p class="card-text">Your target audience - Parents looking to keep their kids occupied</p>
-          </div>
+    <div class="col-6 album py-5 bg-white">
+      <div class="card text-center  pro-card">
+        <div class="card-header">
+          Sample Product - After School Activities
+        </div>
+        <div class="card-body">
+          <h5 class="card-title card-text">Keeps your kids learning after school </h5>
+          <p class="card-text">Key takeaways:</p>
+          <p class="card-text">Provide entertainment or keep them occupied</p>
+          <p class="card-text">Help answer questions in your area of expertise</p>
+          <p class="card-text">Help your customers acquire a new skill </p>
+          <a class="btn btn-primary" href="" onclick="return false;">Buy for $20.00 </a>
+        </div>
+        <div class="card-footer ">
+          <p class="card-text">Your target audience - Parents looking to keep their kids occupied</p>
         </div>
       </div>
+    </div>
     <%end%>
 
     <% @products.each do |product| %>
