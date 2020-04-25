@@ -3,8 +3,8 @@
 Rails.application.routes.draw do
   resources :meetings
   resources :users
-  resources :sessions, only: [:new,:create,:destory]
-  resources :products, only: [:new,:create]
+  resources :sessions, only: %i[new create destory]
+  resources :products, only: %i[new create]
   get 'home/index'
   root 'home#index'
 

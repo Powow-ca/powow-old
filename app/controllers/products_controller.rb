@@ -1,5 +1,6 @@
+# frozen_string_literal: true
+
 class ProductsController < ApplicationController
-  
   def new
     @pro = pro_params
   end
@@ -10,7 +11,6 @@ class ProductsController < ApplicationController
     @product.professional_id = @pro.id
     @product.save!
     redirect_to(service_professional_url(id: @pro.id, service_id: @pro.service_id))
-    
   end
 
   def product_params
@@ -19,6 +19,6 @@ class ProductsController < ApplicationController
   end
 
   def pro_params
-    params[:pro] ? params[:pro] : ''
+    params[:pro] || ''
   end
 end

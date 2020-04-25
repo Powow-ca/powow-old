@@ -2,7 +2,6 @@
 
 # Services
 class ServicesController < ApplicationController
-
   def index
     @services = if search_params.blank?
                   Service.all
@@ -21,11 +20,12 @@ class ServicesController < ApplicationController
     @user.save!
     @pro.service_id = Service.find_by(category: service_params[:category]).id
     @pro.user_id = @user.id
+    @pro.stripe_state = SecureRandom.uuid
     @pro.save!
     WelcomeMailer.with(user: @user).pro_welcome_email.deliver_later
     session[:user_id] = @user.id
     # Redirect to creating a professional
-    redirect_to service_professional_path(service_id: @pro.service_id, id: @pro.id )
+    redirect_to service_professional_path(service_id: @pro.service_id, id: @pro.id)
   end
 
   def show
@@ -35,7 +35,7 @@ class ServicesController < ApplicationController
   private
 
   def service_params
-    params.require(:service).permit(:name,:category)
+    params.require(:service).permit(:name, :category)
   end
 
   def professional_params
