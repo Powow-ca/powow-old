@@ -20,6 +20,8 @@ class ProfessionalsController < ApplicationController
     @professional = Professional.find_by(service_id: params[:service_id], id: params[:id])
     @products = Product.all.where('professional_id = :id',
                                   id: @professional.id)
+    @client_id = Rails.application.credentials.stripe[:client_id]
+    @stripe_state = @professional.stripe_state                                      
   end
 
   def edit

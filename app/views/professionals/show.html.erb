@@ -33,7 +33,7 @@
   <% if current_user && current_user.id == @professional.user_id &&  current_user.role =='pro'%>
   <div class="row">
     <div class="col-4">
-      <a class="card-text btn btn-outline-primary" href="https://connect.stripe.com/express/oauth/authorize?client_id=<%= @client_id %>&state=<% @professional.stripe_state %>&suggested_capabilities[]=transfers&stripe_user[email]=<%= current_user.email %>">Connect to stripe</a>
+      <a class="card-text btn btn-outline-primary" href="https://connect.stripe.com/express/oauth/authorize?client_id=<%= @client_id %>&state=<%= @stripe_state %>&suggested_capabilities[]=transfers&stripe_user[email]=<%= current_user.email %>">Connect to stripe</a>
     </div>
     <!-- Call to Action Well -->
     <div class="col-4">

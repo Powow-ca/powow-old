@@ -29,7 +29,6 @@ class ServicesController < ApplicationController
 
   def show
     @service = Service.find(params[:id])
-    @client_id = Rails.application.credentials.stripe[:client_id]
   end
 
   private

@@ -35,8 +35,8 @@ class StripeController < ApplicationController
   def checkout; end
 
   def create_account
-    @response = StripeService.new.validate_connect_account(stripe_code: code)
     @professional = Professional.find_by(user_id: current_user.id)
+    @response = StripeService.new.validate_connect_account(stripe_code: code, stripe_state: state, pro: @professional)
     @professional.stripe_user_id = @response.stripe_user_id
     @professional.save
     redirect_to service_professional_path(service_id: @professional.service_id, id: @professional.id)
@@ -56,9 +56,8 @@ class StripeController < ApplicationController
     @user ||= params[:current_user]
   end
 
-  def state_params
-    logger.debug "params[:state] #{params[:state]}"
-    params[:state] ? params[:state].downcase : ''
+  def state
+    params[:state]
   end
 
   def product
