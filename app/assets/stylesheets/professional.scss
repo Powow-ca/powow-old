@@ -8,11 +8,16 @@
     font-size: larger;
     font-weight: 500;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color: rgb(68, 127, 255);
+    background-color: rgb(185, 195, 238);
 }
 
 .card-footer {
     font-size: larger;
     font-style: italic;
-    background-color: rgb(68, 127, 255);
+    background-color: rgb(185, 195, 238);
+}
+
+a.btn:hover {
+color: white;
+background-color: rgb(185, 195, 238);
 }
