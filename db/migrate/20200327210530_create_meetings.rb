@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateMeetings < ActiveRecord::Migration[6.0]
   def change
     create_table :meetings do |t|
@@ -6,7 +8,6 @@ class CreateMeetings < ActiveRecord::Migration[6.0]
       t.datetime :end_time
 
       t.timestamps
-
     end
   end
 end

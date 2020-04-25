@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MeetingMailer < ApplicationMailer
   default from: 'powow.help@gmail.com'
 
