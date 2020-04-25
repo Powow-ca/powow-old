@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 2020_04_21_234437) do
     t.integer "service_id"
     t.integer "user_id"
     t.string "stripe_user_id"
+    t.string "linkedin_link"
     t.index ["service_id"], name: "index_professionals_on_service_id"
     t.index ["user_id"], name: "index_professionals_on_user_id"
   end
