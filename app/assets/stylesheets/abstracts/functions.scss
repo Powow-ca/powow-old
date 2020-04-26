@@ -1,0 +1,105 @@
+/////////////////
+// Functions
+// --------------------------
+
+@mixin border-radius ($radius_tl: 5px, $radius_tr: 5px, $radius_br: 5px, $radius_bl: 5px) {
+    border-radius: $radius_tl $radius_tr $radius_br $radius_bl;
+    -webkit-border-radius: $radius_tl $radius_tr $radius_br $radius_bl;
+    -moz-border-radius: $radius_tl $radius_tr $radius_br $radius_bl;
+}
+@mixin top-border-radius ($radius: 5px) {
+    @include border-radius($radius , $radius , 0 , 0);
+}
+@mixin resetList {
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+@mixin sprite($pos1:0, $pos2:0) {
+    background: transparent url(/assets/img/tk-sprite.svg) no-repeat scroll $pos1 $pos2;
+    background-size: 259px 268px;
+}
+@mixin spriteIcons($pos1:0, $pos2:0) {
+    background: transparent url(/assets/img/tk-sprite-icons.svg) no-repeat scroll $pos1 $pos2;
+    background-size: 404.52px 1100px;
+}
+@mixin spriteWithHGradient($pos1:0, $pos2:0) {
+    position: relative;
+    background-color: $themeColor;
+    background: linear-gradient(to right, $themeColor 25%, $themeColorDarker 100%);
+    &:before {
+        position: absolute;
+        content: "";
+        display: block;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        @include sprite($pos1, $pos2);
+    }
+}
+@mixin spriteIconsWithGradient($pos1:0, $pos2:0) {
+    position: relative;
+    background-color: $themeColor;
+    background: linear-gradient(135deg, $themeColor 0%, $themeColorDarker 100%);
+    &:before {
+        position: absolute;
+        content: "";
+        display: block;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        @include spriteIcons($pos1, $pos2);
+    }
+}
+@mixin verticalSeparator() {
+    display: block;
+    width: 2px;
+    height: 164px;
+    background: radial-gradient(ellipse at 50%, #69ab36 30%, #468953 70%, transparent 74%);
+}
+@mixin forceAspectRatio($width:0, $height:0) {
+    position: relative;
+    overflow: hidden;
+    height: 0;
+    padding-top: $height / $width * 100%;//Default aspect ratio
+    > .tk-img,
+    > iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+@mixin truncateText($fontSize: 14px, $lineHeight: 1.4, $linesToShow: 2, $fadeColor: rgba(255, 255, 255, 1)) {
+    display: block; /* Fallback for non-webkit */
+    position: relative;
+    max-height: $fontSize*$lineHeight*$linesToShow; /* Fallback for non-webkit */
+    overflow: hidden;
+    &:after {
+        content: "";
+        text-align: right;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 50%;
+        height: $fontSize*$lineHeight;
+        background: linear-gradient(to right, rgba(255, 255, 255, 0), $fadeColor 80%);
+    }
+}
+
+@function calculateRem($size) {
+    $remSize: $size / $fontSizeBase;
+    @return #{$remSize}rem;
+}
+
+
+@mixin fontSize($size) {
+    font-size: $size; //Fallback in px
+    font-size: calculateRem($size);
+}
+@mixin lineHeight($size) {
+    line-height: $size; //Fallback in px
+    line-height: calculateRem($size);
+}

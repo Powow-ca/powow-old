@@ -1,7 +1,33 @@
+// Bootstrap css
 @import 'bootstrap/dist/css/bootstrap';
+
+// Configs (global variables and functions/mixins)
+@import "abstracts/vars.scss";
+@import "abstracts/functions.scss";
+@import "abstracts/fonts.scss";
+
+// Layout
+@import "layout/scaffolds.scss";
+@import "layout/forms.scss";
+@import "layout/tables.scss";
+
+// Layout
+@import "components/buttons.scss";
+@import "components/loader.scss";
+
+// Pages
+@import "pages/home.scss";
+@import "pages/feedback.scss";
+@import "pages/meetings.scss";
+@import "pages/professional.scss";
+@import "pages/services.scss";
+@import "pages/sessions.scss";
+@import "pages/users.scss";
+
 
 .body{
     width: 100%;
+    font-size: $baseFontSize;
 }
 
 .container {

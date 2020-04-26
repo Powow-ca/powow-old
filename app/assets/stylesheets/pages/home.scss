@@ -2,9 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+// Configs
+@import "abstracts/vars.scss";
+@import "abstracts/functions.scss";
+@import "abstracts/fonts.scss";
+
+
 .search-box{
     align-content: center;
     width: 20%;
+    font-size: $baseFontSize;
 }
 
 .div-background {
