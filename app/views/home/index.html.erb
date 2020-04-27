@@ -1,7 +1,7 @@
 <main role="main">
   <section class="div-background text-center home-section" style="padding-bottom:3em;padding-top:4em;background-image:url(<%= asset_path 'background.jpg' %>);">
     <div class="container-fluid">
-        <%= image_tag "logo_transparent.png", class:"logo" %>
+      <%= image_tag "logo_transparent.png", class:"logo" %>
       <%# <p class="h3 text-center tagline text-white">Live digital services in your homes</p> %>
     </div>
   </section>
@@ -11,32 +11,16 @@
   <div class="container">
     <%= render "shared/services" %>
   </div>
-  <p class="modal-footer mx-0 pt-0 mb-0"> </p>
 
-  <%# <div class="bg-light"> %>
-  <div class="row">
-    <div class="container col-6">
-      <div class="row">
-        <div class="col">
-          <div class="about ">
-            <p class="card-text text-muted">Why?</p>
-            <p class="lead text-black">Re imagine the way customers access services! Powow is challanging traditional brick-n-mortar service providers to move businesses online and working towards bringing various virtual products right into your homes. </p>
-            <p class="card-text text-muted">Customers</p>
-            <p class="lead text-black">Interested in learning something new, discovering different activities or digging deeper into a topic? Start searching for products of your interest and setup a Powow with your pro, today!</p>
-            <p class="card-text text-muted">Covid Update</p>
-            <p class="lead text-black">This pandemic continues to impact our communities and has dramatically changed how we do business. Many have lost their jobs, were put on indefinite leave or are unable to perform services.</p>
-            <p class="lead text-black">Tell us what we can do! Powow is here to help!</p>
-
-          </div>
-
-          <%# </div> %>
-        </div>
-      </div>
-    </div>
-    <div class="col-4">
-    </div>
+  <div class="message">
+    <p class="card-text text-muted">Why?</p>
+    <p class="lead text-black">Powow is reimagining the way customers access services! Digital first, on-demand services via live engagement.</p>
+    <p class="card-text text-muted">Customers</p>
+    <p class="lead text-black">Interested in learning something new, discovering an activities or digging deeper into a topic? Search for live sessions and get started today <a class="btn bg-transparent text-black" href=<%= signup_path %>>sign up</a></p>
+    <p class="card-text text-muted">Covid Update</p>
+    <p class="lead text-black">This pandemic continues to impact our communities and has dramatically changed how we do business. Many have lost their jobs, were put on indefinite leave or are unable to perform services.</p>
+    <p class="lead text-black">Tell us what we can do! Powow is here to help!</p>
   </div>
-
 
 
 

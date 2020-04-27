@@ -1,5 +1,5 @@
 // Bootstrap css
-@import 'bootstrap/dist/css/bootstrap';
+@import "bootstrap/dist/css/bootstrap";
 
 // Configs (global variables and functions/mixins)
 @import "abstracts/vars.scss";
@@ -24,67 +24,64 @@
 @import "pages/sessions.scss";
 @import "pages/users.scss";
 
-
-.body{
-    width: 100%;
-    font-size: $baseFontSize;
+.body {
+  width: 100%;
+  font-size: $baseFontSize;
 }
 
 .container {
-    background-color: #f7f7f7;
-    padding-top: 20px;
+  background-color: #f7f7f7;
+  padding-top: 20px;
 }
 
 .div-background {
-    background-color: #00a3ff;
+  background-color: #00a3ff;
 }
 
-.home-section{
-    background-color: #4885ed;
+.home-section {
+  background-color: #4885ed;
 }
 
-.navbar a:hover{
-    background-color: #f7f7f7;
+.navbar a:hover {
+  background-color: #f7f7f7;
 }
 
-a:hover{
-    background-color: #f7f7f7;
+a:hover {
+  background-color: #f7f7f7;
 }
-
 
 .fixed-top {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 1030;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
 }
 
 .bg-dark {
-    background-color: #343a40!important;
+  background-color: #343a40 !important;
 }
 .navbar-expand-md {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-flow: row nowrap;
-    flex-flow: row nowrap;
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
 }
 
 .navbar {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    padding: inherit;
-    
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: inherit;
 }
 
 $zindex-sticky: 1020 !default;
@@ -95,194 +92,189 @@ $zindex-popover: 1060 !default;
 $zindex-tooltip: 1070 !default;
 
 // Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) { 
+@media (min-width: 576px) {
+  .container {
+    background-color: white;
+    padding-top: 20px;
+  }
 
-    .container {
-        background-color: white;
-        padding-top: 20px;
-    }
-    
-    .div-background {
-        background-color: #00a3ff;
-    }
-    
-    .fixed-top {
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
-        z-index: 1030;
-    }
-    
-    .bg-dark {
-        background-color: #343a40!important;
-    }
-    .navbar-expand-md {
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -ms-flex-flow: row nowrap;
-        flex-flow: row nowrap;
-        -webkit-box-pack: start;
-        -ms-flex-pack: start;
-        justify-content: flex-start;
-    }
-    
-    .navbar {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
-        padding: inherit;
-        
-    }
- }
+  .div-background {
+    background-color: #00a3ff;
+  }
+
+  .fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+  }
+
+  .bg-dark {
+    background-color: #343a40 !important;
+  }
+  .navbar-expand-md {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+  }
+
+  .navbar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: inherit;
+  }
+}
 
 // Medium devices (tablets, 768px and up)
-@media (min-width: 768px) { 
-    .container {
-        background-color: white;
-        padding-top: 20px;
-    }
-    
-    .div-background {
-        background-color: #00a3ff;
-    }
-    
-    .fixed-top {
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
-        z-index: 1030;
-    }
-    
-    .bg-dark {
-        background-color: #343a40!important;
-    }
-    .navbar-expand-md {
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -ms-flex-flow: row nowrap;
-        flex-flow: row nowrap;
-        -webkit-box-pack: start;
-        -ms-flex-pack: start;
-        justify-content: flex-start;
-    }
-    
-    .navbar {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
-        padding: inherit;
-        
-    }
+@media (min-width: 768px) {
+  .container {
+    background-color: white;
+    padding-top: 20px;
+  }
+
+  .div-background {
+    background-color: #00a3ff;
+  }
+
+  .fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+  }
+
+  .bg-dark {
+    background-color: #343a40 !important;
+  }
+  .navbar-expand-md {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+  }
+
+  .navbar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: inherit;
+  }
 }
 
 // Large devices (desktops, 992px and up)
-@media (min-width: 992px) { 
-    .container {
-        background-color: white;
-        padding-top: 20px;
-    }
-    
-    .div-background {
-        background-color: #00a3ff;
-    }
-    
-    .fixed-top {
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
-        z-index: 1030;
-    }
-    
-    .bg-dark {
-        background-color: #343a40!important;
-    }
-    .navbar-expand-md {
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -ms-flex-flow: row nowrap;
-        flex-flow: row nowrap;
-        -webkit-box-pack: start;
-        -ms-flex-pack: start;
-        justify-content: flex-start;
-    }
-    
-    .navbar {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
-        padding: inherit;
-        
-    }
+@media (min-width: 992px) {
+  .container {
+    background-color: white;
+    padding-top: 20px;
+  }
+
+  .div-background {
+    background-color: #00a3ff;
+  }
+
+  .fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+  }
+
+  .bg-dark {
+    background-color: #343a40 !important;
+  }
+  .navbar-expand-md {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+  }
+
+  .navbar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: inherit;
+  }
 }
 
 // Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) { 
-    .container {
-        background-color: white;
-        padding-top: 20px;
-    }
-    
-    .div-background {
-        background-color: #00a3ff;
-    }
-    
-    .fixed-top {
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
-        z-index: 1030;
-    }
-    
-    .bg-dark {
-        background-color: #343a40!important;
-    }
-    .navbar-expand-md {
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -ms-flex-flow: row nowrap;
-        flex-flow: row nowrap;
-        -webkit-box-pack: start;
-        -ms-flex-pack: start;
-        justify-content: flex-start;
-    }
-    
-    .navbar {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
-        padding: inherit;
-        
-    }
-    .spacer{
-        width: 100%;
-        height: 60px;
-    }
- }
+@media (min-width: 1200px) {
+  .container {
+    background-color: white;
+    padding-top: 20px;
+  }
+
+  .div-background {
+    background-color: #00a3ff;
+  }
+
+  .fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+  }
+
+  .bg-dark {
+    background-color: #343a40 !important;
+  }
+  .navbar-expand-md {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+  }
+
+  .navbar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: inherit;
+  }
+  .spacer {
+    width: 100%;
+    height: 60px;
+  }
+}
