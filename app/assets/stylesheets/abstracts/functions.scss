@@ -90,7 +90,7 @@
 }
 
 @function calculateRem($size) {
-    $remSize: $size / $fontSizeBase;
+    $remSize: $size / $baseFontSize;
     @return #{$remSize}rem;
 }
 

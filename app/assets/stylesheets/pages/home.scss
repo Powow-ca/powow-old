@@ -1,37 +1,44 @@
-// Place all the styles related to the Home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
-
-// Configs
-@import "abstracts/vars.scss";
-@import "abstracts/functions.scss";
-@import "abstracts/fonts.scss";
-
-
-.search-box{
-    align-content: center;
-    width: 20%;
-    font-size: $baseFontSize;
-}
-
-.div-background {
-  // background-image: url("background.jpg");
+///////////////////////
+// Home - Header
+//---
+.pw-home-header {
+  padding-bottom: 1em;
+  padding-top: 1em;
   background-size: 100% 100%;
+  background-image: url('background.jpg');
 }
-
-.logo {
+.pw-home-header-logo {
+  display: block;
+  margin: 0 auto;
   max-height: 470px;
-}
-.custom-link .custom-link:hover{
-    color: red;
-  text-decoration: none;
-}
-
-.tagline .lead { 
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  @media (max-width: 575px) {
+    max-height: 350px;
+  }
 }
 
-.message{
-  background-color: aliceblue;
+
+///////////////////////
+// Home - About section
+//---
+.pw-home-about {
+  background-color: #fff;
+  padding: 40px 0;
+  &--bg1 {
+    background-image: linear-gradient(to bottom, #ffffff 33%, #f7f7f7);
+  }
+  &--bg2 {
+      background-image: linear-gradient(to bottom, #f7f7f7, #ffffff 36%);
+  }
+}
+.pw-home-about-title {
+  text-transform: uppercase;
+}
+.pw-home-about-desc {
+  @include fontSize(18px);
+  font-weight: 300;
+  line-height: 25px;
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 

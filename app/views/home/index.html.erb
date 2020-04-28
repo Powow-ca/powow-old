@@ -1,22 +1,45 @@
-<main role="main">
-  <section class="div-background text-center home-section" style="padding-bottom:3em;padding-top:4em;background-image:url(<%= asset_path 'background.jpg' %>);">
-    <div class="container-fluid">
-      <%= image_tag "logo_transparent.png", class:"logo" %>
-      <%# <p class="h3 text-center tagline text-white">Live digital services in your homes</p> %>
-    </div>
-  </section>
 
-  <div class="message">
-    <p class="card-text text-muted">Why?</p>
-    <p class="lead text-black">Powow is reimagining the way customers access services! A digital first, on-demand video streaming platform with a community of creators and professionals offering digital products.</p>
-    <p class="card-text text-muted">Customers</p>
-    <p class="lead text-black">Interested in learning something new, discovering an activities or digging deeper into a topic? Search for live sessions and get started today <a class="btn bg-transparent text-black" href=<%= signup_path %>>sign up</a></p>
-    <p class="card-text text-muted">Covid Update</p>
-    <p class="lead text-black">This pandemic continues to impact our communities and has dramatically changed how we do business. Many have lost their jobs, were put on indefinite leave or are unable to perform services.</p>
-    <p class="lead text-black">Tell us what we can do! Powow is here to help!</p>
-  </div>
+<!-- Page Section -->
+<section class="pw-page">
 
-  <div class="container">
-    <%= render "shared/services" %>
+  <!-- Page Section - Header -->
+  <header class="pw-page-header pw-home-header">
+    <h1 class="pw-page-header-title">
+      <%= image_tag "logo_transparent.png", class:"pw-home-header-logo", alt:"Powow" %>
+      <span class="pw-sr-only">Powow</span>
+    </h1>
+    <%# <p class="h3 text-center tagline text-white">Live digital services in your homes</p> %>
+  </header>
+  
+  <!-- Page Section - Content -->
+  <div class="pw-page-content">
+
+      <!-- About section -->
+      <section class="pw-home-about pw-home-about--bg1">
+        <div class="container">
+          <h2 class="pw-home-about-title">Why?</h2>
+          <p class="pw-home-about-desc">Powow is reimagining the way customers access services! A digital first, on-demand video streaming platform with a community of creators and professionals offering digital products.</p>
+        </div>
+      </section>
+
+      <!-- About section -->
+      <section class="pw-home-about">
+        <div class="container">
+          <h2 class="pw-home-about-title">Customers</h2>
+          <p class="pw-home-about-desc">Interested in learning something new, discovering an activities or digging deeper into a topic? Search for live sessions and get started today. <a class="pw-link" href=<%= signup_path %>>Sign up</a></p>
+        </div>
+      </section>
+
+      <!-- About section -->
+      <section class="pw-home-about pw-home-about--bg2">
+        <div class="container">
+          <h2 class="pw-home-about-title">Covid Update</h2>
+          <p class="pw-home-about-desc">This pandemic continues to impact our communities and has dramatically changed how we do business. Many have lost their jobs, were put on indefinite leave or are unable to perform services.</p>
+          <p class="pw-home-about-desc">Tell us what we can do! Powow is here to help!</p>
+        </div>
+      </section>
+    
+      <!-- Services section -->
+      <%= render "shared/services" %>
   </div>
-</main>
+</section>
