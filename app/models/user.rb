@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  has_secure_password
+  
 
   enum user_role: { admin: 'admin', client: 'client', pro: 'pro' }
 

@@ -1,6 +1,6 @@
 <div class="album py-5 bg-white">
   <div class="container">  
-    <div id="services-div" class="owl-carousel">
+    <div id="services-div">
       <% Service.categories.each do |category| %>
         <% @services.select{ |s| s.category == category[0] }.each do | fs | %>
       <div class="col" style="align:center;">
@@ -16,4 +16,4 @@
       <% end %>
     </div>
   <div>
-</div>
+  </div>

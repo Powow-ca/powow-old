@@ -20,7 +20,7 @@ class OauthService
         @user.update(linkedin_token:oauth_account_params[:token])
         @user.save!
       else
-        @user=User.create!(first_name:oauth_account_params[:first_name],last_name:oauth_account_params[:last_name],email:oauth_account_params[:email],linkedin_token:oauth_account_params[:token],role:User.user_roles[:client])        
+        @user=User.create!(first_name:oauth_account_params[:first_name],last_name:oauth_account_params[:last_name],email:oauth_account_params[:email],linkedin_token:oauth_account_params[:token],role:User.user_roles[:client],password_digest:'1234')        
         
       end
 
