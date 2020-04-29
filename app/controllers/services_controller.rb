@@ -14,15 +14,11 @@ class ServicesController < ApplicationController
 
   def create
     @pro = Professional.new(professional_params)
-    @user = User.new(user_params)
-    @user.role = User.user_roles[:pro]
-    @user.save!
     @pro.service_id = Service.find_by(category: service_params[:category]).id
-    @pro.user_id = @user.id
+    @pro.user_id = current_user.id
     @pro.stripe_state = SecureRandom.uuid
     @pro.save!
-    WelcomeMailer.with(user: @user).pro_welcome_email.deliver_later
-    session[:user_id] = @user.id
+    WelcomeMailer.with(user: current_user).pro_welcome_email.deliver_later
     # Redirect to creating a professional
     redirect_to service_professional_path(service_id: @pro.service_id, id: @pro.id)
   end
@@ -39,10 +35,6 @@ class ServicesController < ApplicationController
 
   def professional_params
     params.require(:service).permit(:first_name, :last_name, :description)
-  end
-
-  def user_params
-    params.require(:service).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
 
   def search_params

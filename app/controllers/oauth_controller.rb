@@ -7,13 +7,24 @@ class OauthController < ApplicationController
             #Rails.logger.info(request.env['omniauth.auth'])
           oauth = OauthService.new(request.env['omniauth.auth'])
           Rails.logger.info(request.env['omniauth.origin'])
-          @user = oauth.create_oauth_account
+          role = ""
+          if request.env['omniauth.origin'].include? "/login"
+            role = User.user_roles[:client]
+          elsif request.env['omniauth.origin'].include? "/services/new"
+            role = User.user_roles[:pro]
+          end
+          @user = oauth.create_oauth_account(role:role)
           #WelcomeMailer.with(user: @user).welcome_email.deliver_later
           
            session[:user_id] = @user.id
            session[:expires_at] = Time.current + 12.hour
       
+          if role == User.user_roles[:client]
             redirect_to root_path
+          elsif role == User.user_roles[:pro]
+            redirect_to new_service_path
+          end
+          
 
           #redirect_to Config.provider_login_path
         rescue => e
