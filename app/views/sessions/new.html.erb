@@ -2,7 +2,7 @@
 
 <div class="bg">
 
-  <%= form_tag sessions_path do |form| %>
+  
   <div class="modal-dialog" role="document">
     <!--Content-->
     <div class="modal-content form-elegant">
@@ -15,6 +15,12 @@
       <!--Body-->
       <div class="modal-body mx-4">
         <!--Body-->
+        <div class="text-center social-btn">
+            <a href="/auth/linkedin" class="btn btn-primary btn-block"><i class="fa fa-linkedin"></i> Sign in with <b>LinkedIn</b></a>
+            <a href="#" class="btn btn-danger btn-block"><i class="fa fa-google"></i> Sign in with <b>Google</b></a>
+        </div>
+        <div class="or-seperator"><i>or</i></div>
+        <%= form_tag sessions_path do |form| %>
         <div class="md-form mb-5">
         <label data-error="wrong" data-success="right" for="Form-email1">Email</label>
           <%= text_field_tag :email,"", placeholder: "@gmail.com" ,class:'form-control validate' %>

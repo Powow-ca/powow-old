@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   # get 'stripe/index', to: 'stripe#index'
   get 'checkout', to: 'stripe#initiate_payment', as: :stripe_connect
 
+  get '/auth/:provider/callback', to: 'oauth#callback', as: 'oauth_callback'
+  get '/auth/failure', to: 'oauth#failure', as: 'oauth_failure'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :services do
     resources :professionals

@@ -12,11 +12,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_200_425_182_151) do
-  create_table 'feedbacks', force: :cascade do |t|
-    t.string 'description'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+ActiveRecord::Schema.define(version: 2020_04_28_223529) do
+
+  create_table "feedbacks", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table 'meetings', force: :cascade do |t|
@@ -71,6 +72,7 @@ ActiveRecord::Schema.define(version: 20_200_425_182_151) do
     t.integer 'user_id'
     t.string 'stripe_user_id'
     t.string 'stripe_state'
+    t.string "linkedin_link"
     t.index ['service_id'], name: 'index_professionals_on_service_id'
     t.index ['user_id'], name: 'index_professionals_on_user_id'
   end
@@ -83,15 +85,17 @@ ActiveRecord::Schema.define(version: 20_200_425_182_151) do
     t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.string 'first_name'
-    t.string 'last_name'
-    t.string 'email'
-    t.string 'password_digest'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.string 'role'
-    t.index ['email'], name: 'index_users_on_email', unique: true
+  create_table "users", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "role"
+    t.string "uuid"
+    t.string "linkedin_token"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key 'meetings', 'professionals'
