@@ -1,8 +1,10 @@
 <div class="album py-5 bg-white">
-  <div class="container">  
-    <div id="services-div">
+  <div class="container">
+    <div class="row">
       <% Service.categories.each do |category| %>
-        <% @services.select{ |s| s.category == category[0] }.each do | fs | %>
+
+
+      <% @services.select{ |s| s.category == category[0] }.each do | fs | %>
       <div class="col" style="align:center;">
         <div class="card bg-white " style="width:300px;">
           <a href=<%=service_path(fs)%>>
@@ -12,8 +14,10 @@
 
 
         </div>
-        <% end %>
+        <p class="font-small blue-text d-flex justify-content-end">
+      </div>
+      <% end %>
       <% end %>
     </div>
-  <div>
   </div>
+</div>
