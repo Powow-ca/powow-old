@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_30_030342) do
+ActiveRecord::Schema.define(version: 2020_04_30_155055) do
 
   create_table "feedbacks", force: :cascade do |t|
     t.string "description"
@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 2020_04_30_030342) do
     t.string "uuid"
     t.string "linkedin_token"
     t.string "linkedin_picture_url"
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["email", "role"], name: "index_users_on_email_and_role", unique: true
   end
 
   add_foreign_key "meetings", "professionals"
