@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_28_223529) do
+ActiveRecord::Schema.define(version: 2020_04_30_030342) do
 
   create_table "feedbacks", force: :cascade do |t|
     t.string "description"
@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 2020_04_28_223529) do
     t.string "role"
     t.string "uuid"
     t.string "linkedin_token"
+    t.string "linkedin_picture_url"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

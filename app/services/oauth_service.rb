@@ -17,10 +17,10 @@ class OauthService
       @user=User.find_by(email:oauth_account_params[:email], role: role)
       if !@user.nil?
         Rails.logger.info "Updating user!"
-        @user.update(linkedin_token:oauth_account_params[:token])
+        @user.update(linkedin_token:oauth_account_params[:token], linkedin_picture_url:oauth_account_params[:picture_url])
         @user.save!
       else
-        @user=User.create!(first_name:oauth_account_params[:first_name],last_name:oauth_account_params[:last_name],email:oauth_account_params[:email],linkedin_token:oauth_account_params[:token],role: role,password_digest:'1234')        
+        @user=User.create!(first_name:oauth_account_params[:first_name],last_name:oauth_account_params[:last_name],email:oauth_account_params[:email],linkedin_token:oauth_account_params[:token],role: role,password_digest:'1234', linkedin_picture_url:oauth_account_params[:picture_url])        
       end
       @user
     end

@@ -6,12 +6,11 @@
   <%else%>
   <!-- Heading Row -->
   <div class="row align-items-center my-5">
-    <div class="col-lg-7">
-      <img class="img-fluid rounded mb-4 mb-lg-0" src="http://placehold.it/900x400" alt="">
-      Your image goes here
+    <div class="col-lg-4">
+      <img class="img-fluid rounded mb-4 mb-lg-0" src="<%= @professional.user.linkedin_picture_url%>" alt="">
     </div>
     <!-- /.col-lg-8 -->
-    <div class="col-lg-5">
+    <div class="col-lg-8">
       <h1 class="font-weight-light"><%= @professional.first_name %> <%= @professional.last_name %></h1>
       <p class="font-small blue-text d-flex justify-content-end"> </p>
       <% if current_user &&  current_user.role !='pro'%>
@@ -22,10 +21,6 @@
       <% if current_user && current_user.id == @professional.user_id  && current_user.role =='pro'%>
       <a class="btn btn-outline-primary a-" href="<%=edit_service_professional_path(service_id: current_user.professionals.first.service_id, id: current_user.professionals.first.id) %>">Edit Profile</a>
       <%end%>
-    </div>
-
-    <div class="col-lg-5">
-
     </div>
 
     <!-- /.col-md-4 -->
