@@ -15,6 +15,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.1.18/jquery.backstretch.min.js" integrity="sha256-OZZMwc3o7txR3vFfunl0M9yk3SayGp444eZdL9QDi1Y=" crossorigin="anonymous"></script>
   <script src='https://meet.jit.si/external_api.js'></script>
   <script src="https://js.stripe.com/v3/"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 <body>
@@ -23,86 +24,100 @@
   <header class="pw-header">
 
     <!-- Top bar -->
-    <nav class="pw-header-top-bar navbar navbar-default navbar-expand-md navbar-light  bg-light fixed-top" style="height:5em;">
+    <nav class="pw-header-top-bar navbar navbar-expand-lg fixed-top">
+      <div class="container">
 
-      <div class="navbar-header d-flex col-1navbar-collapse collapse col-12" id="navbarCollapse">
-        <div class="col-9">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="btn bg-transparent text-black col-10" style="font-color:black" href="/">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="btn bg-transparent text-black" href="/services">Powows</a>
-            </li>
-            <li class="nav-item">
-              <a class="btn bg-transparent text-black" href="https://meetings.powow.ca">PowowMeet</a>
-            </li>
-            <%# <li class="nav-item">
-                <a class="btn bg-transparent text-white" href="/meetings">Pros</a>
-              </li> %>
-            <% if current_user %>
-            <li class="nav-item">
-              <a class="btn bg-transparent text-black" href="/meetings">Meetings</a>
-            </li>
-            <% end %>
-            <%= form_tag(services_path, :method => "get",   
-            class: 'navbar-form navbar-left') do %>
-            <div class="input-group">
-              <%= text_field_tag :search, params[:search], placeholder: "search a session", class: "form-control form-control" %>
-              <div class="input-group-btn">
-                <%= button_tag "search", :class => 'btn btn-primary glyphicon glyphicon-search',:name => nil%>
-              </div>
-            </div>
-            <% end %>
-        </div>
-        <div class="row text-right">
-          <% if current_user && current_user.role =='pro' %>
+        <!-- Hamburger Button -->
+        <button class="pw-header-top-bar-toggler navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Collapse/uncollapse">
+            <span class="material-icons">menu</span>
+        </button>
 
-          <div class="col text-right">
+        <div class="pw-header-top-bar-menus row collapse navbar-collapse" id="navbarNav">
+          
+          <!-- Nav bar - Left Side -->
+          <div class="col-sm-8 col-md-9">
+            
             <div class="row">
-              <div class="col-auto text-right">
-                <a class="btn bg-transparent text-black" href=<% if current_user.professionals.exists?%><%=service_professional_path(service_id: current_user.professionals.first.service_id, id: current_user.professionals.first.id) %> <%end%>>Hello, <%= current_user.first_name %></a>
+              <div class="col-lg-auto">
+                
+                <!-- Main Menu -->
+                <ul class="pw-main-menu navbar-nav">
+                  <li class="pw-main-menu-item">
+                    <a class="pw-btn btn" style="font-color:black" href="/">Home</a>
+                  </li>
+                  <li class="pw-main-menu-item">
+                    <a class="pw-btn btn" href="/services">Powows</a>
+                  </li>
+                  <li class="pw-main-menu-item">
+                    <a class="pw-btn btn" href="https://meetings.powow.ca">PowowMeet</a>
+                  </li>
+                  <%# <li class="pw-main-menu-item">
+                      <a class="btn" href="/meetings">Pros</a>
+                    </li> %>
+                  <% if current_user %>
+                  <li class="pw-main-menu-item">
+                    <a class="pw-btn btn" href="/meetings">Meetings</a>
+                  </li>
+                  <% end %>
+                </ul>
+
               </div>
-              <div class="col-auto text-right">
-                <%= link_to "Log Out", logout_path, class: "btn bg-transparent text-black" %>
+              <div class="col-lg-auto">
+
+                <!-- Search form -->
+                <%= form_tag(services_path, :method => "get", class: 'pw-main-search') do %>
+                <div class="input-group">
+                  <%= text_field_tag :search, params[:search], placeholder: "search a session", class: "pw-main-search-input" %>
+                  <div class="input-group-btn">
+                    <%= button_tag "search", :class => 'pw-btn pw-btn--search btn material-icons',:name => nil%>
+                  </div>
+                </div>
+                <% end %>
+
               </div>
             </div>
           </div>
 
-        </div>
-      </div>
-      <% elsif  current_user && current_user.role =='client' %>
-      <div class="row text-right">
-        <div class="col text-right">
-          <div class="row">
-            <div class="col-auto text-right">
-              <a class="btn bg-transparent text-black" href="/">Hello, <%= current_user.first_name %></a>
-            </div>
-            <div class="col-auto text-right">
-              <%= link_to "Log Out", logout_path, class: "btn bg-transparent text-black" %>
-            </div>
+          <!-- Nav bar - Right Side -->
+          <div class="col-sm-4 col-md-3">
+
+            <!-- User section -->
+            <ul class="pw-user-menu navbar-nav">
+
+              <!-- User section - Professional role -->
+              <% if current_user && current_user.role =='pro' %>
+              <li class="pw-user-menu-item">
+                <a class="pw-btn pw-btn--default btn" href=<% if current_user.professionals.exists?%><%=service_professional_path(service_id: current_user.professionals.first.service_id, id: current_user.professionals.first.id) %> <%end%>>Hello, <%= current_user.first_name %></a>
+                <img class="img-fluid rounded mb-1 mb-sm-0" src="<%= current_user.linkedin_picture_url%>" alt="">
+              </li>
+              <li class="pw-user-menu-item">
+                <%= link_to "Log Out", logout_path, class: "pw-btn pw-btn--auth btn" %>
+              </li>
+
+              <!-- User section - Client role -->
+              <% elsif  current_user && current_user.role =='client' %>
+              <li class="pw-user-menu-item">
+                <a class="pw-btn pw-btn--default btn" href="/">Hello, <%= current_user.first_name %></a>
+                <img class="img-fluid rounded mb-1 mb-sm-0" src="<%= current_user.linkedin_picture_url%>" alt="">
+              </li>
+              <li class="pw-user-menu-item">
+                <%= link_to "Log Out", logout_path, class: "pw-btn pw-btn--auth btn" %>
+              </li>
+
+              <!-- User section - Not logged in -->
+              <%else%>
+              <li class="pw-user-menu-item">
+                <%= link_to "Become a Pro", "services/new", class: "pw-btn pw-btn--default btn" %>
+              </li>
+              <li class="pw-user-menu-item">
+                <%= link_to "Log In", login_path, class: "pw-btn pw-btn--auth btn" %>
+              </li>
+              <% end %>
+
+            </ul>
           </div>
         </div>
-
       </div>
-      </div>
-      <%else%>
-      <div class="row text-right">
-        <div class="col text-right">
-          <div class="row">
-            <div class="col-auto text-right">
-              <a href="services/new" class="btn bg-transparent text-black">Become a Pro</a>
-            </div>
-            <div class="row text-right">
-              <div class="col">
-                <a class="btn bg-transparent text-black" href=<%= login_path %>>Log In</a>
-              </div>
-            </div>
-          </div>
-          <% end %>
-
-          </ul>
-        </div>
     </nav>
   </header>
 

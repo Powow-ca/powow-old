@@ -60,3 +60,9 @@ Run as https locally
 
 * open https://localhost:3000 on the browser
 
+
+
+
+
+Icons by Google Material
+* https://material.io/resources/icons/?style=baseline

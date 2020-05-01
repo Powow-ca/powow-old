@@ -1,0 +1,26 @@
+///////////////////////
+// Buttons
+//---
+.pw-btn,
+.btn.pw-btn {
+    &:hover {
+        background-color: $btnHoverBGColor;
+        color: #333;
+    }
+    &--default {
+        background-color: $btnDefaultBGColor;
+        color: #fff;
+        &:hover {
+            background-color: $btnDefaultHoverBGColor;
+            color: #fff;
+        }
+    }
+    &--auth {
+        background-color: $btnAuthBGColor;
+        color: #fff;
+        &:hover {
+            background-color: $btnAuthHoverBGColor;
+            color: #fff;
+        }
+    }
+}
