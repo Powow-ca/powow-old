@@ -3,6 +3,7 @@
 //---
 .pw-btn,
 .btn.pw-btn {
+    cursor: pointer;
     &:hover {
         background-color: $btnHoverBGColor;
         color: #333;

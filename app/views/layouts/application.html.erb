@@ -35,7 +35,7 @@
         <div class="pw-header-top-bar-menus row collapse navbar-collapse" id="navbarNav">
           
           <!-- Nav bar - Left Side -->
-          <div class="col-sm-8 col-md-9">
+          <div class="col-md-8">
             
             <div class="row">
               <div class="col-lg-auto">
@@ -79,42 +79,47 @@
           </div>
 
           <!-- Nav bar - Right Side -->
-          <div class="col-sm-4 col-md-3">
+          <div class="col-md-4">
 
             <!-- User section -->
+            <% if current_user %>
+            <div class="pw-user-account-dropdown dropdown">
+              <div class="pw-user-account-dropdown-toggle dropdown-toggle pw-btn btn" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                
+                <!-- User Name -->
+                <span class="pw-user-account-dropdown-toggle-name">Hello, <%= current_user.first_name %></span>
+
+                <!-- User Avatar -->
+                <img class="pw-user-account-dropdown-toggle-avatar" src="<%= current_user.linkedin_picture_url%>" alt="avatar">
+              </div>
+              <ul class="pw-user-account-dropdown-menu dropdown-menu" aria-labelledby="navbarDropdown">
+                <li class="pw-user-account-dropdown-menu-item">
+                  <!-- User section - Professional role -->
+                  <% if current_user && current_user.role =='pro' %>
+                  <a class="dropdown-item pw-btn btn" href=<% if current_user.professionals.exists?%><%=service_professional_path(service_id: current_user.professionals.first.service_id, id: current_user.professionals.first.id) %> <%end%>>Do something as a Pro</a>
+
+                  <!-- User section - Client role -->
+                  <% elsif  current_user && current_user.role =='client' %>
+                  <span class="dropdown-item pw-btn btn">Test</span>
+                  <% end %>
+                </li>
+                <li class="pw-user-account-dropdown-menu-item"><%= link_to "Profile", '', class: "dropdown-item pw-btn btn" %></li>
+                <li class="pw-user-account-dropdown-menu-item pw-user-account-dropdown-menu-item--separator"><%= link_to "Log Out", logout_path, class: "dropdown-item pw-btn btn" %></li>
+              </ul>
+            </div>
+
+
+            <!-- User section - Not logged in -->
+            <%else%>
             <ul class="pw-user-menu navbar-nav">
-
-              <!-- User section - Professional role -->
-              <% if current_user && current_user.role =='pro' %>
-              <li class="pw-user-menu-item">
-                <a class="pw-btn pw-btn--default btn" href=<% if current_user.professionals.exists?%><%=service_professional_path(service_id: current_user.professionals.first.service_id, id: current_user.professionals.first.id) %> <%end%>>Hello, <%= current_user.first_name %></a>
-                <img class="img-fluid rounded mb-1 mb-sm-0" src="<%= current_user.linkedin_picture_url%>" alt="">
-              </li>
-              <li class="pw-user-menu-item">
-                <%= link_to "Log Out", logout_path, class: "pw-btn pw-btn--auth btn" %>
-              </li>
-
-              <!-- User section - Client role -->
-              <% elsif  current_user && current_user.role =='client' %>
-              <li class="pw-user-menu-item">
-                <a class="pw-btn pw-btn--default btn" href="/">Hello, <%= current_user.first_name %></a>
-                <img class="img-fluid rounded mb-1 mb-sm-0" src="<%= current_user.linkedin_picture_url%>" alt="">
-              </li>
-              <li class="pw-user-menu-item">
-                <%= link_to "Log Out", logout_path, class: "pw-btn pw-btn--auth btn" %>
-              </li>
-
-              <!-- User section - Not logged in -->
-              <%else%>
               <li class="pw-user-menu-item">
                 <%= link_to "Become a Pro", "services/new", class: "pw-btn pw-btn--default btn" %>
               </li>
               <li class="pw-user-menu-item">
                 <%= link_to "Log In", login_path, class: "pw-btn pw-btn--auth btn" %>
               </li>
-              <% end %>
-
             </ul>
+            <% end %>
           </div>
         </div>
       </div>
