@@ -10,7 +10,12 @@ class MeetingsController < ApplicationController
     if current_user.role == User.user_roles[:client]
       @meetings = Meeting.where(user_id: current_user.id)
     elsif current_user.role == User.user_roles[:pro]
-      @meetings = Meeting.where(professional_id: Professional.find_by(user_id: current_user.id).id)
+      @pro = Professional.find_by(user_id: current_user.id)
+      if @pro.nil?
+        nil
+      else
+        @meetings = Meeting.where(professional_id: @pro.id)
+      end
     end
   end
 
