@@ -5,24 +5,26 @@ class OauthController < ApplicationController
     def callback
         begin
             #Rails.logger.info(request.env['omniauth.auth'])
-          oauth = OauthService.new(request.env['omniauth.auth'])
           Rails.logger.info(request.env['omniauth.origin'])
-          role = ""
-          if request.env['omniauth.origin'].include? "/login"
-            role = User.user_roles[:client]
-          elsif request.env['omniauth.origin'].include? "/services/new"
-            role = User.user_roles[:pro]
-          end
-          @user = oauth.create_oauth_account(role:role)
+          Rails.logger.info("Current user #{current_user.nil?}")
+          @user = current_user.nil? ? OauthService.new(request.env['omniauth.auth']).create_oauth_account(origin: request.env['omniauth.origin']) : current_user
+          
           #WelcomeMailer.with(user: @user).welcome_email.deliver_later
           
            session[:user_id] = @user.id
-           session[:expires_at] = Time.current + 12.hour
+           session[:expires_at] = Time.current + 1.hour
       
-          if role == User.user_roles[:client]
+          if @user.role == User.user_roles[:client]
             redirect_to root_path
-          elsif role == User.user_roles[:pro]
-            redirect_to new_service_path
+          elsif @user.role == User.user_roles[:pro]
+            @pro = Professional.find_by(user_id: @user.id)
+            if @pro.nil?
+              flash[:alert] = "You are now signed in, please continue to complete your profile"
+              redirect_to new_service_path
+            else
+              redirect_to service_professional_path(service_id: current_user.professionals.first.service_id, id: current_user.professionals.first.id)
+            end
+            
           end
           
 

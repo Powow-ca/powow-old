@@ -1,63 +1,41 @@
-<div class="row">
-  <div class="container col-5">
-    <div class="row">
-      <div class="col">
-        <div class="about ">
-          <p class="card-text text-muted">Why?</p>
-          <p class="lead text-black">New world, new solutions! One stop shop to provide on-demand educational or professional services right from your homes.</p>
-          <p class="card-text text-muted">How?</p>
-          <p class="lead text-black">Create and deliver virtual products. Stay on top of your schedule, run live sessions and accept payments, all on one platform.</p>
+<section class="pw-page">
+  <div class="row">
+    <div class="container col-7 pw-page-content">
+      <%= form_with scope: :service, url: services_path, local: true do |form| %>
+      <section class="pw-home-about pw-home-about--bg2">
+        <div class="text-center">
+          <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>Tell us more about yourself</strong></h3>
         </div>
+      </section>
 
-        <%# </div> %>
-      </div>
-    </div>
-  </div>
-  <div class="register-div container col-6">
-    <%= form_with scope: :service, url: services_path, local: true do |form| %>
-
-    <div class="text-center">
-      <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>Register</strong></h3>
-
-    </div>
-
-    <div class="modal-body">
-      <div class="row">
-        <div class="col-sm">
-
-          <div class="text-center social-btn">
-            <a href="/auth/linkedin" class="btn btn-primary btn-block" <% if current_user %>onclick="return false;" <%end%>><i class=" fa fa-linkedin"></i> Sign in with <b>LinkedIn</b></a>
-          </div>
-
-        </div>
-      </div>
-      <p class="font-small blue-text d-flex justify-content-end">
+      <div class="section">
         <div class="row">
-          <div class="col-sm">
-            <%= form.label :'About yourself. This acts as your resume, tell us about your experience, target audience...' %>
-            <%= form.text_area :description, class:"f1-about-yourself form-control", id:"f1-about-yourself"%>
-          </div>
         </div>
         <p class="font-small blue-text d-flex justify-content-end">
           <div class="row">
             <div class="col-sm">
-              <%= form.label :category %>
-              <%=  select_tag "service[category]", options_from_collection_for_select(Service.categories,  :first, :second), class: "form-control selectpicker" %>
+              <%= form.label :'About yourself. Introduce yourself and tell us about your experience and area of speciality' %>
+              <%= form.text_area :description, class:"f1-about-yourself form-control", id:"f1-about-yourself"%>
             </div>
-            <div class="col-sm">
-              <%= form.label :'Service' %>
-              <%= form.text_area :name,class:"form-control" %>
-            </div>
-
           </div>
           <p class="font-small blue-text d-flex justify-content-end">
-            <div class="text-center mb-3">
-              <%= button_tag "Let's poWow", :class => 'btn btn-outline-primary z-depth-1a',:name => nil%>
-
+            <div class="row">
+              <div class="col-sm">
+                <%= form.label :category %>
+                <%=  select_tag "service[category]", options_from_collection_for_select(Service.categories,  :first, :second), class: "form-control selectpicker" %>
+              </div>
+              <div class="col-sm">
+                <%= form.label :'Service' %>
+                <%= form.text_area :name,class:"form-control" %>
+              </div>
 
             </div>
-
-            <% end %>
+            <p class="font-small blue-text d-flex justify-content-end">
+              <div class="text-center mb-3">
+                <%= button_tag "Let's poWow", :class => 'btn btn-outline-primary z-depth-1a',:name => nil%>
+              </div>
+              <% end %>
+      </div>
     </div>
   </div>
-</div>
+  <section>

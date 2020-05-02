@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
+  get 'pro', to: 'users#pro' 
   post 'feedback', to: 'feedback#create', as: 'feedback'
 
   get 'success', to: 'stripe#order_success'
