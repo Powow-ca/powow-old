@@ -1,0 +1,6 @@
+.pw-img {
+
+}
+.pw-img-wrap {
+    @include forceAspectRatio(300px, 150px);
+}

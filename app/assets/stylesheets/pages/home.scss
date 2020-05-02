@@ -22,23 +22,31 @@
 //---
 .pw-home-about {
   background-color: #fff;
-  padding: 40px 0;
+  padding: 60px 0;
+  &__header {
+    
+  }
+  &__title {
+    text-transform: uppercase;
+  }
+  &__desc {
+    @include fontSize(18px);
+    font-weight: 300;
+    line-height: 25px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
   &--bg1 {
     background-image: linear-gradient(to bottom, #ffffff 33%, #f7f7f7);
   }
   &--bg2 {
-      background-image: linear-gradient(to bottom, #f7f7f7, #ffffff 36%);
+    background-image: linear-gradient(to bottom, #f7f7f7, #ffffff 36%);
+  }
+  &--bg3 {
+      background-color: #f7f7f7;
+  }
+  @media (max-width: 767px) {
+    padding: 40px 0;
   }
 }
-.pw-home-about-title {
-  text-transform: uppercase;
-}
-.pw-home-about-desc {
-  @include fontSize(18px);
-  font-weight: 300;
-  line-height: 25px;
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-

@@ -65,11 +65,12 @@
     overflow: hidden;
     height: 0;
     padding-top: $height / $width * 100%;//Default aspect ratio
-    > .tk-img,
+    > .pw-img,
     > iframe {
         position: absolute;
-        top: 0;
+        top: 50%;
         left: 0;
+        transform: translateY(-50%);
     }
 }
 @mixin truncateText($fontSize: 14px, $lineHeight: 1.4, $linesToShow: 2, $fadeColor: rgba(255, 255, 255, 1)) {

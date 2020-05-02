@@ -4,8 +4,11 @@
 .pw-header {
 
 }
-.pw-header-title {
-
+.pw-header-logo {
+    > img {
+        height: 55px;
+        width: auto;
+    }
 }
 
 // Main Header - Top bar

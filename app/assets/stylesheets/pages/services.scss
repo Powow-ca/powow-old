@@ -1,34 +1,22 @@
-// Place all the styles related to the Services controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.pw-services-list {
+    @include resetList();
+    &__item {
+        margin-bottom: 30px;
+    }
+    &__card {
 
-.register-div{
-    padding-top:5%;
-}
+    }
+    &__card-link {
 
-.div-border {
-    border-bottom-style: dashed;
-}
-
-.card-body {
-  background-color: #d4e6fa;
-}
-
-.card-title {
-    text-align: center;
-    
-}
-
-.card{
-    font-size: xx-large;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    text-align: center;
-}
-
-a.card_header:link {
-    color: red($color: #000000);
-}
-a.card_header:hover {
-color: white;
-background-color: rgb(185, 195, 238);
+    }
+    &__card-img {
+        width: 100%;
+        height: auto;
+    }
+    &__card-title {
+        margin-top: 10px;
+    }
+    &__card-desc {
+        
+    }
 }

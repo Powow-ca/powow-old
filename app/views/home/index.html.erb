@@ -17,29 +17,42 @@
       <!-- About section -->
       <section class="pw-home-about pw-home-about--bg1">
         <div class="container">
-          <h2 class="pw-home-about-title">Why?</h2>
-          <p class="pw-home-about-desc">Powow is reimagining the way customers access services! A digital first, on-demand video streaming platform with a community of creators and professionals offering digital products.</p>
+          <header class="pw-home-about__header">
+            <h2 class="pw-home-about__title">Why?</h2>
+          </header>
+          <p class="pw-home-about__desc">Powow is reimagining the way customers access services! A digital first, on-demand video streaming platform with a community of creators and professionals offering digital products.</p>
         </div>
       </section>
 
       <!-- About section -->
       <section class="pw-home-about">
         <div class="container">
-          <h2 class="pw-home-about-title">Customers</h2>
-          <p class="pw-home-about-desc">Interested in learning something new, discovering an activities or digging deeper into a topic? Search for live sessions and get started today. <a class="pw-link" href=<%= signup_path %>>Sign up</a></p>
+          <header class="pw-home-about__header">
+            <h2 class="pw-home-about__title">Customers</h2>
+          </header>
+          <p class="pw-home-about__desc">Interested in learning something new, discovering an activities or digging deeper into a topic? Search for live sessions and get started today. <a class="pw-link" href=<%= signup_path %>>Sign up</a></p>
         </div>
       </section>
 
       <!-- About section -->
       <section class="pw-home-about pw-home-about--bg2">
         <div class="container">
-          <h2 class="pw-home-about-title">Covid Update</h2>
-          <p class="pw-home-about-desc">This pandemic continues to impact our communities and has dramatically changed how we do business. Many have lost their jobs, were put on indefinite leave or are unable to perform services.</p>
-          <p class="pw-home-about-desc">Tell us what we can do! Powow is here to help!</p>
+          <header class="pw-home-about__header">
+            <h2 class="pw-home-about__title">Covid Update</h2>
+          </header>
+          <p class="pw-home-about__desc">This pandemic continues to impact our communities and has dramatically changed how we do business. Many have lost their jobs, were put on indefinite leave or are unable to perform services.</p>
+          <p class="pw-home-about__desc">Tell us what we can do! Powow is here to help!</p>
         </div>
       </section>
     
       <!-- Services section -->
-      <%= render "shared/services" %>
+      <section class="pw-home-about pw-home-about--bg3">
+        <div class="container">
+          <header class="pw-home-about__header">
+            <h2 class="pw-home-about__title">Services</h2>
+          </header>
+          <%= render "shared/services" %>
+        </div>
+      </section>
   </div>
 </section>
