@@ -7,8 +7,17 @@ class OauthService
       
     end
   
-    def create_oauth_account(role:)
+    def create_oauth_account(origin: origin)
       Rails.logger.info "Inside Service!"
+      Rails.logger.info("request.env['omniauth.origin'] #{origin}")
+      role = nil
+      if origin.include? "/login"
+        role = User.user_roles[:client]
+      elsif origin.include? "/pro"
+        role = User.user_roles[:pro]
+      end
+      Rails.logger.info("role #{role}")
+      
       Rails.logger.info(@auth_hash)
       #Rails.logger.info(oauth_account_params)
       Rails.logger.info oauth_account_params
@@ -20,7 +29,8 @@ class OauthService
         @user.update(linkedin_token:oauth_account_params[:token], linkedin_picture_url:oauth_account_params[:picture_url])
         @user.save!
       else
-        @user=User.create!(first_name:oauth_account_params[:first_name],last_name:oauth_account_params[:last_name],email:oauth_account_params[:email],linkedin_token:oauth_account_params[:token],role: role,password_digest:'1234', linkedin_picture_url:oauth_account_params[:picture_url])        
+        @user=User.create!(first_name:oauth_account_params[:first_name],last_name:oauth_account_params[:last_name],email:oauth_account_params[:email],
+          linkedin_token:oauth_account_params[:token],role: role,password_digest:'1234', linkedin_picture_url:oauth_account_params[:picture_url])        
       end
       @user
     end
