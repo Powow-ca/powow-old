@@ -8,11 +8,24 @@
 
 // Main Content - Generic page
 .pw-page {
-
-}
-.pw-page-header {
-    
-}
-.pw-page-content {
-    margin-top: 30px;
+    &__header {
+        text-align: center;
+        &--bg1 {
+            padding: 40px 0;
+            background-color: $themeMainColor;
+            //box-shadow: inset 0 0 10px #000000;
+            .pw-page__title {
+                color: #fff;
+            }
+        }
+    }
+    &__title {
+        @include fontSize(50px);
+    }
+    &__content {
+        margin-top: 50px;
+        &--no-margin {
+            margin-top: 0;
+        }
+    }
 }

@@ -1,17 +1,38 @@
-<section class="container register-div">
-    <div class="container text-center">
-      <h1 class="jumbotron-heading">Book a Powow</h1>
-      <hr class="my-4">
-      <p class="text-muted">Can't find what you are looking for? Leave us a note</p>
-       <%= form_tag(feedback_path, :method => "post") do %>  
-        <div class="input-group">  
-          <%= search_field_tag :feedback, params[:feedback], placeholder: "New Powwow Request", class: "form-control" %>  
-          <div class="input-group-btn">  
-            <%= button_tag "Contact", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>  
-          </div>  
-        </div>  
-      <% end %>
-    </div>
-  </section>
+<!-- Page Section -->
+<section class="pw-page">
 
-<%= render  "shared/services" %>
+  <!-- Page Section - Header -->
+  <header class="pw-page__header pw-page__header--bg1">
+    <div class="container">
+      <h1 class="pw-page__title">Powows</h1>
+    </div>
+  </header>
+
+  <!-- Page Section - Content -->
+  <div class="pw-page__content">
+
+    <!-- Services List -->
+    <div class="container">
+      <%= render  "shared/services" %>
+    </div>
+
+    <!-- Cant Find Section -->
+    <section class="pw-book-service">
+      <div class="container">
+        <header class="pw-book-service__header">
+          <h2 class="pw-book-service__title">Book a Powow</h2>
+        </header>
+        <p class="pw-book-service__desc">Can't find what you are looking for? Leave us a note</p>
+        <%= form_tag(feedback_path, :method => "post") do %>
+        <div class="input-group">
+          <%= search_field_tag :feedback, params[:feedback], placeholder: "New Powwow Request", class: "form-control" %>
+          <div class="input-group-btn">
+            <%= button_tag "Contact", :class => 'pw-btn pw-btn--default btn',:name => nil%>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </section>
+  </div>
+  </div>
+</section>

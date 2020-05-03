@@ -1,3 +1,6 @@
+///////////////////////
+// Services - Generic List
+//---
 .pw-services-list {
     @include resetList();
     &__item {
@@ -17,6 +20,29 @@
         margin-top: 10px;
     }
     &__card-desc {
+        font-weight: 300;
+        line-height: 25px;
+    }
+}
+
+
+///////////////////////
+// Services - Booking new service section
+//---
+.pw-book-service {
+    padding: 40px;
+    background-color: $themeRelatedBGColor;
+    &__header {
+
+    }
+    &__title {
         
+    }
+    &__content {
+
+    }
+    &__desc {
+        font-weight: 300;
+        line-height: 25px;
     }
 }

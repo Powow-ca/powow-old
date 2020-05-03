@@ -38,24 +38,27 @@
     display: table;
     float: right;
     margin: 0;
-    padding: 0 15px 0 20px;
+    padding: 0 15px 0 25px;
     font-style: italic;
     @include fontSize(15px);
     &:before {
         position: absolute;
         left: 0;
-        top: 4px;
+        top: 0px;
         @include fontSize(32px);
         line-height: 15px;
-        content: '"';
+        content: 'format_quote';
+        font-family: "Material Icons";
+        transform: rotate(180deg);
     }
     &:after {
         position: absolute;
-        right: 0;
-        bottom: 0px;
+        right: -10px;
+        bottom: -2px;
         @include fontSize(32px);
         line-height: 15px;
-        content: '"';
+        content: 'format_quote';
+        font-family: "Material Icons";
     }
     @media (max-width: 767px) {
         float: none;
