@@ -15,7 +15,7 @@
   </thead>
 
   <tbody>
-    <% @meetings.each do |meeting| %>
+    <% !@meetings.nil? && @meetings.each do |meeting| %>
       <tr>
         <td><%= meeting.professional.first_name %> <%= meeting.professional.last_name %></td>
         <td><%= meeting.name %></td>
