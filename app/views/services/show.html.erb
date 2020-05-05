@@ -1,37 +1,57 @@
-<div class="container register-div">
-  <div class="container text-center">
-    <h1 class="jumbotron-heading"><%= @service.category %> Services</h1>
-    <hr class="my-4">
-    <p class="lead text-muted">Find a professionals <%= @service.name %></p>
-  </div>
-<main role="professionals" class="container">
-<% if @service.professionals.count > 0 %>
- <div class="row text-center">
-    <% @service.professionals.each do |pro| %>
-      <div class="col">
-        <p class="font-small blue-text d-flex justify-content-end">
-        <div class="card" style="width:300px;">
-        <%= image_tag "#{@service.category}.png", class:"card-img-top" %>
-          <div class="card-body" style="text-align:center;">
-            <h4 class="card-title" ><%= pro.first_name %> <%= pro.last_name %></h4>
-            <p class="card-text"><%= pro.description%></p>
-            <%= link_to "Details", service_professional_path(id: pro.id, service_id: pro.service_id), class: 'btn btn-outline-primary' %>
+<!-- Page Section -->
+<section class="pw-page">
+
+  <!-- Page Section - Header -->
+  <header class="pw-page__header pw-page__header--bg1">
+    <div class="container">
+      <h1 class="pw-page__title"><%= @service.category %> Powows</h1>
+      <p class="pw-page__desc">Find professionals <%= @service.name %></p>
+    </div>
+  </header>
+
+  <!-- Page Section - Content -->
+  <div class="pw-page__content pw-page__content--no-margin">
+
+    <!-- Breadcrumb -->
+    <div class="pw-breadcrumb">
+      <div class="container">
+        <ul class="pw-breadcrumb__list">
+          <li class="pw-breadcrumb__list-item"><a href="/">Home</a></li>
+          <li class="pw-breadcrumb__list-item"><a href="/services">Powows</a></li>
+          <li class="pw-breadcrumb__list-item"><span><%= @service.category %></span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Professionals List  -->
+    <div class="container">
+
+                                <!-- TODO - remake stricture and classes -->
+
+      <% if @service.professionals.count > 0 %>
+      <div class="row text-center">
+        <% @service.professionals.each do |pro| %>
+        <div class="col">
+          <p class="font-small blue-text d-flex justify-content-end">
+          <div class="card" style="width:300px;">
+            <%= image_tag "#{@service.category}.png", class:"card-img-top" %>
+            <div class="card-body" style="text-align:center;">
+              <h4 class="card-title" ><%= pro.first_name %> <%= pro.last_name %></h4>
+              <p class="card-text"><%= pro.description%></p>
+              <%= link_to "Details", service_professional_path(id: pro.id, service_id: pro.service_id), class: 'btn btn-outline-primary' %>
+            </div>
           </div>
-            
+          <p class="font-small blue-text d-flex justify-content-end">
         </div>
-        <p class="font-small blue-text d-flex justify-content-end">
-        </div>
+        <% end %>
+      </div>
+      <%else %>
+      <div class="row text-center jumbotron">No professionals providing this service, yet!</div>
+      <%end%>
 
 
-      
-    <% end %>
-</div>
-<%else %>
-<div class="row text-center jumbotron">
-  No professionals providing this service, yet!
-</div>
-<%end%>
-<br />
-<%= link_to "All Services", services_path, class: 'pw-btn pw-btn--default btn' %>
-</main>
-</div>
+      <%= link_to "All Powows", services_path, class: 'pw-btn pw-btn--default btn' %>
+    </div>
+
+  </div>
+</section>

@@ -9,6 +9,10 @@
 // Main Content - Generic page
 .pw-page {
     &__header {
+        display: flex;
+        align-items: center;
+        min-height: 200px;
+        justify-content: center;
         text-align: center;
         &--bg1 {
             padding: 40px 0;

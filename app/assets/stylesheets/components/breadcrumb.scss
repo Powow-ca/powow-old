@@ -1,0 +1,26 @@
+///////////////////////
+// Breadcrumb
+//---
+.pw-breadcrumb {
+    display: table;
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 40px;
+    &__list {
+        @include resetList();
+    }
+    &__list-item {
+        float: left;
+        > a {
+
+        }
+        & + * {
+            &:before {
+                display: inline-block;
+                content: ">";
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+        }
+    }
+}
