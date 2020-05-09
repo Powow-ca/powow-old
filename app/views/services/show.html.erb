@@ -28,12 +28,12 @@
       <% if @service.professionals.count > 0 %>
       <ul class="pw-professionals-list row">
         <% @service.professionals.each do |pro| %>
-        <li class="pw-professionals-list__item col-sm-6 col-lg-4">
+        <li class="pw-professionals-list__item col-sm-12 col-lg-6">
           <div class="pw-professionals-list__card">
             <div class="row">
               <div class="col-sm-4">
-                <div class="pw-img-wrap">
-                  <img class="pw-professionals-list__card-img pw-img" src="<%= asset_path "#{@service.category}.png" %>" alt="<%= @service.category%>">
+                <div class="pw-img-wrap pw-img-wrap--professional">
+                  <img class="pw-professionals-list__card-img pw-img pw-img--res" src="<%= asset_path "#{@service.category}.png" %>" alt="<%= @service.category%>">
                 </div>
               </div>
               <div class="col-sm-8">
@@ -45,7 +45,7 @@
           </div>
         </li>
         <% end %>
-      </div>
+      </ul>
       <%else %>
       <div class="text-center jumbotron">No professionals providing this service, yet!</div>
       <%end%>

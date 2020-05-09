@@ -1,6 +1,14 @@
 .pw-img {
-
+    &--res {
+        width: 100%;
+        height: auto;
+    }
 }
 .pw-img-wrap {
-    @include forceAspectRatio(300px, 150px);
+    &--service {
+        @include forceAspectRatio(300px, 150px);
+    }
+    &--professional {
+        @include forceAspectRatio(200px, 300px);
+    }
 }

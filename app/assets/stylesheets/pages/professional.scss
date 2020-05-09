@@ -1,3 +1,33 @@
+///////////////////////
+// Services - Generic List
+//---
+.pw-professionals-list {
+    @include resetList();
+    .pw-img-wrap {
+        background-color: #ccc;
+    }
+    &__item {
+        margin-bottom: 30px;
+    }
+    &__card {
+
+    }
+    &__card-link {
+
+    }
+    &__card-img {
+        
+    }
+    &__card-title {
+
+    }
+    &__card-desc {
+        font-weight: 300;
+        line-height: 25px;
+    }
+}
+
+
 // Place all the styles related to the Professional controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/

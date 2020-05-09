@@ -4,8 +4,8 @@
     <li class="pw-services-list__item col-sm-6 col-lg-4">
       <div class="pw-services-list__card">
         <a class="pw-services-list__card-link" href=<%=service_path(fs)%>>
-          <div class="pw-img-wrap">
-            <img class="pw-services-list__card-img pw-img" src="<%= asset_path "#{category[0]}.png" %>" alt="<%= fs.category%>">
+          <div class="pw-img-wrap pw-img-wrap--service">
+            <img class="pw-services-list__card-img pw-img pw-img--res" src="<%= asset_path "#{category[0]}.png" %>" alt="<%= fs.category%>">
           </div>
           <h3 class="pw-services-list__card-title"><%= fs.category%></h3>
         </a>
