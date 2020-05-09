@@ -25,28 +25,29 @@
 
     <!-- Professionals List  -->
     <div class="container">
-
-                                <!-- TODO - remake stricture and classes -->
-
       <% if @service.professionals.count > 0 %>
-      <div class="row text-center">
+      <ul class="pw-professionals-list row">
         <% @service.professionals.each do |pro| %>
-        <div class="col">
-          <p class="font-small blue-text d-flex justify-content-end">
-          <div class="card" style="width:300px;">
-            <%= image_tag "#{@service.category}.png", class:"card-img-top" %>
-            <div class="card-body" style="text-align:center;">
-              <h4 class="card-title" ><%= pro.first_name %> <%= pro.last_name %></h4>
-              <p class="card-text"><%= pro.description%></p>
-              <%= link_to "Details", service_professional_path(id: pro.id, service_id: pro.service_id), class: 'btn btn-outline-primary' %>
+        <li class="pw-professionals-list__item col-sm-6 col-lg-4">
+          <div class="pw-professionals-list__card">
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="pw-img-wrap">
+                  <img class="pw-professionals-list__card-img pw-img" src="<%= asset_path "#{@service.category}.png" %>" alt="<%= @service.category%>">
+                </div>
+              </div>
+              <div class="col-sm-8">
+                <h2 class="pw-professionals-list__card-title" ><%= pro.first_name %> <%= pro.last_name %></h2>
+                <p class="pw-professionals-list__card-desc"><%= pro.description%></p>
+                <%= link_to "Details", service_professional_path(id: pro.id, service_id: pro.service_id), class: 'btn btn-outline-primary' %>
+              </div>
             </div>
           </div>
-          <p class="font-small blue-text d-flex justify-content-end">
-        </div>
+        </li>
         <% end %>
       </div>
       <%else %>
-      <div class="row text-center jumbotron">No professionals providing this service, yet!</div>
+      <div class="text-center jumbotron">No professionals providing this service, yet!</div>
       <%end%>
 
 
