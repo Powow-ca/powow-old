@@ -73,7 +73,7 @@
                 <!-- Search form -->
                 <%= form_tag(services_path, :method => "get", class: 'pw-main-search') do %>
                 <div class="input-group">
-                  <%= text_field_tag :search, params[:search], placeholder: "search a session", class: "pw-main-search-input" %>
+                  <%= text_field_tag :search, params[:search], placeholder: "Find a mentor", class: "pw-main-search-input" %>
                   <div class="input-group-btn">
                     <%= button_tag "search", :class => 'pw-btn pw-btn--search btn material-icons',:name => nil%>
                   </div>
@@ -119,7 +119,7 @@
             <%else%>
             <ul class="pw-user-menu navbar-nav">
               <li class="pw-user-menu-item">
-                <%= link_to "Become a Pro", "pro", class: "pw-btn pw-btn--default btn" %>
+                <%= link_to "Become a Mentor", "pro", class: "pw-btn pw-btn--default btn" %>
               </li>
               <li class="pw-user-menu-item">
                 <%= link_to "Log In", login_path, class: "pw-btn pw-btn--auth btn" %>

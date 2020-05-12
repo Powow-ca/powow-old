@@ -3,13 +3,31 @@
 
   <!-- Page Section - Header -->
   <header class="pw-page__header pw-home-header">
-    <h1 class="pw-page__title">
-      <%= image_tag "logo_transparent.png", class:"pw-home-header-logo", alt:"Powow" %>
-      <span class="pw-sr-only">Powow</span>
-    </h1>
-    <%# <p class="h3 text-center tagline text-white">Live digital services in your homes</p> %>
+    <%# <h1 class="pw-page__title"> %>
+    <%# <%= image_tag "logo_transparent.png", class:"pw-home-header-logo", alt:"Powow" %>
+    <%# <span class="pw-sr-only">Powow</span> %>
+    <%# </h1> %>
+    <div class=row>
+      <p class="h2 text-center tagline text-white col-9">Find mentors and level up your skills</p>
+      <p class="text-center tagline text-white col-9">Pay per powow and effectively achieve fluency </p>
+      <div class="col-6">
+        <!-- Search form -->
+        <%= form_tag(services_path, :method => "get", class: 'pw-main-search') do %>
+        <div class="input-group">
+          <%= text_field_tag :search, params[:search], placeholder: "What do you want a mentor for?", class: "pw-main-search-input" %>
+          <div class="input-group-btn">
+            <%= button_tag "search", :class => 'pw-btn pw-btn--search btn material-icons',:name => nil%>
+          </div>
+        </div>
+        <% end %>
+
+      </div>
+
+      <p class="text-center tagline text-white col-12 ">Powow - a conference or meeting for discussion (italics and small but readable, better placement)</p>
+    </div>
+
   </header>
-  
+
   <!-- Page Section - Content -->
   <div class="pw-page__content pw-page__content--no-margin">
 
@@ -17,33 +35,15 @@
     <section class="pw-home-about pw-home-about--bg1">
       <div class="container">
         <header class="pw-home-about__header">
-          <h2 class="pw-home-about__title">Why?</h2>
+          <h2 class="pw-home-about__title">Why do you need a mentor? (this should be with illustration and how dumpling.us has it)</h2>
         </header>
-        <p class="pw-home-about__desc">Powow is reimagining the way customers access services! A digital first, on-demand video streaming platform with a community of creators and professionals offering digital products.</p>
+        <p class="pw-home-about__desc">Achieve personal or professional career gains</p>
+        <p class="pw-home-about__desc">Gain new perspectives and fresh ideas</p>
+        <p class="pw-home-about__desc">Challenge yourself and accomplish more</p>
+        <p class="pw-home-about__desc">Develop strategies and evaluate opportunities</p>
       </div>
     </section>
 
-    <!-- About section -->
-    <section class="pw-home-about">
-      <div class="container">
-        <header class="pw-home-about__header">
-          <h2 class="pw-home-about__title">Customers</h2>
-        </header>
-        <p class="pw-home-about__desc">Interested in learning something new, discovering an activities or digging deeper into a topic? Search for live sessions and get started today. <a class="pw-link" href=<%= signup_path %>>Sign up</a></p>
-      </div>
-    </section>
-
-    <!-- About section -->
-    <section class="pw-home-about pw-home-about--bg2">
-      <div class="container">
-        <header class="pw-home-about__header">
-          <h2 class="pw-home-about__title">Covid Update</h2>
-        </header>
-        <p class="pw-home-about__desc">This pandemic continues to impact our communities and has dramatically changed how we do business. Many have lost their jobs, were put on indefinite leave or are unable to perform services.</p>
-        <p class="pw-home-about__desc">Tell us what we can do! Powow is here to help!</p>
-      </div>
-    </section>
-  
     <!-- Services section -->
     <section class="pw-home-about pw-home-about--bg3">
       <div class="container">
