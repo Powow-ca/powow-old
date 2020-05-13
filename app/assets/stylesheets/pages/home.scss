@@ -2,10 +2,12 @@
 // Home - Header
 //---
 .pw-home-header {
-  padding-bottom: 1em;
-  padding-top: 1em;
-  background-size: 100% 100%;
-  background-image: url(asset-path('background.jpg'));
+  height: 70vh;
+  min-height: 420px;
+  //background-size: 100% 100%;
+  //background-image: url(asset-path('background.jpg'));
+  background: #eee url(asset-path('pw-home-header-bg.jpeg')) center center;
+  background-size:cover
 }
 .pw-home-header-logo {
   display: block;
@@ -13,6 +15,39 @@
   max-height: 470px;
   @media (max-width: 575px) {
     max-height: 350px;
+  }
+}
+.pw-home-highlight {
+  padding: 30px 40px;
+  margin-left: -40px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 5px;
+  float: left;
+  text-align: left;
+  &__title {
+    @include fontSize(35px);
+    font-weight: 500;
+  }
+  &__title-hl {
+    @include fontSize(40px);
+  }
+  &__desc {
+    margin: 0;
+    > strong {
+      color: $themeMainColor;
+    }
+  }
+  &__caption {
+    margin: 20px 0 0;
+    font-style: italic;
+    @include fontSize(13px);
+    color: #4d4d4d;
+    font-weight: 300;
+  }
+  .pw-main-search {
+    margin-top: 20px;
+    width: 312px;
+    background-color: #fff;
   }
 }
 
@@ -27,7 +62,7 @@
     
   }
   &__title {
-    text-transform: uppercase;
+    text-align: center;
   }
   &__desc {
     @include fontSize(18px);

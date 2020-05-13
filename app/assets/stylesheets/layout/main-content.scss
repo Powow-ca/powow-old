@@ -2,20 +2,21 @@
 // Main Content
 //---
 .pw-main {
-    margin-top: 70px;
+    //margin-top: 70px;
     flex: 1 0 auto;
 }
 
 // Main Content - Generic page
 .pw-page {
     &__header {
+        padding-top: 70px;
         display: flex;
         align-items: center;
         min-height: 200px;
         justify-content: center;
         text-align: center;
         &--bg1 {
-            padding: 40px 0;
+            padding: 110px 0 40px 0;
             background-color: $themeMainColor;
             //box-shadow: inset 0 0 10px #000000;
             .pw-page__title {

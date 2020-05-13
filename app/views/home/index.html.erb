@@ -7,10 +7,11 @@
     <%# <%= image_tag "logo_transparent.png", class:"pw-home-header-logo", alt:"Powow" %>
     <%# <span class="pw-sr-only">Powow</span> %>
     <%# </h1> %>
-    <div class=row>
-      <p class="h2 text-center tagline text-white col-9">Find mentors and level up your skills</p>
-      <p class="text-center tagline text-white col-9">Pay per powow and effectively achieve fluency </p>
-      <div class="col-6">
+    <div class="container">
+      <div class="pw-home-highlight">
+        <h1 class="pw-home-highlight__title"><span class="pw-home-highlight__title-hl">Find mentors</span> <br>and level up your skills</h1>
+        <p class="pw-home-highlight__desc">Pay per <strong>powow</strong> and effectively achieve fluency</p>
+        
         <!-- Search form -->
         <%= form_tag(services_path, :method => "get", class: 'pw-main-search') do %>
         <div class="input-group">
@@ -21,11 +22,9 @@
         </div>
         <% end %>
 
+        <p class="pw-home-highlight__caption"><strong>Powow</strong> - a conference or meeting for discussion</p>
       </div>
-
-      <p class="text-center tagline text-white col-12 ">Powow - a conference or meeting for discussion (italics and small but readable, better placement)</p>
     </div>
-
   </header>
 
   <!-- Page Section - Content -->
