@@ -21,6 +21,7 @@ class OauthService
       Rails.logger.info(@auth_hash)
       #Rails.logger.info(oauth_account_params)
       Rails.logger.info oauth_account_params
+      
 
       oauth_account = oauth_account_params
       @user=User.find_by(email:oauth_account_params[:email], role: role)
@@ -44,7 +45,7 @@ class OauthService
         email: @auth_hash[:info][:email],
         first_name:@auth_hash[:info][:first_name],              
         last_name:@auth_hash[:info][:last_name],
-        picture_url:@auth_hash[:info][:picture_url],
+        picture_url:@auth_hash[:info][:picture_url]? @auth_hash[:info][:picture_url]: @auth_hash[:info][:image],
         raw_data: @auth_hash[:extra][:raw_info].to_json }
     end
   
