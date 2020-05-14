@@ -17,12 +17,8 @@
     list-style: none;
 }
 @mixin sprite($pos1:0, $pos2:0) {
-    background: transparent url(/assets/img/tk-sprite.svg) no-repeat scroll $pos1 $pos2;
-    background-size: 259px 268px;
-}
-@mixin spriteIcons($pos1:0, $pos2:0) {
-    background: transparent url(/assets/img/tk-sprite-icons.svg) no-repeat scroll $pos1 $pos2;
-    background-size: 404.52px 1100px;
+    background: transparent url(asset-path('pw-sprite.svg')) no-repeat scroll $pos1 $pos2;
+    background-size: 600px 600px;
 }
 @mixin spriteWithHGradient($pos1:0, $pos2:0) {
     position: relative;

@@ -31,23 +31,33 @@
   <div class="pw-page__content pw-page__content--no-margin">
 
     <!-- About section -->
-    <section class="pw-home-about pw-home-about--bg1">
+    <section class="pw-generic-section">
       <div class="container">
-        <header class="pw-home-about__header">
-          <h2 class="pw-home-about__title">Why do you need a mentor? (this should be with illustration and how dumpling.us has it)</h2>
+        <header class="pw-generic-section__header">
+          <h2 class="pw-generic-section__title">Why do you need a mentor?</h2>
         </header>
-        <p class="pw-home-about__desc">Achieve personal or professional career gains</p>
-        <p class="pw-home-about__desc">Gain new perspectives and fresh ideas</p>
-        <p class="pw-home-about__desc">Challenge yourself and accomplish more</p>
-        <p class="pw-home-about__desc">Develop strategies and evaluate opportunities</p>
+        <ul class="pw-home-why row">
+          <li class="pw-home-why__item pw-home-why__item--gains col-sm-6 col-md-3">
+            <span class="pw-home-why__item-desc">Achieve personal or professional career gains</span>
+          </li>
+          <li class="pw-home-why__item pw-home-why__item--ideas col-sm-6 col-md-3">
+            <span class="pw-home-why__item-desc">Gain new perspectives and fresh ideas</span>
+          </li>
+          <li class="pw-home-why__item pw-home-why__item--acomplish col-sm-6 col-md-3">
+            <span class="pw-home-why__item-desc">Challenge yourself and accomplish more</span>
+          </li>
+          <li class="pw-home-why__item pw-home-why__item--strategies col-sm-6 col-md-3">
+            <span class="pw-home-why__item-desc">Develop strategies and evaluate opportunities</span>
+          </li>
+        </ul>
       </div>
     </section>
 
     <!-- Services section -->
-    <section class="pw-home-about pw-home-about--bg3">
+    <section class="pw-generic-section pw-generic-section--bg3">
       <div class="container">
-        <header class="pw-home-about__header mb-4">
-          <h2 class="pw-home-about__title">Services</h2>
+        <header class="pw-generic-section__header">
+          <h2 class="pw-generic-section__title">Services</h2>
         </header>
         <%= render "shared/services" %>
       </div>

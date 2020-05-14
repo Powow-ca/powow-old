@@ -53,35 +53,45 @@
 
 
 ///////////////////////
-// Home - About section
+// Home - why mentor
 //---
-.pw-home-about {
-  background-color: #fff;
-  padding: 60px 0;
-  &__header {
-    
-  }
-  &__title {
-    text-align: center;
-  }
-  &__desc {
-    @include fontSize(18px);
-    font-weight: 300;
-    line-height: 25px;
-    &:last-child {
-      margin-bottom: 0;
+.pw-home-why {
+  @include resetList;
+  &__item {
+    &:before {
+      display: block;
+      margin: 0 auto;
+      content: "";
+      width: 120px;
+      height: 120px;
+    }
+    &--gains {
+      &:before {
+        @include sprite(0, 0);
+      }
+    }
+    &--ideas {
+      &:before {
+        @include sprite(-120px, 0);
+      }
+    }
+    &--acomplish {
+      &:before {
+        @include sprite(-240px, 0);
+      }
+    }
+    &--strategies {
+      &:before {
+        @include sprite(-360px, 0);
+      }
+    }
+    @media (max-width: 767px) {
+      margin-bottom: 40px;
     }
   }
-  &--bg1 {
-    background-image: linear-gradient(to bottom, #ffffff 33%, #f7f7f7);
-  }
-  &--bg2 {
-    background-image: linear-gradient(to bottom, #f7f7f7, #ffffff 36%);
-  }
-  &--bg3 {
-      background-color: #f7f7f7;
-  }
-  @media (max-width: 767px) {
-    padding: 40px 0;
+  &__item-desc {
+    display: block;
+    color: #666666;
+    text-align: center;
   }
 }

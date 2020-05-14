@@ -34,3 +34,49 @@
         }
     }
 }
+
+
+// Generic section
+//------------------------
+.pw-generic-section {
+    background-color: #fff;
+    padding: 60px 0;
+    &__header {
+      margin-bottom: 40px;
+    }
+    &__title {
+        position: relative;
+        display: table;
+        margin: 0 auto;
+        text-align: center;
+        &:after {
+            position: absolute;
+            bottom: -6px;
+            content: "";
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: $themeMainColor;
+        }
+    }
+    &__desc {
+      @include fontSize(18px);
+      font-weight: 300;
+      line-height: 25px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    &--bg1 {
+      background-image: linear-gradient(to bottom, #ffffff 33%, #f7f7f7);
+    }
+    &--bg2 {
+      background-image: linear-gradient(to bottom, #f7f7f7, #ffffff 36%);
+    }
+    &--bg3 {
+        background-color: #f7f7f7;
+    }
+    @media (max-width: 767px) {
+      padding: 40px 0;
+    }
+  }
