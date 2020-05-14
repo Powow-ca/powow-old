@@ -43,15 +43,14 @@
           <!--Header-->
           <div class="modal-header text-center">
             <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>Sign in</strong></h3>
-
           </div>
-          <!--Body-->
 
           <div class="modal-body mx-4">
             <!--Body-->
             <div class="text-center social-btn">
               <a href="/auth/linkedin" class="btn btn-primary btn-block"><i class="fa fa-linkedin"></i> Continue with <b>LinkedIn</b></a>
-              <a href="#" class="btn btn-danger btn-block"><i class="fa fa-google"></i> Continue with <b>Google</b></a>
+              <a href="/auth/facebook" class="btn btn-primary btn-block"><i class="fa fa-facebook"></i> Sign in with <b>Facebook</b></a>
+              <a href="/auth/google_oauth2" class="btn btn-danger btn-block"><i class="fa fa-google"></i> Continue with <b>Google</b></a>
             </div>
             <div class="or-seperator"><i>or</i></div>
             <%= form_tag sessions_path do |form| %>
@@ -80,7 +79,6 @@
                 Sign Up</a></p>
           </div>
         </div>
-        <!--/.Content-->
       </div>
       <% end %>
 
