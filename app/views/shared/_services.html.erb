@@ -7,9 +7,11 @@
           <div class="pw-img-wrap pw-img-wrap--service">
             <img class="pw-services-list__card-img pw-img pw-img--res" src="<%= asset_path "#{category[0]}.png" %>" alt="<%= fs.category%>">
           </div>
-          <h3 class="pw-services-list__card-title"><%= fs.category%></h3>
+          <div class="pw-services-list__card-info">
+            <h3 class="pw-services-list__card-title"><%= fs.category%></h3>
+            <p class="pw-services-list__card-desc">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
         </a>
-        <p class="pw-services-list__card-desc">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     </li>
     <% end %>
   <% end %>

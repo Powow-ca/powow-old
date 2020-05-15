@@ -6,7 +6,7 @@
 }
 .pw-img-wrap {
     &--service {
-        @include forceAspectRatio(300px, 150px);
+        @include forceAspectRatio(300px, 200px);
     }
     &--professional {
         @include forceAspectRatio(200px, 300px);

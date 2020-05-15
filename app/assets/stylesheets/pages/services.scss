@@ -7,19 +7,60 @@
         margin-bottom: 30px;
     }
     &__card {
-
-    }
-    &__card-link {
-
+        overflow: hidden;
+        position: relative;
+        border-radius: 5px;
+        background-color: #fff;
+        .pw-img-wrap {
+            border-radius: 5px;
+        }
     }
     &__card-img {
+        transition: .3s ease-in-out;
+    }
+    &__card-info {
+        padding: 20px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 70%;
+        background-color: rgba(255, 255, 255, 0.5);
+        transition: .3s ease-in-out;
+        @media (max-width: 1200px) {
+            top: 67%;
+        }
+        @media (max-width: 991px) {
+            position: static;
+        }
     }
     &__card-title {
-        margin-top: 10px;
+        color: $baseTextColor;
     }
     &__card-desc {
-        font-weight: 300;
+        margin: 20px 0 0;
+        padding: 0;
         line-height: 25px;
+        color: $baseTextColor;
+    }
+    &__card-link {
+        &:hover {
+            text-decoration: none;
+            .pw-services-list__card-info {
+                top: 0;
+                background-color: rgba(255, 255, 255, 0.8);
+            }
+            .pw-services-list__card-title {
+                text-decoration: none;
+            }
+            .pw-services-list__card-desc {
+                text-decoration: none;
+            }
+            .pw-services-list__card-img {
+                width: 104%;
+                margin-left: -2%;
+            }
+        }
     }
 }
 
