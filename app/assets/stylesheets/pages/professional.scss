@@ -1,5 +1,5 @@
 ///////////////////////
-// Services - Generic List
+// Professionals - Generic List
 //---
 .pw-professionals-list {
     @include resetList();
@@ -27,27 +27,75 @@
     }
 }
 
-
-// Place all the styles related to the Professional controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
-.div-padding{
-    padding-top:10%;
-}
-.card-header {
-    font-size: larger;
-    font-weight: 500;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color: rgb(185, 195, 238);
-}
-
-.card-footer {
-    font-size: larger;
-    font-style: italic;
-    background-color: rgb(185, 195, 238);
-}
-
-a.btn:hover {
-color: white;
-background-color: rgb(185, 195, 238);
+///////////////////////
+// Professionals - Advantages
+//---
+.pw-pro-advantages {
+    &__item {
+        display: flex;
+        align-items: center;
+        &:before {
+            display: block;
+            content: "";
+            width: 120px;
+            height: 120px;
+            flex-shrink: 0;
+        }
+        &--prices {
+            &:before {
+                @include sprite(0, -120px);
+            }
+        }
+        &--schedule {
+            &:before {
+                @include sprite(-120px, -120px);
+            }
+        }
+        &--dashboard {
+            &:before {
+                @include sprite(-240px, -120px);
+            }
+        }
+        &--secure {
+            &:before {
+                @include sprite(-360px, -120px);
+            }
+        }
+        &--deposit {
+            &:before {
+                @include sprite(0, -240px);
+            }
+        }
+        &--subscribe {
+            &:before {
+                @include sprite(-120px, -240px);
+            }
+        }
+        &:nth-child(even) {
+            flex-direction: row-reverse;
+            &:before {
+                
+            }
+            .pw-pro-advantages__item-desc {
+                text-align: right;
+                padding-right: 20px;
+                padding-left: 0;
+            }
+        }
+        & + * {
+            margin-top: 40px;
+        }
+    }
+    &__item-desc {
+        @include fontSize(22px);
+        margin: 0;
+        font-weight: 300;
+        padding-left: 20px;
+        @media (max-width: 575px) {
+            @include fontSize(16px);
+            font-weight: normal;
+            display: block;
+            color: #666666;
+        }
+    }
 }
