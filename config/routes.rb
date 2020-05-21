@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :rooms
   resources :meetings
   resources :users
   resources :sessions, only: %i[new create destory]
@@ -23,6 +24,8 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'oauth#callback', as: 'oauth_callback'
   get '/auth/failure', to: 'oauth#failure', as: 'oauth_failure'
 
+  resources :room_messages
+  resources :rooms
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :services do
     resources :professionals

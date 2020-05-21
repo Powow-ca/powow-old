@@ -1,0 +1,9 @@
+<%= form_with(model: @room, local: true) do |form| %>
+<div class="md-form mb-5">
+  <%= form.label :name %>
+  <%= form.text_field :name, class:'form-control validate'%>
+
+
+</div>
+<%= form.submit "Save", class: 'btn btn-success' %>
+<% end %>

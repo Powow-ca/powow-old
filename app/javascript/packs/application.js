@@ -6,7 +6,13 @@
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
+require("jquery")
 require("channels")
+require("channels/room_channel")
+require("channels/messages_channel")
+require("channels/cable");
+require("custom/test")
+
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -16,3 +22,8 @@ require("channels")
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 import 'bootstrap'
+//= require jquery
+//= require cable
+$(document).on("turbolinks:load", function () {
+  alert("We made it!");
+});
