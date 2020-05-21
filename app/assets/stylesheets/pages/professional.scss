@@ -1,4 +1,16 @@
 ///////////////////////
+// Home - Header
+//---
+.pw-professional-header {
+    min-height: 300px;
+    text-align: left;
+    &__picture {
+        border-radius: 5px;
+    }
+}
+
+
+///////////////////////
 // Professionals - Generic List
 //---
 .pw-professionals-list {
@@ -97,5 +109,23 @@
             display: block;
             color: #666666;
         }
+    }
+}
+
+.pw-professional-metrics {
+    @include resetList();
+    &__item {
+        color: #fff;
+        &:nth-child(n+3) {
+            margin-top: 10px;
+        }
+    }
+    &__lbl {
+        display: block;
+        font-weight: 500;
+    }
+    &__val {
+        display: block;
+        font-weight: 300;
     }
 }

@@ -24,4 +24,11 @@
             color: #fff;
         }
     }
+    &--light {
+        background-color: #fff;
+        color: $btnDefaultBGColor;
+        &:hover {
+            background-color: #eee;
+        }
+    }
 }

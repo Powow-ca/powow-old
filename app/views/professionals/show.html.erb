@@ -1,15 +1,162 @@
-<!-- Page Content -->
+<% if  @professional.nil?%>
+<div> Unauthorized </div>
+<%else%>
+
+<!-- Page Section -->
+<section class="pw-page">
+
+  <!-- Page Section - Header -->
+  <header class="pw-page__header pw-page__header--bg2 pw-professional-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-2">
+          <img class="pw-professional-header__picture pw-img pw-img--res" src="<%= @professional.user.linkedin_picture_url%>" alt="Profile picture">
+        </div>
+        <div class="col-sm-7">
+          <h1 class="pw-page__title"><%= @professional.first_name %> <%= @professional.last_name %></h1>
+
+          <% if current_user &&  current_user.role !='pro'%>
+          <a class="btn pw-btn pw-btn--light" href="/meetings/new?pro=<%= @professional.id%>">Book a meeting</a>
+          <%else%>
+          <a class="btn pw-btn pw-btn--light" href="/meetings/new?pro=<%= @professional.id%>" onclick="return false;">Book a meeting</a>
+          <%end%>
+          <% if current_user && current_user.id == @professional.user_id  && current_user.role =='pro'%>
+          <a class="btn pw-btn pw-btn--light" href="<%=edit_service_professional_path(service_id: current_user.professionals.first.service_id, id: current_user.professionals.first.id) %>">Edit Profile</a>
+          <%end%>
+        </div>
+        <div class="col-sm-3">
+          <ul class="pw-professional-metrics row">
+            <li class="pw-professional-metrics__item col-6">
+              <span class="pw-professional-metrics__lbl">Reputation</span>
+              <span class="pw-professional-metrics__val">000</span>
+            </li>
+            <li class="pw-professional-metrics__item col-6">
+              <span class="pw-professional-metrics__lbl">Given classes</span>
+              <span class="pw-professional-metrics__val">21</span>
+            </li>
+            <li class="pw-professional-metrics__item col-6">
+              <span class="pw-professional-metrics__lbl">Students</span>
+              <span class="pw-professional-metrics__val">342</span>
+            </li>
+            <li class="pw-professional-metrics__item col-6">
+              <span class="pw-professional-metrics__lbl">Powows</span>
+              <span class="pw-professional-metrics__val">Consulting, Coaching</span>
+            </li>
+          </p>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Section - Content -->
+  <div class="pw-page__content pw-page__content--no-margin">
+
+    <!-- Breadcrumb -->
+    <div class="pw-breadcrumb">
+      <div class="container">
+        <ul class="pw-breadcrumb__list">
+          <li class="pw-breadcrumb__list-item"><a href="/">Home</a></li>
+          <li class="pw-breadcrumb__list-item"><a href="/services">Powows</a></li>
+          <li class="pw-breadcrumb__list-item"><span><%= @professional.first_name %> <%= @professional.last_name %></span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Services List -->
+    <div class="container">
+
+      <% if current_user && current_user.id == @professional.user_id &&  current_user.role =='pro'%>
+      <div class="row">
+        <div class="col-4">
+          <a class="card-text btn btn-outline-primary" href="https://connect.stripe.com/express/oauth/authorize?client_id=<%= @client_id %>&state=<%= @stripe_state %>&suggested_capabilities[]=transfers&stripe_user[email]=<%= current_user.email %>">Connect to stripe</a>
+        </div>
+
+        <!-- Call to Action Well -->
+        <div class="col-4">
+          <%= link_to "Add Products", new_product_path(:pro => @professional) , class: "card-text btn btn-outline-primary"%>
+        </div>
+      </div>
+      <%end%>
+
+      <section class="pw-professional-section">
+        <header class="pw-professional-section__header">
+          <h2 class="pw-professional-section__title">My Powows</h2>
+        </header>
+
+        <div class="pw-professional-section__content">
+          
+          <!-- Services - without services -->
+          <% if @products.count < 1 %>
+          <div class="col-6 album py-5 bg-white">
+            <div class="card text-center  pro-card">
+              <div class="card-header">
+                Sample Product - After School Activities
+              </div>
+              <div class="card-body">
+                <h5 class="card-title card-text">Keeps your kids learning after school </h5>
+                <p class="card-text">Key takeaways:</p>
+                <p class="card-text">Provide entertainment or keep them occupied</p>
+                <p class="card-text">Help answer questions in your area of expertise</p>
+                <p class="card-text">Help your customers acquire a new skill </p>
+                <a class="btn btn-outline" href="" onclick="return false;">Buy for $20.00 </a>
+              </div>
+              <div class="card-footer ">
+                <p class="card-text">Your target audience - Parents looking to keep their kids occupied</p>
+              </div>
+            </div>
+          </div>
+          <%end%>
+
+          <ul class="pw-professional-services">
+            <% @products.each do |product| %>
+            <li class="pw-professional-services__item col-6 album py-5 bg-white">
+              <div class="card text-center  pro-card">
+                <div class="card-header">
+                  <%= product.name %>
+                </div>
+                <div class="card-body ">
+                  <h5 class="card-title"><%= product.summary%></h5>
+                  <p class="card-text"><%= product.description %></p>
+                  <% if current_user && @professional.stripe_user_id%>
+                  <%= link_to "Buy for #{ product.price  }", stripe_connect_path( :product => product) , class:"btn btn-primary"%>
+                  <% else %>
+                  <a class="btn btn-outline" href="" onclick="return false;">Buy for <%=product.price%> </a>
+                  <%end%>
+                </div>
+                <div class="card-footer text-muted">
+                  <p class="card-text"><%= product.target_audience%></p>
+                </div>
+              </div>
+            </li>
+            <%end%>
+          </ul>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</section>
+<%end%>
+
+
+
+
+
+
+
+
+<!-- Page Content --
 
 <div class="container">
   <% if  @professional.nil?%>
   <div> Unauthorized </div>
   <%else%>
-  <!-- Heading Row -->
+  <!-- Heading Row --
   <div class="row align-items-center my-5">
     <div class="col-lg-4">
       <img class="img-fluid rounded mb-4 mb-lg-0" src="<%= @professional.user.linkedin_picture_url%>" alt="">
     </div>
-    <!-- /.col-lg-8 -->
+    <!-- /.col-lg-8 --
     <div class="col-lg-8">
       <h1 class="font-weight-light"><%= @professional.first_name %> <%= @professional.last_name %></h1>
       <p class="font-small blue-text d-flex justify-content-end"> </p>
@@ -23,20 +170,22 @@
       <%end%>
     </div>
 
-    <!-- /.col-md-4 -->
+    <!-- /.col-md-4 --
   </div>
   <% if current_user && current_user.id == @professional.user_id &&  current_user.role =='pro'%>
   <div class="row">
     <div class="col-4">
       <a class="card-text btn btn-outline-primary" href="https://connect.stripe.com/express/oauth/authorize?client_id=<%= @client_id %>&state=<%= @stripe_state %>&suggested_capabilities[]=transfers&stripe_user[email]=<%= current_user.email %>">Connect to stripe</a>
     </div>
-    <!-- Call to Action Well -->
+    <!-- Call to Action Well --
     <div class="col-4">
       <%= link_to "Add Products", new_product_path(:pro => @professional) , class: "card-text btn btn-outline-primary"%>
     </div>
   </div>
   <%end%>
-  <!-- /.row -->
+
+  
+  <!-- /.row --
   <div class="row">
     <% if @products.count < 1 %>
     <div class="col-6 album py-5 bg-white">
@@ -83,7 +232,7 @@
     <%end%>
   </div>
 
-  <!-- /.row -->
+  <!-- /.row --
   <%end%>
 </div>
 <!-- /.container -->
