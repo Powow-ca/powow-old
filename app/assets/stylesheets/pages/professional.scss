@@ -5,7 +5,16 @@
     min-height: 300px;
     text-align: left;
     &__picture {
-        border-radius: 5px;
+        border-radius: 50%;
+    }
+    &__side-info {
+        border-left: 1px solid #ccc;
+    }
+    &__jobtitle {
+        margin-top: 10px;
+    }
+    &__actions {
+        margin-top: 20px;
     }
 }
 
@@ -112,20 +121,64 @@
     }
 }
 
+
+///////////////////////
+// Professionals - Reputation
+//---
+.pw-professional-reputation {
+    position: relative;
+    padding-left: 40px;
+    &:before {
+        position: absolute;
+        top: 4px;
+        left: 0;
+        display: block;
+        font-family: "Material Icons";
+        @include fontSize(32px);
+        content: "graphic_eq";
+    }
+    &__val {
+        @include fontSize(32px);
+        margin-right: 5px;
+    }
+    &__lbl {
+        @include fontSize(18px);
+        color: #999;
+        font-weight: 300;
+    }
+}
+
+
+///////////////////////
+// Professionals - Metrics
+//---
 .pw-professional-metrics {
     @include resetList();
+    margin-top: 10px;
     &__item {
-        color: #fff;
-        &:nth-child(n+3) {
-            margin-top: 10px;
+        & + * {
+            margin-top: 4px;
         }
     }
     &__lbl {
-        display: block;
-        font-weight: 500;
+        font-weight: 300;
+        color: #999;
     }
     &__val {
-        display: block;
-        font-weight: 300;
+        font-weight: 500;
+    }
+}
+
+
+///////////////////////
+// Professionals - Powows tags
+//---
+.pw-professional-powows {
+    margin-top: 10px;
+    &__lbl {
+        font-weight: 500;
+    }
+    &__tags {
+        margin-top: 5px;
     }
 }

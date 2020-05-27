@@ -1,0 +1,25 @@
+///////////////////////
+// Tabs
+//---
+.pw-tabs {
+    width: 100%;
+    background-color: #ECEFF1;
+    border-top: 1px solid #ccc;
+    &__menu {
+        @include resetList();
+        display: table;
+    }
+    &__item {
+        float: left;
+        > a {
+            display: block;
+            padding: 10px 20px;
+            color: #333;
+        }
+        &--active {
+            > a {
+                background-color: #ccc;
+            }
+        }
+    }
+}

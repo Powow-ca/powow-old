@@ -12,37 +12,46 @@
         <div class="col-sm-2">
           <img class="pw-professional-header__picture pw-img pw-img--res" src="<%= @professional.user.linkedin_picture_url%>" alt="Profile picture">
         </div>
-        <div class="col-sm-7">
+        <div class="col-sm-6">
           <h1 class="pw-page__title"><%= @professional.first_name %> <%= @professional.last_name %></h1>
-
-          <% if current_user &&  current_user.role !='pro'%>
-          <a class="btn pw-btn pw-btn--light" href="/meetings/new?pro=<%= @professional.id%>">Book a meeting</a>
-          <%else%>
-          <a class="btn pw-btn pw-btn--light" href="/meetings/new?pro=<%= @professional.id%>" onclick="return false;">Book a meeting</a>
-          <%end%>
-          <% if current_user && current_user.id == @professional.user_id  && current_user.role =='pro'%>
-          <a class="btn pw-btn pw-btn--light" href="<%=edit_service_professional_path(service_id: current_user.professionals.first.service_id, id: current_user.professionals.first.id) %>">Edit Profile</a>
-          <%end%>
+          <div class="pw-professional-header__jobtitle">Math Professor at MIT</div>
+          <div class="pw-professional-header__actions">
+            <% if current_user &&  current_user.role !='pro'%>
+            <a class="btn pw-btn pw-btn--book" href="/meetings/new?pro=<%= @professional.id%>">Book a meeting</a>
+            <%else%>
+            <a class="btn pw-btn pw-btn--book" href="/meetings/new?pro=<%= @professional.id%>" onclick="return false;">Book a meeting</a>
+            <%end%>
+            <% if current_user && current_user.id == @professional.user_id  && current_user.role =='pro'%>
+            <a class="btn pw-btn pw-btn--book" href="<%=edit_service_professional_path(service_id: current_user.professionals.first.service_id, id: current_user.professionals.first.id) %>">Edit Profile</a>
+            <%end%>
+          </div>
         </div>
-        <div class="col-sm-3">
-          <ul class="pw-professional-metrics row">
-            <li class="pw-professional-metrics__item col-6">
-              <span class="pw-professional-metrics__lbl">Reputation</span>
-              <span class="pw-professional-metrics__val">000</span>
+        <div class="col-sm-4 pw-professional-header__side-info">
+          <div class="pw-professional-reputation">
+            <span class="pw-professional-reputation__val">3425</span>
+            <span class="pw-professional-reputation__lbl">in Community Reputation</span>
+          </div>
+          <ul class="pw-professional-metrics">
+            <li class="pw-professional-metrics__item">
+              <span class="pw-professional-metrics__val">5</span>
+              <span class="pw-professional-metrics__lbl">Courses</span>
             </li>
-            <li class="pw-professional-metrics__item col-6">
-              <span class="pw-professional-metrics__lbl">Given classes</span>
+            <li class="pw-professional-metrics__item">
               <span class="pw-professional-metrics__val">21</span>
+              <span class="pw-professional-metrics__lbl">Given Classes</span>
             </li>
-            <li class="pw-professional-metrics__item col-6">
-              <span class="pw-professional-metrics__lbl">Students</span>
+            <li class="pw-professional-metrics__item">
               <span class="pw-professional-metrics__val">342</span>
+              <span class="pw-professional-metrics__lbl">Students Reached</span>
             </li>
-            <li class="pw-professional-metrics__item col-6">
-              <span class="pw-professional-metrics__lbl">Powows</span>
-              <span class="pw-professional-metrics__val">Consulting, Coaching</span>
-            </li>
-          </p>
+          </ul>
+          <div class="pw-professional-powows">
+            <span class="pw-professional-powows__lbl">Powows</span>
+            <ul class="pw-professional-powows__tags pw-tags">
+              <li class="pw-tags__item pw-tags__item--consulting">Consulting</li>
+              <li class="pw-tags__item pw-tags__item--coaching">Coaching</li>
+            </ul>
+          </div>
         </ul>
       </div>
     </div>
@@ -51,16 +60,17 @@
   <!-- Page Section - Content -->
   <div class="pw-page__content pw-page__content--no-margin">
 
-    <!-- Breadcrumb -->
-    <div class="pw-breadcrumb">
+    <!-- Tabs -->
+    <nav class="pw-tabs mb-5">
       <div class="container">
-        <ul class="pw-breadcrumb__list">
-          <li class="pw-breadcrumb__list-item"><a href="/">Home</a></li>
-          <li class="pw-breadcrumb__list-item"><a href="/services">Powows</a></li>
-          <li class="pw-breadcrumb__list-item"><span><%= @professional.first_name %> <%= @professional.last_name %></span></li>
+        <ul class="pw-tabs__menu">
+          <li class="pw-tabs__item pw-tabs__item--active"><a href="" title="Active Services">Powows</a></li>
+          <li class="pw-tabs__item"><a href="" title="Professional and Academic Career">About</a></li>
+          <li class="pw-tabs__item"><a href="" title="Timeline Activity">Activity</a></li>
+          <li class="pw-tabs__item"><a href="" title="Unlocked Archivements">Archivements</a></li>
         </ul>
       </div>
-    </div>
+    </nav>
 
     <!-- Services List -->
     <div class="container">
