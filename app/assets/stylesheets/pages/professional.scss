@@ -1,5 +1,5 @@
 ///////////////////////
-// Home - Header
+// Professional - Header
 //---
 .pw-professional-header {
     min-height: 300px;
@@ -18,8 +18,23 @@
     }
 }
 
+// Professional - section
+//------------------------
+.pw-professional-section {
+    background-color: #fff;
+    &__header {
+      margin-bottom: 20px;
+    }
+    &__title {
+    }
+    &--padded {
+        padding: 60px 0;
+    }
+    @media (max-width: 767px) {
+      padding: 40px 0;
+    }
+  }
 
-///////////////////////
 // Professionals - Generic List
 //---
 .pw-professionals-list {

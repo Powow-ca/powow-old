@@ -1,0 +1,13 @@
+///////////////////////
+// Form
+//---
+.pw-form {
+    &__footer {
+        margin-top: 30px;
+    }
+    &__group {
+        & + .pw-form__group {
+            margin-top: 20px;
+        }
+    }
+}

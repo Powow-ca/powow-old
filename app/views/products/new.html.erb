@@ -1,40 +1,56 @@
-<div class="container">
+<!-- Page Section -->
+<section class="pw-page">
 
-  <%= form_with scope: :product, url: products_path, local: true do |form| %>
-  <%=  @pro %>
-  <p>
-    <%= form.label :'Name' %><br>
-    <%= form.text_field :name %>
-  </p>
+  <!-- Page Section - Header -->
+  <header class="pw-page__header pw-page__header--bg2">
+    <div class="container">
+      <h1 class="pw-page__title">New Product</h1>
+    </div>
+  </header>
 
-  <p>
-    <%= form.label :'Target Audience' %><br>
-    <%= form.text_field :target_audience %>
-  </p>
+  <!-- Page Section - Content -->
+  <div class="pw-page__content">
 
-  <p>
-    <%= form.label :Description %><br>
-    <%= form.text_area :description %>
-  </p>
+    <!-- Services List -->
+    <div class="container">
+      <div class="pw-form mb-5">
 
-  <p>
-    <%= form.label :'Summary' %><br>
-    <%= form.text_area :summary %>
-  </p>
+        <%= form_with scope: :product, url: products_path, local: true do |form| %>
+        
+        TODO
+          <%=  @pro %>
+          <div class="pw-form__group">
+            <%= form.label :'Name' %>
+            <%= form.text_field :name %>
+          </div>
+          <div class="pw-form__group">
+            <%= form.label :'Target Audience' %>
+            <%= form.text_field :target_audience %>
+          </div>
+          <div class="pw-form__group">
+            <%= form.label :Description %>
+            <%= form.text_area :description %>
+          </div>
+          <div class="pw-form__group">
+            <%= form.label :'Summary' %>
+            <%= form.text_area :summary %>
+          </div>
+          <div class="pw-form__group">
+            <%= form.label :'Additional Details' %>
+            <%= form.text_area :label %>
+            <%= form.text_area :details %>
+          </div>
+          <div class="pw-form__group">
+            <%= form.label :'Price' %>
+            <%= form.text_area :price %>
+          </div>
+          <div class="pw-form__footer">
+            <!--<%= form.submit %>-->
+            <%= submit_tag "Add Product", class: "btn pw-btn pw-btn--default" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
 
-  <p>
-    <%= form.label :'Additional Details' %><br>
-    <%= form.text_area :label %>
-    <%= form.text_area :details %>
-  </p>
-
-  <p>
-    <%= form.label :'Price' %><br>
-    <%= form.text_area :price %>
-  </p>
-
-  <p>
-    <%= form.submit %>
-  </p>
-  <% end %>
-</div>
+  </div>
+</section>

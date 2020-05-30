@@ -1,0 +1,54 @@
+///////////////////////
+// Products - Generic List
+//---
+.pw-products-list {
+    @include resetList();
+    &__item {
+        margin-bottom: 30px;
+    }
+    &__card {
+        display: table;
+        width: 100%;
+        border-radius: 5px;
+        background-color: #FFF;
+        border: 1px solid #ECEFF1;
+        padding: 20px;
+        .pw-img-wrap {
+            border-radius: 5px;
+        }
+    }
+    &__card-img {
+        transition: .3s ease-in-out;
+    }
+    &__card-info {
+        
+    }
+    &__card-title {
+        color: $baseTextColor;
+        margin: 0;
+    }
+    &__card-cathegory {
+        margin: 0;
+        color: #999;
+        font-weight: 300;
+    }
+    &__card-desc {
+        margin: 10px 0 0;
+        padding: 0;
+        line-height: 25px;
+        color: $baseTextColor;
+    }
+    &__card-buy {
+        margin-top: 20px;
+        > * {
+            border-radius: 5px;
+            float: right;
+            background-color: #ECEFF1;
+            display: block;
+            padding: 10px;
+        }
+    }
+    &__card-link {
+    }
+
+}
