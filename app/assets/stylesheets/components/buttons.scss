@@ -4,6 +4,15 @@
 .pw-btn,
 .btn.pw-btn {
     cursor: pointer;
+    margin: 0;
+    padding: 0.375rem 0.75rem;
+    border-radius: 5px;
+    box-shadow: none;
+    @include fontSize(16px);
+    text-transform: none;
+    &.material-icons {
+        @include fontSize(24px);
+    }
     &:hover {
         background-color: $btnHoverBGColor;
         color: #333;

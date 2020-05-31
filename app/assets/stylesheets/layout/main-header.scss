@@ -82,12 +82,14 @@
 // Main Header - User account dropdown
 .pw-user-account-dropdown {
     float: right;
+    @media (max-width: 991px) {
+        width: 100%;
+    }
     @media (max-width: 767px) {
         border-top: 2px solid #eee;
         margin-top: 20px;
         padding-top: 20px;
         float: left;
-        width: 100%;
     }
 }
 .pw-user-account-dropdown-toggle {
@@ -114,10 +116,11 @@
     height: 25px;
     margin-left: 5px;
 }
+.navbar
 .pw-user-account-dropdown-menu {
     @media (max-width: 991px) {
         display: block;
-        position: static;
+        position: static !important;
         border: none;
         width: 100%;
     }
@@ -125,6 +128,7 @@
 .pw-user-account-dropdown-menu-item {
     > * {
         padding: 0.5rem 1.5rem;
+        white-space: nowrap;
     }
     &--separator {
         border-top: 1px solid #eee;

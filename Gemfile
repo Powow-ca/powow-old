@@ -32,10 +32,6 @@ gem 'simple_calendar', '~> 2.0'
 gem 'jquery-rails'
 gem 'stripe'
 
-# SCSS libraries
-gem 'materialize-sass'
-gem 'material_icons'
-
 gem 'rubocop', require: false
 
 # Reduces boot times through caching; required in config/boot.rb

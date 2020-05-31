@@ -1,9 +1,6 @@
-// Bootstrap css
-@import "bootstrap/dist/css/bootstrap";
-
-// Material Design
-//@import "materialize";
-@import "material_icons";
+// Bootstrap & Material Design
+@import "mdbootstrap/css/bootstrap";
+@import "mdbootstrap/css/mdb";
 
 // Configs (global variables and functions/mixins)
 @import "abstracts/*";

@@ -9,13 +9,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <!--<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.1.18/jquery.backstretch.min.js" integrity="sha256-OZZMwc3o7txR3vFfunl0M9yk3SayGp444eZdL9QDi1Y=" crossorigin="anonymous"></script>
-  -->
+
   <script src='https://meet.jit.si/external_api.js'></script>
   <script src="https://js.stripe.com/v3/"></script>
+  <script src="/assets/mdbootstrap/js/mdb.min.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
@@ -49,20 +46,20 @@
                 <!-- Main Menu -->
                 <ul class="pw-main-menu navbar-nav">
                   <li class="pw-main-menu-item">
-                    <a class="pw-btn btn" style="font-color:black" href="/">Home</a>
+                    <a class="pw-btn btn waves-effect" style="font-color:black" href="/">Home</a>
                   </li>
                   <li class="pw-main-menu-item">
-                    <a class="pw-btn btn" href="/services">Powows</a>
+                    <a class="pw-btn btn waves-effect" href="/services">Powows</a>
                   </li>
                   <li class="pw-main-menu-item">
-                    <a class="pw-btn btn" href="https://meetings.powow.ca">PowowMeet</a>
+                    <a class="pw-btn btn waves-effect" href="https://meetings.powow.ca">PowowMeet</a>
                   </li>
                   <%# <li class="pw-main-menu-item">
                       <a class="btn" href="/meetings">Pros</a>
                     </li> %>
                   <% if current_user %>
                   <li class="pw-main-menu-item">
-                    <a class="pw-btn btn" href="/meetings">Meetings</a>
+                    <a class="pw-btn btn waves-effect" href="/meetings">Meetings</a>
                   </li>
                   <% end %>
                 </ul>
@@ -75,7 +72,7 @@
                 <div class="input-group">
                   <%= text_field_tag :search, params[:search], placeholder: "Find a mentor", class: "pw-main-search-input" %>
                   <div class="input-group-btn">
-                    <%= button_tag "search", :class => 'pw-btn pw-btn--search btn material-icons',:name => nil%>
+                    <%= button_tag "search", :class => 'pw-btn pw-btn--search btn waves-effect material-icons',:name => nil%>
                   </div>
                 </div>
                 <% end %>
@@ -90,7 +87,7 @@
             <!-- User section -->
             <% if current_user %>
             <div class="pw-user-account-dropdown dropdown">
-              <button class="pw-user-account-dropdown-toggle dropdown-toggle pw-btn btn" id="navbarDropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <button class="pw-user-account-dropdown-toggle dropdown-toggle pw-btn btn waves-effect" id="navbarDropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
                 <!-- User Name -->
                 <span class="pw-user-account-dropdown-toggle-name">Hello, <%= current_user.first_name %></span>
@@ -102,15 +99,15 @@
                 <li class="pw-user-account-dropdown-menu-item">
                   <!-- User section - Professional role -->
                   <% if current_user && current_user.role =='pro' %>
-                  <a class="dropdown-item pw-btn btn" href=<% if current_user.professionals.exists?%><%=service_professional_path(service_id: current_user.professionals.first.service_id, id: current_user.professionals.first.id) %> <%end%>>Do something as a Pro</a>
+                  <a class="dropdown-item pw-btn btn waves-effect" href=<% if current_user.professionals.exists?%><%=service_professional_path(service_id: current_user.professionals.first.service_id, id: current_user.professionals.first.id) %> <%end%>>Do something as a Pro</a>
 
                   <!-- User section - Client role -->
                   <% elsif  current_user && current_user.role =='client' %>
-                  <span class="dropdown-item pw-btn btn">Test</span>
+                  <span class="dropdown-item pw-btn btn waves-effect">Test</span>
                   <% end %>
                 </li>
-                <li class="pw-user-account-dropdown-menu-item"><%= link_to "Profile", '', class: "dropdown-item pw-btn btn" %></li>
-                <li class="pw-user-account-dropdown-menu-item pw-user-account-dropdown-menu-item--separator"><%= link_to "Log Out", logout_path, class: "dropdown-item pw-btn btn" %></li>
+                <li class="pw-user-account-dropdown-menu-item"><%= link_to "Profile", '', class: "dropdown-item pw-btn btn waves-effect" %></li>
+                <li class="pw-user-account-dropdown-menu-item pw-user-account-dropdown-menu-item--separator"><%= link_to "Log Out", logout_path, class: "dropdown-item pw-btn btn waves-effect" %></li>
               </ul>
             </div>
 
@@ -119,10 +116,10 @@
             <%else%>
             <ul class="pw-user-menu navbar-nav">
               <li class="pw-user-menu-item">
-                <%= link_to "Become a Mentor", "pro", class: "pw-btn pw-btn--default btn" %>
+                <%= link_to "Become a Mentor", "pro", class: "pw-btn pw-btn--default btn waves-effect" %>
               </li>
               <li class="pw-user-menu-item">
-                <%= link_to "Log In", login_path, class: "pw-btn pw-btn--auth btn" %>
+                <%= link_to "Log In", login_path, class: "pw-btn pw-btn--auth btn waves-effect" %>
               </li>
             </ul>
             <% end %>
