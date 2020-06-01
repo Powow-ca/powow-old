@@ -17,4 +17,4 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 //import 'bootstrap'
 require('mdbootstrap/js/bootstrap');
-//import 'mdbootstrap/js/mdb';
+//import 'mdbootstrap/js/mdb'; //This needs to be injected directly on <head></head> to work

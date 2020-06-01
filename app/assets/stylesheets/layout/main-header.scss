@@ -129,6 +129,10 @@
     > * {
         padding: 0.5rem 1.5rem;
         white-space: nowrap;
+        &:active,
+        &:focus {
+            background-color: transparent !important;
+        }
     }
     &--separator {
         border-top: 1px solid #eee;
