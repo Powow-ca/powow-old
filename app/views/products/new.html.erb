@@ -13,50 +13,60 @@
 
     <!-- Services List -->
     <div class="container">
-      <div class="pw-form mb-5">
+      <div class="row justify-content-lg-center">
+        <div class="pw-form mb-5 col-lg-8">
 
-        <%= form_with scope: :product, url: products_path, local: true do |form| %>
-        
-        TODO
-          <%=  @pro %>
-          <div class="pw-form__group md-form">
-            <label for="pwFormName">Name</label>
-            <input type="text" id="pwFormName" class="form-control">
-          </div>
-          <div class="pw-form__group md-form">
-            <label for="pw-form-name2">Name</label>
-            <input type="text" id="pw-form-name2" class="form-control" placeholder="First name">
-          </div>
-          <div class="pw-form__group md-form">
-            <%= form.label :'Name' %>
-            <%= form.text_field :name %>
-          </div>
-          <div class="pw-form__group md-form">
-            <%= form.label :'Target Audience' %>
-            <%= form.text_field :target_audience %>
-          </div>
-          <div class="pw-form__group md-form">
-            <%= form.label :Description %>
-            <%= form.text_area :description %>
-          </div>
-          <div class="pw-form__group md-form">
-            <%= form.label :'Summary' %>
-            <%= form.text_area :summary %>
-          </div>
-          <div class="pw-form__group md-form">
-            <%= form.label :'Additional Details' %>
-            <%= form.text_area :label %>
-            <%= form.text_area :details %>
-          </div>
-          <div class="pw-form__group md-form">
-            <%= form.label :'Price' %>
-            <%= form.text_area :price %>
-          </div>
-          <div class="pw-form__footer">
-            <!--<%= form.submit %>-->
-            <%= submit_tag "Add Product", :class => 'pw-btn pw-btn--default btn waves-effect' %>
-          </div>
-        <% end %>
+          <%= form_with scope: :product, url: products_path, local: true do |form| %>
+          
+            <%=  @pro %>
+            <div class="pw-form__group">
+              <div class="md-form">
+                <%= form.label :'Name' %>
+                <%= form.text_field :name, class:'form-control' %>
+              </div>
+            </div>
+            <div class="pw-form__group">
+              <div class="md-form">
+                <%= form.label :'Target Audience' %>
+                <%= form.text_field :target_audience, class:'form-control' %>
+              </div>
+            </div>
+            <div class="pw-form__group">
+              <div class="md-form">
+                <%= form.label :Description %>
+                <%= form.text_area :description, class:'md-textarea form-control' %>
+              </div>
+            </div>
+            <div class="pw-form__group">
+              <div class="md-form">
+                <%= form.label :'Summary' %>
+                <%= form.text_area :summary, class:'md-textarea form-control' %>
+              </div>
+            </div>
+            <div class="pw-form__group">
+              <div class="md-form">
+                <%= form.label :'Additional Details' %>
+                <%= form.text_area :label, class:'md-textarea form-control' %>
+                <%= form.text_area :details, class:'md-textarea form-control' %>
+              </div>
+            </div>
+            <div class="pw-form__group">
+              <div class="row">
+                <div class="col-sm-4">
+                  <div class="md-form">
+                    <%= form.label :'Price' %>
+                    <%= form.text_field :price, class:'form-control' %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pw-form__footer">
+              <!--<%= form.submit %>-->
+              <%= button_tag "Back", :class => 'pw-btn btn waves-effect', type: 'button' %>
+              <%= button_tag "Add Product", :class => 'pw-btn pw-btn--default btn waves-effect' %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
 

@@ -6,8 +6,9 @@
         margin-top: 30px;
     }
     &__group {
+        display: table;
+        width: 100%;
         & + .pw-form__group {
-            margin-top: 20px;
         }
     }
 }

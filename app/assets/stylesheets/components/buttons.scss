@@ -56,4 +56,7 @@
             color: #fff;
         }
     }
+    & + .pw-btn {
+        margin-left: 10px;
+    }
 }
