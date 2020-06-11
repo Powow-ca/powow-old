@@ -1,53 +1,56 @@
-<div class="bg">
+<!-- Page Section -->
+<section class="pw-page">
 
+  <!-- Page Section - Header -->
+  <header class="pw-page__header">
+    <div class="container">
+      <h1 class="pw-page__title">Sign in</h1>
+    </div>
+  </header>
 
-  <div class="modal-dialog" role="document">
-    <!--Content-->
-    <div class="modal-content form-elegant">
+  <!-- Page Section - Content -->
+  <div class="pw-page__content pw-page__content--no-margin  ">
 
-      <!--Header-->
-      <div class="modal-header text-center">
-        <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>Sign in</strong></h3>
+    <!-- Services List -->
+    <div class="container">
 
-      </div>
-      <!--Body-->
-      <div class="modal-body mx-4">
-        <!--Body-->
-        <div class="text-center social-btn">
-          <a href="/auth/linkedin" class="btn btn-primary btn-block"><i class="fa fa-linkedin"></i> Sign in with <b>LinkedIn</b></a>
-          <a href="/auth/facebook" class="btn btn-primary btn-block"><i class="fa fa-facebook"></i> Sign in with <b>Facebook</b></a>
+      <div class="row justify-content-lg-center">
 
-          <a href="/auth/google_oauth2" class="btn btn-danger btn-block"><i class="fa fa-google"></i> Sign in with <b>Google</b></a>
+        <!-- Form -->
+        <div class="pw-form mb-5 col-lg-6">
+          <div class="pw-form__social mb-5">
+            <a href="/auth/linkedin" class="btn pw-btn pw-btn--social pw-btn--social--linkedin">Sign in with <b>LinkedIn</b></a>
+            <a href="/auth/facebook" class="btn pw-btn pw-btn--social pw-btn--social--facebook">Sign in with <b>Facebook</b></a>
+            <a href="/auth/google_oauth2" class="btn pw-btn pw-btn--social pw-btn--social--google">Sign in with <b>Google</b></a>
+          </div>
+          <div class="or-seperator"><i>or</i></div>
+          <%= form_tag sessions_path do |form| %>
+          <div class="pw-form__group">
+            <div class="md-form">
+              <label data-error="wrong" data-success="right" for="Form-email1">Email</label>
+              <%= text_field_tag :email,"", placeholder: "@gmail.com" ,class:'form-control validate' %>
+            </div>
+          </div>
+          <div class="pw-form__group">
+            <div class="md-form">
+              <label data-error="wrong" data-success="right" for="Form-pass1">Password</label>
+              <%= password_field_tag :password, "" ,class:'form-control validate' %>
+            </div>
+          </div>
+          <div class="pw-form__group">
+            <a href="" class="pw-link">Forgot Password?</a>
+          </div>
+          <div class="pw-form__footer">
+            <div class="d-table mx-auto">
+              <%= submit_tag "Sign In", class: "btn pw-btn pw-btn--submit"%>
+            </div>
+            
+            <p class="mt-4 d-flex justify-content-end">Not a member? <a href=<%= signup_path %> class="pw-link ml-1">Sign Up</a></p>
+          </div>
+          <% end %>
         </div>
-        <div class="or-seperator"><i>or</i></div>
-        <%= form_tag sessions_path do |form| %>
-        <div class="md-form mb-5">
-          <label data-error="wrong" data-success="right" for="Form-email1">Email</label>
-          <%= text_field_tag :email,"", placeholder: "@gmail.com" ,class:'form-control validate' %>
 
-        </div>
-
-        <div class="md-form pb-3">
-          <label data-error="wrong" data-success="right" for="Form-pass1">Password</label>
-          <%= password_field_tag :password, "" ,class:'form-control validate' %>
-
-          <p class="font-small blue-text d-flex justify-content-end"> <button class="btn btn-link">Forgot Password?</button>
-        </div>
-
-        <div class="text-center mb-3">
-          <%= submit_tag "Sign In", class: "btn btn-outline-primary z-depth-1a"%>
-
-        </div>
-
-      </div>
-      <!--Footer-->
-      <div class="modal-footer mx-5 pt-3 mb-1">
-        <p class="font-small grey-text d-flex justify-content-end">Not a member? <a href=<%= signup_path %> class="blue-text ml-1">
-            Sign Up</a></p>
       </div>
     </div>
-    <!--/.Content-->
   </div>
-  <% end %>
-
-</div>
+</section>

@@ -11,4 +11,13 @@
         & + .pw-form__group {
         }
     }
+    &__social {
+        .pw-btn {
+            display: block;
+            margin: 0 auto !important;
+            & + .pw-btn {
+                margin-top: 20px !important;
+            }
+        }
+    }
 }

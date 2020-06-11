@@ -51,56 +51,48 @@
       </div>
 
       <div class="col-lg-6">
-        <div role="document">
 
-          <!--Content-->
-          <div class="modal-content form-elegant">
+        <section class="pw-generic-section pw-generic-section--modal mb-5">
+          <header class="pw-generic-section__header">
+            <h2 class="pw-generic-section__title">Sign in</h2>
+          </header>
 
-            <!--Header-->
-            <div class="modal-header text-center">
-              <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>Sign in</strong></h3>
-
+          <!-- Form -->
+          <div class="pw-form">
+            <div class="pw-form__social  mb-5">
+              <a href="/auth/linkedin" class="btn pw-btn pw-btn--social pw-btn--social--linkedin">Sign in with <b>LinkedIn</b></a>
+              <a href="/auth/facebook" class="btn pw-btn pw-btn--social pw-btn--social--facebook">Sign in with <b>Facebook</b></a>
+              <a href="/auth/google_oauth2" class="btn pw-btn pw-btn--social pw-btn--social--google">Sign in with <b>Google</b></a>
             </div>
-            <!--Body-->
-
-            <div class="modal-body mx-4">
-              <!--Body-->
-              <div class="text-center social-btn">
-                <a href="/auth/linkedin" class="btn btn-primary btn-block"><i class="fa fa-linkedin"></i> Continue with <b>LinkedIn</b></a>
-                <a href="/auth/facebook" class="btn btn-primary btn-block"><i class="fa fa-facebook"></i> Sign in with <b>Facebook</b></a>
-                <a href="/auth/google_oauth2" class="btn btn-danger btn-block"><i class="fa fa-google"></i> Continue with <b>Google</b></a>
-              </div>
-              <div class="or-seperator"><i>or</i></div>
-              <%= form_tag sessions_path do |form| %>
-              <div class="md-form mb-5">
+            <div class="or-seperator"><i>or</i></div>
+            <%= form_tag sessions_path do |form| %>
+            <div class="pw-form__group">
+              <div class="md-form">
                 <label data-error="wrong" data-success="right" for="Form-email1">Email</label>
                 <%= text_field_tag :email,"", placeholder: "@gmail.com" ,class:'form-control validate' %>
-
               </div>
-
-              <div class="md-form pb-3">
+            </div>
+            <div class="pw-form__group">
+              <div class="md-form">
                 <label data-error="wrong" data-success="right" for="Form-pass1">Password</label>
                 <%= password_field_tag :password, "" ,class:'form-control validate' %>
-
-                <p class="font-small blue-text d-flex justify-content-end"> <button class="btn btn-link">Forgot Password?</button>
+              </div>
+            </div>
+            <div class="pw-form__group">
+              <a href="" class="pw-link">Forgot Password?</a>
+            </div>
+            <div class="pw-form__footer">
+              <div class="d-table mx-auto">
+                <%= submit_tag "Sign In", class: "btn pw-btn pw-btn--submit"%>
               </div>
 
-              <div class="text-center mb-3">
-                <%= submit_tag "Sign In", class: "btn btn-outline-primary z-depth-1a"%>
-
-              </div>
-
+              <p class="mt-4 d-flex justify-content-end">Not a member? <a href=<%= signup_path %> class="pw-link ml-1">Sign Up</a></p>
             </div>
-            <!--Footer-->
-            <div class="modal-footer mx-5 pt-3 mb-1">
-              <p class="font-small grey-text d-flex justify-content-end">Not a member? <a href=<%= signup_path %> class="blue-text ml-1">
-                  Sign Up</a></p>
-            </div>
+            <% end %>
           </div>
-          <!--/.Content-->
-        </div>
+        </section>
+
       </div>
-      <% end %>
 
     </div>
   </div>

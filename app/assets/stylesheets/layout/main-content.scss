@@ -85,6 +85,12 @@
     &--bg3 {
         background-color: #f7f7f7;
     }
+    &--modal {
+        border: 1px solid #ccc;
+        padding: 20px !important;
+        margin-top: -20px;
+        border-radius: 5px;
+    }
     @media (max-width: 767px) {
       padding: 40px 0;
     }

@@ -14,6 +14,8 @@
     <!-- Services List -->
     <div class="container">
       <div class="row justify-content-lg-center">
+
+        <!-- Form -->
         <div class="pw-form mb-5 col-lg-8">
 
           <%= form_with scope: :product, url: products_path, local: true do |form| %>
@@ -63,7 +65,7 @@
             <div class="pw-form__footer">
               <!--<%= form.submit %>-->
               <%= button_tag "Back", :class => 'pw-btn btn waves-effect', type: 'button' %>
-              <%= button_tag "Add Product", :class => 'pw-btn pw-btn--default btn waves-effect' %>
+              <%= button_tag "Add Product", :class => 'pw-btn pw-btn--submit btn waves-effect' %>
             </div>
           <% end %>
         </div>

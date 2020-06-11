@@ -56,6 +56,57 @@
             color: #fff;
         }
     }
+    &--submit {
+        background-color: $btnDefaultBGColor;
+        color: #fff;
+        min-width: 100px;
+        &:hover {
+            background-color: $btnDefaultHoverBGColor;
+            color: #fff;
+        }
+    }
+    &--social {
+        position: relative;
+        color: #fff;
+        padding-left: 70px;
+        width: 100%;
+        max-width: 300px;
+        height: 50px;
+        line-height: 36px;
+        @include fontSize(18px);
+        text-align: left;
+        &:before {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            width: 45px;
+            height: 45px;
+        }
+        &--linkedin {
+            background-color: #0077b7;
+            border: 1px solid #0077b7;
+            &:before {
+                @include sprite(-2px, -379px);
+            }
+        }
+        &--facebook {
+            background-color: #475993;
+            border: 1px solid #475993;
+            &:before {
+                @include sprite(-101px, -379px);
+            }
+        }
+        &--google {
+            background-color: #f34a38;
+            border: 1px solid #f34a38;
+            &:before {
+                @include sprite(-54px, -379px);
+            }
+        }
+    }
     & + .pw-btn {
         margin-left: 10px;
     }
