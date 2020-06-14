@@ -1,8 +1,23 @@
-<div class="container">
-<h1>Editing Meeting</h1>
+<!-- Page Section -->
+<section class="pw-page">
 
-<%= render 'form', meeting: @meeting %>
+  <!-- Page Section - Header -->
+  <header class="pw-page__header">
+    <div class="container">
+      <h1 class="pw-page__title">Editing Meeting</h1>
+    </div>
+  </header>
 
-<%= link_to 'Show', @meeting %> |
-<%= link_to 'Back', meetings_path %>
-</div>
+  <!-- Page Section - Content -->
+  <div class="pw-page__content pw-page__content--no-margin">
+    <div class="container">
+
+        <!-- Form -->
+        <%= render 'form', meeting: @meeting %>
+
+        <%= link_to 'Show', @meeting %> |
+        <%= link_to 'Back', meetings_path %>
+
+    </div>
+  </div>
+</section>

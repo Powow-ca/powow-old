@@ -48,6 +48,14 @@
             color: #fff;
         }
     }
+    &--edit {
+        background-color: $btnAuthBGColor;
+        color: #fff;
+        &:hover {
+            background-color: $btnAuthHoverBGColor;
+            color: #fff;
+        }
+    }
     &--add {
         background-color: $btnAuthBGColor;
         color: #fff;
