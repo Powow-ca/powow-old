@@ -58,11 +58,6 @@
                   <%# <li class="pw-main-menu-item">
                       <a class="btn" href="/meetings">Pros</a>
                     </li> %>
-                  <% if current_user %>
-                  <li class="pw-main-menu-item">
-                    <a class="pw-btn btn waves-effect" href="/meetings">Meetings</a>
-                  </li>
-                  <% end %>
                 </ul>
 
               </div>
@@ -98,17 +93,24 @@
               </button>
               <ul class="pw-user-account-dropdown-menu dropdown-menu" aria-labelledby="navbarDropdown">
                 <li class="pw-user-account-dropdown-menu-item">
+
                   <!-- User section - Professional role -->
                   <% if current_user && current_user.role =='pro' %>
-                  <a class="dropdown-item pw-btn btn waves-effect" href=<% if current_user.professionals.exists?%><%=service_professional_path(service_id: current_user.professionals.first.service_id, id: current_user.professionals.first.id) %> <%end%>>Do something as a Pro</a>
+                  <a class="dropdown-item pw-btn btn waves-effect" href=<% if current_user.professionals.exists?%><%=service_professional_path(service_id: current_user.professionals.first.service_id, id: current_user.professionals.first.id) %> <%end%>><span class="material-icons">account_circle</span>Profile</a>
 
                   <!-- User section - Client role -->
                   <% elsif  current_user && current_user.role =='client' %>
-                  <span class="dropdown-item pw-btn btn waves-effect">Test</span>
+                  <span class="dropdown-item pw-btn btn waves-effect"><span class="material-icons">account_circle</span>Profile</span>
                   <% end %>
                 </li>
-                <li class="pw-user-account-dropdown-menu-item"><%= link_to "Profile", '', class: "dropdown-item pw-btn btn waves-effect" %></li>
-                <li class="pw-user-account-dropdown-menu-item pw-user-account-dropdown-menu-item--separator"><%= link_to "Log Out", logout_path, class: "dropdown-item pw-btn btn waves-effect" %></li>
+                <% if current_user %>
+                <li class="pw-user-account-dropdown-menu-item">
+                  <a class="dropdown-item pw-btn btn waves-effect" href="/meetings"><span class='material-icons'>cast_for_education</span>Meetings</a>
+                </li>
+                <% end %>
+                <li class="pw-user-account-dropdown-menu-item pw-user-account-dropdown-menu-item--separator">
+                  <a class="dropdown-item pw-btn btn waves-effect" href="<%logout_path%>"><span class='material-icons'>directions_run</span>Log Out</a>
+                </li>
               </ul>
             </div>
 
@@ -161,7 +163,7 @@
 
             <!-- Creators message -->
             <blockquote class="pw-footer-creators-msg">
-              <p class="pw-footer-creators-msg-desc">Made with love in Ottawa, ON and Seattle, WA</p>
+              <p class="pw-footer-creators-msg-desc">Made with love in Ottawa, Seattle and Aveiro</p>
               <p class="pw-footer-creators-msg-title">Powow, CA</p>
             </blockquote>
           </div>

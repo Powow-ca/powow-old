@@ -133,6 +133,10 @@
         &:focus {
             background-color: transparent !important;
         }
+        > * {
+            float: left;
+            margin-right: 10px;
+        }
     }
     &--separator {
         border-top: 1px solid #eee;

@@ -1,25 +1,48 @@
 <% if current_user && current_user.role =='pro' %>
 <!-- Page Section -->
-<section class="pw-page">
-
-  <!-- Page Section - Header -->
-  <header class="pw-page__header">
-    <div class="container">
-      <h1 class="pw-page__title">Meeting</h1>
-    </div>
-  </header>
+<div class="pw-page">
 
   <!-- Page Section - Content -->
-  <div class="pw-page__content pw-page__content--no-margin">
+  <div class="pw-page__content pw-page__content--no-header">
+
+    <!-- Breadcrumb -->
+    <div class="pw-breadcrumb">
+      <div class="container">
+        <ul class="pw-breadcrumb__list">
+          <li class="pw-breadcrumb__list-item"><a href="/">Home</a></li>
+          <li class="pw-breadcrumb__list-item"><a href="/meetings">Meetings</a></li>
+          <li class="pw-breadcrumb__list-item"><span>Meeting <%= @meeting.room  %></span></li>
+        </ul>
+      </div>
+    </div>
+
     <div class="container">
 
-      TODO
+      <div class="row">
+        <div class="col-md-8">
 
-      <meet id="meet">
+          <!-- VideoCall section -->
+          <meet id="meet">
+        </div>
+        <div class="col-md-4">
+
+          <!-- VideoCall info section -->
+          <div class="pw-videocall-info">
+            <div class="pw-vieocall-info-item">
+              Meeting ID: <%= @meeting.room  %>
+            </div>
+            <div class="pw-vieocall-info-item">
+              Mentor: <%= @meeting.professional.first_name%>
+            </div>
+            TODO - relevant info
+          </div>
+
+        </div>
+      </div>
 
     </div>
   </div>
-</section>
+</div>
 
 
 
@@ -29,8 +52,8 @@
 const domain = "meetings.powow.ca"
 const options = {
 roomName: "<%= @meeting.room  %>",
-width: 1280,
-height: 720,
+width: 600,
+height: 600,
 parentNode: document.querySelector('meet'),
 interfaceConfigOverwrite: {
 filmStripOnly: false,
@@ -61,7 +84,5 @@ api.addEventListener('videoConferenceLeft', () => {window.location.href = "/meet
 <% end %>
 <% end %>
 <% if current_user && current_user.role =='client' %>
-<div class="container-div">
   <iframe src="https://meetings.powow.ca/<%= @meeting.room  %>" allow="camera;microphone" width="100%" height="720"> </iframe>
-</div>
 <% end %>

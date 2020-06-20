@@ -17,17 +17,31 @@
         <div class="pw-form mb-5 col-lg-8">
 
           <%= form_with scope: :professional, url: service_professionals_path, local: true do |form| %>
-          
-            <div class="pw-form__group">
-              <div class="md-form">
-                <%= form.label :'First Name' %>
-                <%= form.text_field :first_name ,  class:'form-control validate' %>
+
+            Avatar
+<br>
+            Public/private profile
+<br>
+            Location
+<br>
+            Timezone
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="pw-form__group">
+                  <div class="md-form">
+                    <%= form.label :'First Name' %>
+                    <%= form.text_field :first_name ,  class:'form-control validate' %>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="pw-form__group">
-              <div class="md-form">
-                <%= form.label :'Last Name' %>
-                <%= form.text_field :last_name ,  class:'form-control validate' %>
+              <div class="col-md-6">
+                <div class="pw-form__group">
+                  <div class="md-form">
+                    <%= form.label :'Last Name' %>
+                    <%= form.text_field :last_name ,  class:'form-control validate' %>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="pw-form__group">
@@ -36,6 +50,7 @@
                 <%= form.text_area :description ,  class:'md-textarea form-control validate' %>
               </div>
             </div>
+            
             <div class="pw-form__footer">
               <!--<%= form.submit %>-->
               <%= button_tag "Back", :class => 'pw-btn btn waves-effect', type: 'button' %>
