@@ -4,16 +4,27 @@
   <!-- Page Section - Header -->
   <header class="pw-page__header pw-page__header--bg2">
     <div class="container">
-      <h1 class="pw-page__title">Editing Profile: <%=@professional.first_name%> <%=@professional.last_name%></h1>
+      <h1 class="pw-page__title">Editing Profile</h1>
     </div>
   </header>
 
   <!-- Page Section - Content -->
-  <div class="pw-page__content">
+  <div class="pw-page__content pw-page__content--no-margin">
+
+    <!-- Breadcrumb -->
+    <div class="pw-breadcrumb">
+      <div class="container">
+        <ul class="pw-breadcrumb__list">
+          <li class="pw-breadcrumb__list-item"><a href="/">Home</a></li>
+          <li class="pw-breadcrumb__list-item"><a href="/professionals/<%=@professional.id%>"><%=@professional.first_name%> <%=@professional.last_name%></a></li>
+          <li class="pw-breadcrumb__list-item"><span>Editing profile</li>
+        </ul>
+      </div>
+    </div>
 
     <!-- Services List -->
     <div class="container">
-      <div class="row justify-content-lg-center">
+      <div class="row">
         <div class="pw-form mb-5 col-lg-8">
 
           <%= form_with scope: :professional, url: service_professionals_path, local: true do |form| %>
@@ -54,7 +65,7 @@
             <div class="pw-form__footer">
               <!--<%= form.submit %>-->
               <%= button_tag "Back", :class => 'pw-btn btn waves-effect', type: 'button' %>
-              <%= button_tag "Save", :class => 'pw-btn pw-btn--default btn waves-effect', :name => nil %>
+              <%= button_tag "Update", :class => 'pw-btn pw-btn--submit btn waves-effect', :name => nil %>
             </div>
           <% end %>
         </div>

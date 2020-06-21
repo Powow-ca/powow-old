@@ -10,13 +10,26 @@
 
   <!-- Page Section - Content -->
   <div class="pw-page__content pw-page__content--no-margin">
+
+    <!-- Breadcrumb -->
+    <div class="pw-breadcrumb">
+      <div class="container">
+        <ul class="pw-breadcrumb__list">
+          <li class="pw-breadcrumb__list-item"><a href="/">Home</a></li>
+          <li class="pw-breadcrumb__list-item"><a href="/meetings">Meetings</a></li>
+          <li class="pw-breadcrumb__list-item"><span>Editing <strong><%= @meeting.room  %></strong></span></li>
+        </ul>
+      </div>
+    </div>
+
     <div class="container">
+      
+      <!--<%= link_to "Start the meeting", @meeting, :class => 'pw-btn pw-btn--default btn waves-effect' %>-->
 
-        <!-- Form -->
-        <%= render 'form', meeting: @meeting %>
+      <!-- Form -->
+      <%= render 'form', meeting: @meeting %>
 
-        <%= link_to 'Show', @meeting %> |
-        <%= link_to 'Back', meetings_path %>
+      <%= link_to 'Back', meetings_path, :class => 'pw-btn btn waves-effect' %>
 
     </div>
   </div>
