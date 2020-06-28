@@ -1,9 +1,41 @@
-<div class="container">
-<h1>New Meeting</h1>
-<%= week_calendar number_of_weeks: 2 do |date| %>
-  <%= date %>
-<% end %>
-<%= render 'form', meeting: @meeting %>
+<!-- Page Section -->
+<section class="pw-page">
 
-<%= link_to 'Back', meetings_path %>
-</div>
+  <!-- Page Section - Header -->
+  <header class="pw-page__header">
+    <div class="container">
+      <h1 class="pw-page__title">New Meeting</h1>
+    </div>
+  </header>
+
+  <!-- Page Section - Content -->
+  <div class="pw-page__content pw-page__content--no-margin">
+
+    <!-- Breadcrumb -->
+    <div class="pw-breadcrumb">
+      <div class="container">
+        <ul class="pw-breadcrumb__list">
+          <li class="pw-breadcrumb__list-item"><a href="/">Home</a></li>
+          <li class="pw-breadcrumb__list-item"><a href="/meetings">Meetings</a></li>
+          <li class="pw-breadcrumb__list-item"><span>New meeting</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container">
+      
+      <!--<%= link_to "Start the meeting", @meeting, :class => 'pw-btn pw-btn--default btn waves-effect' %>-->
+
+      <%= week_calendar number_of_weeks: 2 do |date| %>
+        <%= date %>
+      <% end %>
+
+
+      <!-- Form -->
+      <%= render 'form', meeting: @meeting %>
+
+      <%= link_to 'Back', meetings_path, :class => 'pw-btn btn waves-effect' %>
+
+    </div>
+  </div>
+</section>
