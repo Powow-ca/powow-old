@@ -1,4 +1,31 @@
 ///////////////////////
+// Services - Header
+//---
+.pw-services-header {
+    position: relative;
+    &:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        content: "";
+        display: block;
+        background: #eee url(asset-path('pw-services-header-bg.jpeg')) center center;
+        background-size: cover;
+        opacity: 0.3;
+        width: 100%;
+        height: 100%;
+    }
+    .pw-page__title {
+        position: relative;
+        z-index: 1;
+        color: #333;
+        //text-shadow: 0px 0px 2px #fff;
+    }
+}
+
+///////////////////////
 // Services - Generic List
 //---
 .pw-services-list {
@@ -36,6 +63,7 @@
     }
     &__card-title {
         color: $baseTextColor;
+        text-shadow: 0px 0px 2px #fff;
     }
     &__card-desc {
         margin: 20px 0 0;

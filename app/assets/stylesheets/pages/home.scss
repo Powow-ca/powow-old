@@ -4,10 +4,8 @@
 .pw-home-header {
   height: 70vh;
   min-height: 420px;
-  //background-size: 100% 100%;
-  //background-image: url(asset-path('background.jpg'));
   background: #eee url(asset-path('pw-home-header-bg.jpeg')) center center;
-  background-size:cover
+  background-size: cover;
 }
 .pw-home-header-logo {
   display: block;
