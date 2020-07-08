@@ -83,6 +83,16 @@
         @include sprite(-360px, 0);
       }
     }
+    &--ownership {
+      &:before {
+        @include sprite(-240px, -240px);
+      }
+    }
+    &--demtech {
+      &:before {
+        @include sprite(-360px, -240px);
+      }
+    }
     @media (max-width: 767px) {
       margin-bottom: 40px;
     }
