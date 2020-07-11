@@ -93,6 +93,21 @@
         @include sprite(-360px, -240px);
       }
     }
+    &--bothsucceess {
+      &:before {
+        @include sprite(-485px, 0);
+      }
+    }
+    &--payanduse {
+      &:before {
+        @include sprite(-485px, -120px);
+      }
+    }
+    &--keepearnings {
+      &:before {
+        @include sprite(-485px, -240px);
+      }
+    }
     @media (max-width: 767px) {
       margin-bottom: 40px;
     }
