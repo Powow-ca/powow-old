@@ -40,13 +40,39 @@
           <% end %>
         </div>
 
-        <%= button_tag "Create", :class => 'pw-btn pw-btn--submit btn waves-effect', :name => nil %>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="pw-form__group">
+              <div class="md-form">
+                <%= form.label :'Start time' %>
+                <%= form.text_field :first_name ,  class:'form-control validate' %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="pw-form__group">
+              <div class="md-form">
+                <%= form.label :'End time' %>
+                <%= form.text_field :last_name ,  class:'form-control validate' %>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="pw-form__footer">
+          <%= link_to 'Back', meetings_path, :class => 'pw-btn btn waves-effect' %>
+          <%= button_tag "Create", :class => 'pw-btn pw-btn--submit btn waves-effect', :name => nil %>
+        </div>
       <% end %>
 
+
+
+
+
+TEMP
       <!-- Form -->
       <%= render 'form', meeting: @meeting %>
 
-      <%= link_to 'Back', meetings_path, :class => 'pw-btn btn waves-effect' %>
 
     </div>
   </div>
