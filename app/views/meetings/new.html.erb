@@ -26,10 +26,22 @@
       
       <!--<%= link_to "Start the meeting", @meeting, :class => 'pw-btn pw-btn--default btn waves-effect' %>-->
 
-      <%= week_calendar number_of_weeks: 2 do |date| %>
-        <%= date %>
-      <% end %>
 
+      <%= form_with scope: :meeting, url: meetings_path, local: true do |form| %>
+
+        <!-- Calendar -->
+        <div class="pw-calendar pw-calendar--meeting">
+          <%= month_calendar do |date| %>
+            <% if date.year >= DateTime.now.year and date.month > DateTime.now.month || date.year >= DateTime.now.year and date.month > DateTime.now.month || date.year == DateTime.now.year and date.month == DateTime.now.month and date.day >= DateTime.now.day %>
+              <input class="pw-calendar-radio sr-only" id="pwCalendarOpt<%= date.day %>" type="radio" name="start_time"><label for="pwCalendarOpt<%= date.day %>" class="pw-btn pw-btn--calendar btn waves-effect"><%= date.day %></label>
+            <%else%>
+              <%= date.day %>
+            <%end%>
+          <% end %>
+        </div>
+
+        <%= button_tag "Create", :class => 'pw-btn pw-btn--submit btn waves-effect', :name => nil %>
+      <% end %>
 
       <!-- Form -->
       <%= render 'form', meeting: @meeting %>

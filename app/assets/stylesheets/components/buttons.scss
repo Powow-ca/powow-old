@@ -73,6 +73,13 @@
             color: #fff;
         }
     }
+    &--calendar {
+        border:  1px solid $btnDefaultBGColor;
+        background-color: transparent;
+        &:hover {
+            border-color: $btnDefaultHoverBGColor;
+        }
+    }
     &--social {
         position: relative;
         color: #fff;

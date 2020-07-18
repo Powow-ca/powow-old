@@ -1,0 +1,50 @@
+///////////////////////
+// Tags
+//---
+.pw-calendar {
+    .calendar-heading {
+        text-align: center;
+        padding: 20px 0;
+        > a {
+            &:first-child {
+                margin-right: 10px;
+            }
+            &:last-child {
+                margin-left: 10px;
+            }
+        }
+    }
+    table {
+        td, th {
+            @media (max-width: 767px) {
+                padding-top: 0.5rem;
+                padding-bottom: 0.5rem;
+            }
+        }
+        thead {
+
+        }
+        tbody {
+            .day {
+                @media (max-width: 991px) {
+                    height: 50px;
+                }
+            }
+            .today {
+                background-color: #333;
+                color: #fff;
+            }
+            tr:nth-of-type(odd) {
+                background-color: #fff;
+            }
+        }
+    }
+}
+.pw-calendar-radio {
+    &:checked {
+        & + label {
+            background-color: $themeMainColor;
+            color: #fff;
+        }
+    }
+}
