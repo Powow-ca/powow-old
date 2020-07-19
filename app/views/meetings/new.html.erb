@@ -32,36 +32,43 @@
         <!-- Calendar -->
         <div class="pw-calendar pw-calendar--meeting">
           <%= month_calendar do |date| %>
-            <% if date.year >= DateTime.now.year and date.month > DateTime.now.month || date.year >= DateTime.now.year and date.month > DateTime.now.month || date.year == DateTime.now.year and date.month == DateTime.now.month and date.day >= DateTime.now.day %>
-              <input class="pw-calendar-radio sr-only" id="pwCalendarOpt<%= date.day %>" type="radio" name="start_time"><label for="pwCalendarOpt<%= date.day %>" class="pw-btn pw-btn--calendar btn waves-effect"><%= date.day %></label>
-            <%else%>
+            <% if (date.year >= DateTime.now.year and date.month > DateTime.now.month || date.year >= DateTime.now.year and date.month > DateTime.now.month || date.year == DateTime.now.year and date.month == DateTime.now.month and date.day >= DateTime.now.day) %>
+              <input class="pw-calendar-radio sr-only" id="pwCalendarOpt<%= date.day %>" type="radio" name="selected_date" value="<%= date %>" required>
+              <label for="pwCalendarOpt<%= date.day %>" class="pw-btn pw-btn--calendar btn waves-effect"><%= date.day %></label>
+            <% else %>
               <%= date.day %>
-            <%end%>
+            <% end %>
           <% end %>
         </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <div class="pw-form__group">
+        <div class="pw-form-title">Available time blocks:</div>
+        <div class="pw-form__group">
+          <ul class="row">
+            <li class="col-md-3">
               <div class="md-form">
-                <%= form.label :'Start time' %>
-                <%= form.text_field :first_name ,  class:'form-control validate' %>
+                <%= form.label :start_time, '10:00 - 11:00', :value => '10:00' %>
+                <%= form.radio_button :start_time, '10:00', :presence => true %>
               </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="pw-form__group">
+            </li>
+            <li class="col-md-3">
               <div class="md-form">
-                <%= form.label :'End time' %>
-                <%= form.text_field :last_name ,  class:'form-control validate' %>
+                <%= form.label :start_time, '11:00 - 12:00', :value => '11:00' %>
+                <%= form.radio_button :start_time, '11:00', :presence => true %>
               </div>
-            </div>
-          </div>
+            </li>
+            <li class="col-md-3">
+              <div class="md-form">
+                <%= form.label :start_time, '14:00 - 15:00', :value => '14:00' %>
+                <%= form.radio_button :start_time, '14:00', :presence => true %>
+              </div>
+            </li>
+          </ul>
         </div>
+        
         
         <div class="pw-form__footer">
           <%= link_to 'Back', meetings_path, :class => 'pw-btn btn waves-effect' %>
-          <%= button_tag "Create", :class => 'pw-btn pw-btn--submit btn waves-effect', :name => nil %>
+          <%= button_tag "Schedule meeting", :class => 'pw-btn pw-btn--submit btn waves-effect', :name => nil %>
         </div>
       <% end %>
 

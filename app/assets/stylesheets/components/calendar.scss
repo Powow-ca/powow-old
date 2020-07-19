@@ -43,8 +43,8 @@
 .pw-calendar-radio {
     &:checked {
         & + label {
-            background-color: $themeMainColor;
-            color: #fff;
+            background-color: $themeMainColor !important;
+            color: #fff !important;
         }
     }
 }
