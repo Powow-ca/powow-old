@@ -11,7 +11,7 @@
   </header>
 
   <!-- Page Section - Content -->
-  <div class="pw-page__content pw-page__content--no-margin mb-5">
+  <div class="pw-page__content pw-page__content--no-margin">
 
     <!-- Breadcrumb -->
     <div class="pw-breadcrumb">
@@ -25,69 +25,8 @@
     </div>
 
     <div class="container">
-      
-      <!--<%= link_to "Start the meeting", @meeting, :class => 'pw-btn pw-btn--default btn waves-effect' %>-->
 
-
-      <%= form_with scope: :meeting, url: meetings_path, local: true do |form| %>
-        <input type="hidden" name="pro" value="<%= @meeting.professional.id %>">
-        <%= form.hidden_field :start_time %>
-        <%= form.hidden_field :end_time %>
-
-        <!-- Calendar -->
-        <div class="pw-calendar pw-calendar--meeting">
-
-          <!-- Calendar - schedule table -->
-          <%= month_calendar do |date| %>
-            <% if (date.year >= DateTime.now.year and date.month > DateTime.now.month || date.year >= DateTime.now.year and date.month > DateTime.now.month || date.year == DateTime.now.year and date.month == DateTime.now.month and date.day >= DateTime.now.day) %>
-              <input class="pw-calendar-radio sr-only" id="pw-calendar-opt<%= date %>" type="radio" name="selected_date" value="<%= date %>" required>
-              <label for="pw-calendar-opt<%= date %>" class="pw-btn pw-btn--calendar btn waves-effect"><%= date.day %></label>
-            <% else %>
-              <span class="pw-calendar__not-selectable"></span>
-              <%= date.day %>
-            <% end %>
-          <% end %>
-
-          <!-- Calendar - available times list regaarding the selected day -->
-          <div class="pw-calendar-times" style="display: none;">
-            <div class="pw-form__title">Available time blocks <span id="pw-calendar-selected-date"></span>:</div>
-            <div class="pw-form__group">
-              <ul class="row pw-calendar-times__list">
-                <li class="col-md-3">
-                  <div class="pw-calendar-times__item">
-                    <%= form.radio_button :selected_time, '10:00-11:00', :required => true, :class => 'pw-calendar-radio' %>
-                    <%= form.label :selected_time, '10:00 - 11:00', :value => '10:00-11:00', :class => 'pw-btn pw-btn--calendar btn waves-effect' %>
-                  </div>
-                </li>
-                <li class="col-md-3">
-                  <div class="pw-calendar-times__item">
-                    <%= form.radio_button :selected_time, '11:00-12:00', :required => true, :class => 'pw-calendar-radio' %>
-                    <%= form.label :selected_time, '11:00 - 12:00', :value => '11:00-12:00', :class => 'pw-btn pw-btn--calendar btn waves-effect' %>
-                  </div>
-                </li>
-                <li class="col-md-3">
-                  <div class="pw-calendar-times__item">
-                    <%= form.radio_button :selected_time, '14:00-15:00', :required => true, :class => 'pw-calendar-radio' %>
-                    <%= form.label :selected_time, '14:00 - 15:00', :value => '14:00-15:00', :class => 'pw-btn pw-btn--calendar btn waves-effect' %>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </span>
-        
-        
-        <div class="pw-form__footer">
-          <%= link_to 'Back', meetings_path, :class => 'pw-btn btn waves-effect' %>
-          <%= button_tag "Schedule meeting", :class => 'pw-btn pw-btn--submit btn waves-effect', :name => nil %>
-        </div>
-      <% end %>
-
-
-
-      <!-- Form -- OLD Version
-      <%= render 'form', meeting: @meeting %>-->
-
+      <%= render 'form', meeting: @meeting %>
 
     </div>
   </div>
